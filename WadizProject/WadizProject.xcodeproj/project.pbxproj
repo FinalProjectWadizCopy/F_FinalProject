@@ -37,6 +37,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		597140AE21102637005FA8DA /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				59E78252210EE21C00C19A41 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		597140AF2110264D005FA8DA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		597140B021102669005FA8DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		597140B12110266E005FA8DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		597140B221102671005FA8DA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				59E78254210EE21C00C19A41 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		597140B321102685005FA8DA /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				59E78256210EE21D00C19A41 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		597140B42110269B005FA8DA /* Supporting File */ = {
+			isa = PBXGroup;
+			children = (
+				59E78261210EE21F00C19A41 /* Info.plist */,
+				59E7825E210EE21F00C19A41 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting File";
+			sourceTree = "<group>";
+		};
+		597140B5211026BF005FA8DA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				59E7825C210EE21F00C19A41 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		597140B6211026DB005FA8DA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				597140AE21102637005FA8DA /* AppDelegate */,
+				597140B021102669005FA8DA /* Model */,
+				597140B12110266E005FA8DA /* View */,
+				597140B221102671005FA8DA /* ViewController */,
+				597140AF2110264D005FA8DA /* Service */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		59E78246210EE21C00C19A41 = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +130,10 @@
 		59E78251210EE21C00C19A41 /* WadizProject */ = {
 			isa = PBXGroup;
 			children = (
-				59E78252210EE21C00C19A41 /* AppDelegate.swift */,
-				59E78254210EE21C00C19A41 /* ViewController.swift */,
-				59E78256210EE21D00C19A41 /* Main.storyboard */,
-				59E7825C210EE21F00C19A41 /* Assets.xcassets */,
-				59E7825E210EE21F00C19A41 /* LaunchScreen.storyboard */,
-				59E78261210EE21F00C19A41 /* Info.plist */,
+				597140B321102685005FA8DA /* Storyboard */,
+				597140B6211026DB005FA8DA /* Sources */,
+				597140B5211026BF005FA8DA /* Resources */,
+				597140B42110269B005FA8DA /* Supporting File */,
 				59E78259210EE21D00C19A41 /* WadizProject.xcdatamodeld */,
 			);
 			path = WadizProject;
