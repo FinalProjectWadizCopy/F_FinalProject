@@ -85,7 +85,6 @@
 		597140B42110269B005FA8DA /* Supporting File */ = {
 			isa = PBXGroup;
 			children = (
-				59E78261210EE21F00C19A41 /* Info.plist */,
 				59E7825E210EE21F00C19A41 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting File";
@@ -134,6 +133,7 @@
 				597140B6211026DB005FA8DA /* Sources */,
 				597140B5211026BF005FA8DA /* Resources */,
 				597140B42110269B005FA8DA /* Supporting File */,
+				59E78261210EE21F00C19A41 /* Info.plist */,
 				59E78259210EE21D00C19A41 /* WadizProject.xcdatamodeld */,
 			);
 			path = WadizProject;
