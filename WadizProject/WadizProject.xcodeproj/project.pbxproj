@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		597140B821102ECB005FA8DA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597140B721102ECB005FA8DA /* MainViewController.swift */; };
 		59E78253210EE21C00C19A41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E78252210EE21C00C19A41 /* AppDelegate.swift */; };
-		59E78255210EE21D00C19A41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E78254210EE21C00C19A41 /* ViewController.swift */; };
 		59E78258210EE21D00C19A41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E78256210EE21D00C19A41 /* Main.storyboard */; };
 		59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59E78259210EE21D00C19A41 /* WadizProject.xcdatamodeld */; };
 		59E7825D210EE21F00C19A41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E7825C210EE21F00C19A41 /* Assets.xcassets */; };
@@ -16,9 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		597140B721102ECB005FA8DA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		59E7824F210EE21C00C19A41 /* WadizProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WadizProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E78252210EE21C00C19A41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		59E78254210EE21C00C19A41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		59E78257210EE21D00C19A41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59E7825A210EE21D00C19A41 /* WadizProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WadizProject.xcdatamodel; sourceTree = "<group>"; };
 		59E7825C210EE21F00C19A41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		597140B221102671005FA8DA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				59E78254210EE21C00C19A41 /* ViewController.swift */,
+				597140B721102ECB005FA8DA /* MainViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -210,9 +210,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59E78255210EE21D00C19A41 /* ViewController.swift in Sources */,
 				59E78253210EE21C00C19A41 /* AppDelegate.swift in Sources */,
 				59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */,
+				597140B821102ECB005FA8DA /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
