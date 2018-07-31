@@ -65,6 +65,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="recommendScrollView" destination="uRS-1l-De1" id="pPx-4I-zpy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VtG-7m-x8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
