@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		596030182110640E00D84942 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596030172110640E00D84942 /* MenuView.swift */; };
+		5960302A2111ADB200D84942 /* SignInView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596030292111ADB200D84942 /* SignInView.xib */; };
+		5960302E2111E33300D84942 /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5960302D2111E33300D84942 /* SignUpView.xib */; };
 		597140B821102ECB005FA8DA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597140B721102ECB005FA8DA /* MainViewController.swift */; };
 		59E78253210EE21C00C19A41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E78252210EE21C00C19A41 /* AppDelegate.swift */; };
 		59E78258210EE21D00C19A41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E78256210EE21D00C19A41 /* Main.storyboard */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		596030172110640E00D84942 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		596030292111ADB200D84942 /* SignInView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInView.xib; sourceTree = "<group>"; };
+		5960302D2111E33300D84942 /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		597140B721102ECB005FA8DA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		59E7824F210EE21C00C19A41 /* WadizProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WadizProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E78252210EE21C00C19A41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +68,9 @@
 		597140B12110266E005FA8DA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				596030292111ADB200D84942 /* SignInView.xib */,
+				5960302D2111E33300D84942 /* SignUpView.xib */,
+				596030172110640E00D84942 /* MenuView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,8 +206,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5960302A2111ADB200D84942 /* SignInView.xib in Resources */,
 				59E78260210EE21F00C19A41 /* LaunchScreen.storyboard in Resources */,
 				59E7825D210EE21F00C19A41 /* Assets.xcassets in Resources */,
+				5960302E2111E33300D84942 /* SignUpView.xib in Resources */,
 				59E78258210EE21D00C19A41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59E78253210EE21C00C19A41 /* AppDelegate.swift in Sources */,
+				596030182110640E00D84942 /* MenuView.swift in Sources */,
 				59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */,
 				597140B821102ECB005FA8DA /* MainViewController.swift in Sources */,
 			);

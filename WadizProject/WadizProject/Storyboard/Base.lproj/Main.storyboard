@@ -40,10 +40,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRS-1l-De1">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uRS-1l-De1">
                                 <rect key="frame" x="0.0" y="87.999999999999986" width="375" height="187.66666666666663"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="uRS-1l-De1" secondAttribute="height" multiplier="2:1" id="TPJ-Lc-ow7"/>
+                                    <constraint firstAttribute="width" secondItem="uRS-1l-De1" secondAttribute="height" multiplier="2:1" id="pJD-gY-jhf"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -59,6 +59,9 @@
                     <navigationItem key="navigationItem" title="Wadiz" id="2sx-BA-X9i">
                         <barButtonItem key="leftBarButtonItem" image="menu" style="done" id="8c7-uH-oQ9">
                             <color key="tintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="presentMenuView" destination="nra-mS-Wg6" id="9XE-R2-m2e"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="gDx-PO-E1V">
                             <color key="tintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,12 +69,13 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="leftNaviButton" destination="8c7-uH-oQ9" id="0KF-eW-Cgy"/>
                         <outlet property="recommendScrollView" destination="uRS-1l-De1" id="pPx-4I-zpy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VtG-7m-x8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2226" y="33"/>
+            <point key="canvasLocation" x="2224.8000000000002" y="32.512315270935964"/>
         </scene>
         <!--Item-->
         <scene sceneID="5vB-56-kDO">

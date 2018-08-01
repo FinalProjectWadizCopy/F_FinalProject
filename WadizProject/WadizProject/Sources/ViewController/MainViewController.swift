@@ -9,15 +9,27 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    
     @IBOutlet weak var recommendScrollView: UIScrollView!
+    @IBOutlet weak var leftNaviButton: UIBarButtonItem!
+    
+    var menuView: UIView!
+    
     let pageController = UIPageControl()
     let symbolColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
     
+    var isMenuViewOn = false
+    var MenuCGPoint = CGPoint()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuView = MenuView(frame: view.frame)
+        view.addSubview(menuView)
+        
         setNavigation()
         setRecommendScrollView()
+        
     }
     
     func setNavigation() {
@@ -27,6 +39,7 @@ class MainViewController: UIViewController {
         titleView.font = UIFont.boldSystemFont(ofSize: 20)
         navigationItem.titleView = titleView
     }
+    
     
     func setRecommendScrollView () {
         recommendScrollView.isPagingEnabled = true
@@ -38,21 +51,17 @@ class MainViewController: UIViewController {
             let ad3 = UIImage(named: "ad3"),
             let ad4 = UIImage(named: "ad4")
             else { return }
-        
+
         let recommendArray = [ad1, ad2, ad3, ad4]
         recommendArray.forEach(addPageScrollView(with:))
-        
-        let pageSize = CGSize(width: 40, height: 20)
-        
-        pageController.frame = CGRect(
-            origin: CGPoint(x: recommendScrollView.frame.midX - (pageSize.width / 2),
-                            y: recommendScrollView.frame.maxY - (pageSize.height)),
-            size: pageSize
-        )
-        
+
+        view.addSubview(pageController)
         pageController.pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.3)
         pageController.currentPageIndicatorTintColor = symbolColor
-        view.addSubview(pageController)
+        
+        pageController.translatesAutoresizingMaskIntoConstraints = false
+        pageController.bottomAnchor.constraint(equalTo: recommendScrollView.bottomAnchor, constant: 0).isActive = true
+        pageController.centerXAnchor.constraint(equalTo: recommendScrollView.centerXAnchor, constant: 0).isActive = true
     }
     
     func addPageScrollView(with image: UIImage) {
@@ -60,13 +69,46 @@ class MainViewController: UIViewController {
             origin: CGPoint(x: recommendScrollView.contentSize.width, y: 0),
             size: recommendScrollView.frame.size
         )
+        
         let addImage = UIImageView(image: image)
         addImage.frame = pageFrame
         recommendScrollView.addSubview(addImage)
+        
         recommendScrollView.contentSize.width += view.frame.width
         pageController.numberOfPages += 1
     }
+    
+    // MARK: - IBAction
+    @IBAction func presentMenuView() {
+        let moveLagnth = self.view.frame.width
+        
+        if !isMenuViewOn {
+            MenuCGPoint = pageController.frame.origin
+            pageController.frame.origin = view.frame.origin
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.menuView.frame.origin.x += moveLagnth
+                strongSelf.leftNaviButton.image = UIImage(named: "exit")
+                strongSelf.view.layoutIfNeeded()
+                
+            }
+            isMenuViewOn = true
+        } else {
+            pageController.frame.origin = MenuCGPoint
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.menuView.frame.origin.x -= moveLagnth
+                strongSelf.leftNaviButton.image = UIImage(named: "menu")
+                strongSelf.view.layoutIfNeeded()
+            }
+            isMenuViewOn = false
+        }
+        
+    }
 }
+
+
+// MARK: - UIScrollViewDelegate
 
 extension MainViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -74,3 +116,9 @@ extension MainViewController: UIScrollViewDelegate {
         pageController.currentPage = page
     }
 }
+
+
+
+
+
+
