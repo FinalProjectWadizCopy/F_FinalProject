@@ -180,6 +180,60 @@
             </objects>
             <point key="canvasLocation" x="2224.6376811594205" y="31.793478260869566"/>
         </scene>
+        <!--Category Table View Controller-->
+        <scene sceneID="nPG-Yk-7OX">
+            <objects>
+                <tableViewController storyboardIdentifier="CategoryView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RpT-KI-96w" customClass="CategoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kb3-ft-CxX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableViewCell" id="AoL-Hv-ZdB" customClass="CategoryTableViewCell" customModule="WadizProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AoL-Hv-ZdB" id="mFp-RV-1H8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JgM-pW-xvX">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fDW-Wr-S74">
+                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="AoL-Hv-ZdB" id="5Pl-W8-7TY"/>
+                                                <outlet property="delegate" destination="AoL-Hv-ZdB" id="sq2-gg-4hI"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="JgM-pW-xvX" secondAttribute="bottom" id="121-Pw-IC6"/>
+                                        <constraint firstItem="JgM-pW-xvX" firstAttribute="top" secondItem="mFp-RV-1H8" secondAttribute="top" id="NA2-Mv-Kld"/>
+                                        <constraint firstAttribute="trailing" secondItem="JgM-pW-xvX" secondAttribute="trailing" id="vc5-Wc-Icn"/>
+                                        <constraint firstItem="JgM-pW-xvX" firstAttribute="leading" secondItem="mFp-RV-1H8" secondAttribute="leading" id="yPF-SU-QLi"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryCollectionView" destination="JgM-pW-xvX" id="T9I-UT-yln"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RpT-KI-96w" id="faN-do-aXv"/>
+                            <outlet property="delegate" destination="RpT-KI-96w" id="CgL-NR-UwU"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="100-Kw-o40" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3105.7971014492755" y="39.945652173913047"/>
+        </scene>
         <!--Item-->
         <scene sceneID="5vB-56-kDO">
             <objects>

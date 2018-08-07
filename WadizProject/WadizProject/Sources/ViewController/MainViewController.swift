@@ -26,13 +26,10 @@ class MainViewController: UIViewController {
         menuView = MenuView(frame: view.frame)
         view.addSubview(menuView)
         setNavigation()
-        setSearchCell()
-        
-        
     }
     
-    func setSearchCell() {
-        
+    override func viewWillAppear(_ animated: Bool) {
+        mainTableView.reloadData()
     }
 
     func setNavigation() {
@@ -69,7 +66,9 @@ class MainViewController: UIViewController {
     
     @objc func actionRecommendButton (_ button: UIButton) {
         print(button.titleLabel?.text)
+        
     }
+
     
 }
 
@@ -108,6 +107,7 @@ extension MainViewController: UITableViewDataSource {
                 withIdentifier: "CategoryTableViewCell",
                 for: indexPath) as! CategoryTableViewCell
             tableView.rowHeight = view.frame.height / 6
+            categoryCell.delegate = self
             return categoryCell
         }
         
@@ -182,8 +182,22 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        self.mainTableView.reloadData()
         return true
     }
+}
+
+extension MainViewController: buttonDelegate {
+    func presentView() {
+        guard let storyboard = self.storyboard,
+            let navigationController = self.navigationController
+            else { return }
+        
+        let categoryView = storyboard.instantiateViewController(withIdentifier: "CategoryView")
+        navigationController.pushViewController(categoryView, animated: true)
+    }
+    
+    
 }
 
 

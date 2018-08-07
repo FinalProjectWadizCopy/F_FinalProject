@@ -8,13 +8,16 @@
 
 import UIKit
 
+protocol buttonDelegate: class {
+    func presentView()
+}
+
 class CategoryTableViewCell: UITableViewCell {
+    weak var delegate: buttonDelegate?
     
     let categoryTitle = ["전체보기", "테크,가전", "패션, 잡화", "뷰티", "푸드", "홈리빙", "디자인소품", "여행, 레저", "스포츠, 모빌리티", "반려 동물", "공연, 컬처", "소셜, 캠패인", "교육, 키즈", "게임, 취미", "출판"]
 
     @IBOutlet weak var categoryCollectionView: UICollectionView!
-    
-    var buttonArr: [UIButton] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +27,8 @@ class CategoryTableViewCell: UITableViewCell {
     }
     
     @objc func actionCategoryButton (_ button: UIButton) {
-       print(button.titleLabel?.text)
+        print(button.titleLabel?.text)
+        delegate?.presentView()
     }
     
 }
@@ -50,13 +54,7 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
         cell.categoryCellTitle.text = categoryTitle[indexPath.row]
         cell.categoryCellButton.titleLabel?.text = categoryTitle[indexPath.row]
         
-        if buttonArr.count < categoryTitle.count {
-            buttonArr.append(cell.categoryCellButton)
-        }
-        
-        buttonArr.forEach { (button) in
-            button.addTarget(self, action: #selector(actionCategoryButton), for: .touchUpInside)
-        }
+        cell.categoryCellButton.addTarget(self, action: #selector(actionCategoryButton(_:)), for: .touchUpInside)
         return cell
     }
 }
