@@ -11,12 +11,13 @@ import UIKit
 class RewardsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var rewardCollectionView: UICollectionView!
+    var categoryIndex: Int?
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         rewardCollectionView.register(UINib(nibName: "RewardsCollectionViewCell", bundle: nil),
-                                      forCellWithReuseIdentifier: "RewardsCell")
+                                      forCellWithReuseIdentifier: "RewardsCollectionCell")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,7 +37,14 @@ extension RewardsTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RewardsCell", for: indexPath) as! RewardsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RewardsCollectionCell", for: indexPath) as! RewardsCollectionViewCell
+        switch categoryIndex {
+        case 1:
+            cell.titleButton.setTitle("1111", for: .normal)
+            cell.imageButton.backgroundColor = UIColor.black
+        default:
+            return cell
+        }
         return cell
     }
     

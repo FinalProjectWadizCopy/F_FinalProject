@@ -53,6 +53,7 @@
                         <state key="normal" backgroundImage="search"/>
                     </button>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="gLW-mQ-Icc" secondAttribute="bottom" id="474-Ix-vhJ"/>
                     <constraint firstItem="YT7-Uk-snE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4cy-IJ-RXE"/>

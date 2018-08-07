@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol buttonDelegate: class {
-    func presentView()
+protocol CategorybuttonDelegate: class {
+    func presentView(_ index: String)
 }
 
 class CategoryTableViewCell: UITableViewCell {
-    weak var delegate: buttonDelegate?
+    weak var delegate: CategorybuttonDelegate?
     
     let categoryTitle = ["전체보기", "테크,가전", "패션, 잡화", "뷰티", "푸드", "홈리빙", "디자인소품", "여행, 레저", "스포츠, 모빌리티", "반려 동물", "공연, 컬처", "소셜, 캠패인", "교육, 키즈", "게임, 취미", "출판"]
 
@@ -27,8 +27,8 @@ class CategoryTableViewCell: UITableViewCell {
     }
     
     @objc func actionCategoryButton (_ button: UIButton) {
-        print(button.titleLabel?.text)
-        delegate?.presentView()
+        guard let index = button.titleLabel?.text else { return }
+        delegate?.presentView(index)
     }
     
 }
@@ -52,7 +52,7 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
         cell.categoryCellButton.setBackgroundImage(UIImage(named: categoryTitle[indexPath.row]),
                                                    for: .normal)
         cell.categoryCellTitle.text = categoryTitle[indexPath.row]
-        cell.categoryCellButton.titleLabel?.text = categoryTitle[indexPath.row]
+        cell.categoryCellButton.titleLabel?.text = String(indexPath.row)
         
         cell.categoryCellButton.addTarget(self, action: #selector(actionCategoryButton(_:)), for: .touchUpInside)
         return cell

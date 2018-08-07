@@ -26,9 +26,11 @@ class MainViewController: UIViewController {
         menuView = MenuView(frame: view.frame)
         view.addSubview(menuView)
         setNavigation()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+//        setNavigation()
         mainTableView.reloadData()
     }
 
@@ -39,6 +41,17 @@ class MainViewController: UIViewController {
         titleView.font = UIFont.boldSystemFont(ofSize: 20)
         navigationItem.titleView = titleView
     }
+    
+
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        super.prepare(for: segue, sender: sender)
+//        print("a")
+//        guard let categoryView = segue.destination as? CategoryViewController else {return}
+//        print("b")
+//        categoryView.index = 0
+//        print("c")
+//    }
     
     // MARK: - IBAction
     @IBAction func presentMenuView() {
@@ -66,10 +79,7 @@ class MainViewController: UIViewController {
     
     @objc func actionRecommendButton (_ button: UIButton) {
         print(button.titleLabel?.text)
-        
     }
-
-    
 }
 
 
@@ -139,45 +149,9 @@ extension MainViewController: UITableViewDelegate {
         }
         return 0
     }
-    
-    
-//    func tableView(
-//        _ tableView: UITableView,
-//        heightForRowAt indexPath: IndexPath
-//        ) -> CGFloat {
-//
-//
-//        return 120
-//    }
-
-//    func tableView(
-//        _ tableView: UITableView,
-//        willDisplay cell: UITableViewCell,
-//        forRowAt indexPath: IndexPath
-//        ) {
-//        print("willDisplay")
-//    }
-//
-//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        print("didEndDisplaying")
-//    }
-//
-    
-
-//    func tableView(
-//        _ tableView: UITableView,
-//        didEndDisplaying cell: UITableViewCell,
-//        forRowAt indexPath: IndexPath
-//        ) {
-//        print("didEndDisplaying")
-////            let cell = cell as! CategoryTableViewCell
-//////            cachedOffset[indexPath.row] = cell.offset
-////        cell.buttonArr.forEach { (button) in
-////            button.addTarget(self, action: #selector(actionCategoryButton), for: .touchUpInside)
-////        }
-//
-//    }
 }
+
+// MARK:- UITextFieldDelegate
 
 extension MainViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -187,13 +161,16 @@ extension MainViewController: UITextFieldDelegate{
     }
 }
 
-extension MainViewController: buttonDelegate {
-    func presentView() {
+// MARK: - CategorybuttonDelegate
+
+extension MainViewController: CategorybuttonDelegate {
+    func presentView(_ index: String) {
         guard let storyboard = self.storyboard,
             let navigationController = self.navigationController
             else { return }
         
-        let categoryView = storyboard.instantiateViewController(withIdentifier: "CategoryView")
+        let categoryView = storyboard.instantiateViewController(withIdentifier: "CategoryView") as! CategoryViewController
+        categoryView.index = Int(index) ?? 0
         navigationController.pushViewController(categoryView, animated: true)
     }
     
