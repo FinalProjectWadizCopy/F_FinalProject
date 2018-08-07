@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "반려동물.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "fundingList.png",
       "scale" : "2x"
     },
     {
