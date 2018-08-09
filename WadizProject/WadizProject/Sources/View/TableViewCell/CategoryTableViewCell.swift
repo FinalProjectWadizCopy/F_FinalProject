@@ -44,16 +44,18 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell",
-                                                      for: indexPath) as! CategoryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "CategoryCell",
+            for: indexPath) as! CategoryCollectionViewCell
         
-        cell.categoryCellButton.setBackgroundImage(UIImage(named: categoryTitle[indexPath.row]),
-                                                   for: .normal)
+        cell.categoryCellButton.setBackgroundImage(
+            UIImage(named: categoryTitle[indexPath.row]),
+            for: .normal)
         cell.categoryCellTitle.text = categoryTitle[indexPath.row]
         cell.categoryCellButton.titleLabel?.text = String(indexPath.row)
-        
         cell.categoryCellButton.addTarget(self, action: #selector(actionCategoryButton(_:)), for: .touchUpInside)
         return cell
     }

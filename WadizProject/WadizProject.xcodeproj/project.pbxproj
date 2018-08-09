@@ -13,6 +13,8 @@
 		593A944D2119746800F4F4A2 /* HeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A944B2119746800F4F4A2 /* HeaderCellTableViewCell.swift */; };
 		593A944E2119746800F4F4A2 /* HeaderCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593A944C2119746800F4F4A2 /* HeaderCellTableViewCell.xib */; };
 		593A94552119C5E300F4F4A2 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A94532119C5E300F4F4A2 /* CategoryViewController.swift */; };
+		593A945B211C101000F4F4A2 /* RewardsGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A9459211C101000F4F4A2 /* RewardsGridCollectionViewCell.swift */; };
+		593A945C211C101000F4F4A2 /* RewardsGridCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593A945A211C101000F4F4A2 /* RewardsGridCollectionViewCell.xib */; };
 		596030182110640E00D84942 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596030172110640E00D84942 /* MenuView.swift */; };
 		597140B821102ECB005FA8DA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597140B721102ECB005FA8DA /* MainViewController.swift */; };
 		59C69D282114A1D50085FAD7 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C69D262114A1D50085FAD7 /* CategoryCollectionViewCell.swift */; };
@@ -33,6 +35,8 @@
 		593A944B2119746800F4F4A2 /* HeaderCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellTableViewCell.swift; sourceTree = "<group>"; };
 		593A944C2119746800F4F4A2 /* HeaderCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCellTableViewCell.xib; sourceTree = "<group>"; };
 		593A94532119C5E300F4F4A2 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		593A9459211C101000F4F4A2 /* RewardsGridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsGridCollectionViewCell.swift; sourceTree = "<group>"; };
+		593A945A211C101000F4F4A2 /* RewardsGridCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RewardsGridCollectionViewCell.xib; sourceTree = "<group>"; };
 		596030172110640E00D84942 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		597140B721102ECB005FA8DA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		59C69D262114A1D50085FAD7 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				59C69D272114A1D50085FAD7 /* CategoryCollectionViewCell.xib */,
 				593A942021173C0400F4F4A2 /* RewardsCollectionViewCell.swift */,
 				593A942121173C0400F4F4A2 /* RewardsCollectionViewCell.xib */,
+				593A9459211C101000F4F4A2 /* RewardsGridCollectionViewCell.swift */,
+				593A945A211C101000F4F4A2 /* RewardsGridCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 				59E7825D210EE21F00C19A41 /* Assets.xcassets in Resources */,
 				593A944E2119746800F4F4A2 /* HeaderCellTableViewCell.xib in Resources */,
 				59E78258210EE21D00C19A41 /* Main.storyboard in Resources */,
+				593A945C211C101000F4F4A2 /* RewardsGridCollectionViewCell.xib in Resources */,
 				593A942321173C0400F4F4A2 /* RewardsCollectionViewCell.xib in Resources */,
 				59C69D292114A1D50085FAD7 /* CategoryCollectionViewCell.xib in Resources */,
 			);
@@ -265,6 +272,7 @@
 				59E78253210EE21C00C19A41 /* AppDelegate.swift in Sources */,
 				593A942221173C0400F4F4A2 /* RewardsCollectionViewCell.swift in Sources */,
 				593A944D2119746800F4F4A2 /* HeaderCellTableViewCell.swift in Sources */,
+				593A945B211C101000F4F4A2 /* RewardsGridCollectionViewCell.swift in Sources */,
 				59C69D302115320D0085FAD7 /* RecommendTableViewCell.swift in Sources */,
 				596030182110640E00D84942 /* MenuView.swift in Sources */,
 				593A942A2117DD7800F4F4A2 /* RewardsTableViewCell.swift in Sources */,

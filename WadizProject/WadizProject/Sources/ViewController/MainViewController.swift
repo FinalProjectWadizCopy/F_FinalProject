@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-  
+    
     @IBOutlet weak var leftNaviButton: UIBarButtonItem!
     @IBOutlet weak var mainTableView: UITableView!
     
@@ -29,10 +29,10 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        setNavigation()
+        
         mainTableView.reloadData()
     }
-
+    
     func setNavigation() {
         let titleView = UILabel()
         titleView.textColor = symbolColor
@@ -40,17 +40,6 @@ class MainViewController: UIViewController {
         titleView.font = UIFont.boldSystemFont(ofSize: 20)
         navigationItem.titleView = titleView
     }
-    
-
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        super.prepare(for: segue, sender: sender)
-//        print("a")
-//        guard let categoryView = segue.destination as? CategoryViewController else {return}
-//        print("b")
-//        categoryView.index = 0
-//        print("c")
-//    }
     
     // MARK: - IBAction
     @IBAction func presentMenuView() {
@@ -77,7 +66,6 @@ class MainViewController: UIViewController {
     }
     
     @objc func actionRecommendButton (_ button: UIButton) {
-        print(button.titleLabel?.text)
     }
 }
 
@@ -94,13 +82,11 @@ extension MainViewController: UITableViewDataSource {
         return 1
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-        ) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.separatorStyle = .none
         
         if indexPath.section == 0 {
+            
             RecommendTableViewCell.viewFrame = view.frame
             let recommendCell = tableView.dequeueReusableCell(
                 withIdentifier: "RecommendTableViewCell",
@@ -110,42 +96,63 @@ extension MainViewController: UITableViewDataSource {
                 button.addTarget(self, action: #selector(actionRecommendButton), for: .touchUpInside)
             }
             tableView.rowHeight = recommendCell.buttonArr[indexPath.row].frame.size.height
+            
             return recommendCell
-        } else if indexPath.section == 1 {
+        }
+        else if indexPath.section == 1 {
+            
             let categoryCell = tableView.dequeueReusableCell(
                 withIdentifier: "CategoryTableViewCell",
                 for: indexPath) as! CategoryTableViewCell
             tableView.rowHeight = view.frame.height / 6
             categoryCell.delegate = self
+            
             return categoryCell
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RewardsTableViewCell",
-                                                 for: indexPath) as! RewardsTableViewCell
-        if cellHeight == nil {
-            cellHeight = cell.frame.height * 11
+        
+        let rewardsTablecell
+            = tableView.dequeueReusableCell(
+                withIdentifier: "RewardsTableViewCell",
+                for: indexPath) as! RewardsTableViewCell
+        
+        rewardsTablecell.rewardCollectionView.reloadData()
+        
+        guard let heightArr = rewardsTablecell.cellHegiht else { return rewardsTablecell }
+        
+        if GrideView.shared.isShow {
+            tableView.rowHeight = heightArr[0] * 11
+        } else {
+            tableView.rowHeight = heightArr[1] * 11
         }
-        tableView.rowHeight = cellHeight!
-        return cell
+        return rewardsTablecell
+        
+        
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        tableView.rowHeight = 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 2 {
-            
             tableView.register(UINib(nibName: "HeaderCellTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderCellTableViewCell")
-            let header = tableView.dequeueReusableCell(withIdentifier: "HeaderCellTableViewCell") as! HeaderCellTableViewCell
+            let  header = tableView.dequeueReusableCell(withIdentifier: "HeaderCellTableViewCell") as! HeaderCellTableViewCell
             header.searchTextField.delegate = self as UITextFieldDelegate
+            header.delegate = self
             return header
         }
         return nil
     }
     
-
+    
 }
 
 // MARK:- UITableViewDelegate
 
 extension MainViewController: UITableViewDelegate {
+    
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 2 {
             return 40
@@ -172,10 +179,17 @@ extension MainViewController: CategorybuttonDelegate {
         guard let storyboard = self.storyboard,
             let navigationController = self.navigationController
             else { return }
-        
         let categoryView = storyboard.instantiateViewController(withIdentifier: "CategoryView") as! CategoryViewController
         categoryView.index = Int(index) ?? 0
         navigationController.pushViewController(categoryView, animated: true)
+    }
+}
+
+// MARK: - HeaderCellTableViewCellDelegate
+
+extension MainViewController: HeaderCellTableViewCellDelegate {
+    func viewChange() {
+        mainTableView.reloadData()
     }
 }
 

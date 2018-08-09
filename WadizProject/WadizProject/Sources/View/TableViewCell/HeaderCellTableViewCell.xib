@@ -33,6 +33,9 @@
                             <constraint firstAttribute="width" secondItem="YT7-Uk-snE" secondAttribute="height" multiplier="1:1" id="Veb-pV-3gz"/>
                         </constraints>
                         <state key="normal" backgroundImage="HeaderGrid"/>
+                        <connections>
+                            <action selector="viewChangeButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dEZ-2b-OtO"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUZ-WC-dIk">
                         <rect key="frame" x="142" y="0.0" width="44.5" height="44.5"/>

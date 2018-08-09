@@ -8,8 +8,17 @@
 
 import UIKit
 
+class GrideView {
+    static let shared = GrideView()
+    var isShow = true
+}
+
+protocol HeaderCellTableViewCellDelegate: class {
+    func viewChange()
+}
 
 class HeaderCellTableViewCell: UITableViewCell {
+    weak var delegate: HeaderCellTableViewCellDelegate?
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var viewChangeButton: UIButton!
@@ -19,13 +28,25 @@ class HeaderCellTableViewCell: UITableViewCell {
     var soringButtonArr: [UIButton] = []
     
     var sortingButton: UIButton!
-    var buttonSelected = true
+    var popButtonSelected = true
     
+    @IBAction func viewChangeButton(_ sender: UIButton) {
+        if GrideView.shared.isShow {
+            sender.setBackgroundImage(UIImage(named: "HeaderList"), for: .normal)
+            GrideView.shared.isShow = false
+            delegate?.viewChange()
+        } else {
+            sender.setBackgroundImage(UIImage(named: "HeaderGrid"), for: .normal)
+            GrideView.shared.isShow = true
+            delegate?.viewChange()
+        }
+        
+    }
     
     @IBAction func popSortingmenu (_ sender: UIButton) {
-        if buttonSelected {
+        if popButtonSelected {
             let popframe = popSortingViewButton.frame
-            UIView.animate(withDuration: 1) { [weak self] in
+            UIView.animate(withDuration: 0.5) { [weak self] in
                 guard let strongSelf = self else { return }
                 for idx in 0..<strongSelf.soringButtonArr.count {
                     strongSelf.soringButtonArr[idx].frame.size.width = popframe.width
@@ -33,19 +54,25 @@ class HeaderCellTableViewCell: UITableViewCell {
                 }
             }
             
-            buttonSelected = false
+            popButtonSelected = false
         } else {
             for idx in 0..<soringButtonArr.count {
                 soringButtonArr[idx].frame.size.width = 0
             }
             
-            buttonSelected = true
+            popButtonSelected = true
         }
         
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        if !GrideView.shared.isShow {
+            viewChangeButton.setBackgroundImage(UIImage(named: "HeaderList"), for: .normal)
+        } else {
+            viewChangeButton.setBackgroundImage(UIImage(named: "HeaderGrid"), for: .normal)
+        }
         
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.gray.cgColor

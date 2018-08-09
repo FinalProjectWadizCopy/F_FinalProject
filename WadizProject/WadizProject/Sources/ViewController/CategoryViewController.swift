@@ -11,7 +11,6 @@ import UIKit
 class CategoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var cellHeight: CGFloat?
     var index: Int?
 
     override func viewDidLoad() {
@@ -42,18 +41,27 @@ extension CategoryViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RewardsTableViewCell",
-                                                 for: indexPath) as! RewardsTableViewCell
-        cell.categoryIndex = index
-        if cellHeight == nil { cellHeight = cell.frame.height * 11 }
-        tableView.rowHeight = cellHeight!
-        return cell
+        let rewardsTablecell
+            = tableView.dequeueReusableCell(
+                withIdentifier: "RewardsTableViewCell",
+                for: indexPath) as! RewardsTableViewCell
+        
+        rewardsTablecell.rewardCollectionView.reloadData()
+        
+        guard let heightArr = rewardsTablecell.cellHegiht else { return rewardsTablecell }
+        if GrideView.shared.isShow {
+            tableView.rowHeight = heightArr[0] * 11
+        } else {
+            tableView.rowHeight = heightArr[1] * 11
+        }
+        return rewardsTablecell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         tableView.register(UINib(nibName: "HeaderCellTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderCellTableViewCell")
-        let header = tableView.dequeueReusableCell(withIdentifier: "HeaderCellTableViewCell") as! HeaderCellTableViewCell
+        let  header = tableView.dequeueReusableCell(withIdentifier: "HeaderCellTableViewCell") as! HeaderCellTableViewCell
         header.searchTextField.delegate = self as UITextFieldDelegate
+        header.delegate = self as HeaderCellTableViewCellDelegate
         return header
     }
 }
@@ -73,6 +81,15 @@ extension CategoryViewController: UITextFieldDelegate{
         textField.resignFirstResponder()
         tableView.reloadData()
         return true
+    }
+}
+
+// MARK: - HeaderCellTableViewCellDelegate
+
+extension CategoryViewController: HeaderCellTableViewCellDelegate {
+    func viewChange() {
+        print("tableView.reloadData()")
+        tableView.reloadData()
     }
 }
 
