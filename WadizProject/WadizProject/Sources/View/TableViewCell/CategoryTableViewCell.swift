@@ -68,7 +68,8 @@ extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout {
         
         static let leftPadding: CGFloat = 10.0
         static let rightPadding: CGFloat = 10.0
-        static let topPadding: CGFloat = 0
+        static let topPadding: CGFloat = 0.0
+
         static let bottomPadding: CGFloat = 0
         
         static let itemSpacing: CGFloat = 10.0

@@ -16,10 +16,9 @@ class RewardsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var brandTitleLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var currentAmountLabel: UILabel!
-    
     @IBOutlet weak var totalPercentLabel: UILabel!
-    
     @IBOutlet weak var dDayLabel: UILabel!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -14,10 +14,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var leftNaviButton: UIBarButtonItem!
     @IBOutlet weak var mainTableView: UITableView!
     
-    var menuView: UIView!
-    
     let symbolColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
-    
+    var cellHeight: CGFloat?
+    var menuView: UIView!
     var isMenuViewOn = false
     var MenuCGPoint = CGPoint()
     
@@ -123,12 +122,16 @@ extension MainViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RewardsTableViewCell",
                                                  for: indexPath) as! RewardsTableViewCell
-        tableView.rowHeight = cell.frame.height * 11
+        if cellHeight == nil {
+            cellHeight = cell.frame.height * 11
+        }
+        tableView.rowHeight = cellHeight!
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 2 {
+            
             tableView.register(UINib(nibName: "HeaderCellTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderCellTableViewCell")
             let header = tableView.dequeueReusableCell(withIdentifier: "HeaderCellTableViewCell") as! HeaderCellTableViewCell
             header.searchTextField.delegate = self as UITextFieldDelegate
@@ -156,10 +159,11 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        self.mainTableView.reloadData()
+        mainTableView.reloadData()
         return true
     }
 }
+
 
 // MARK: - CategorybuttonDelegate
 
@@ -173,8 +177,6 @@ extension MainViewController: CategorybuttonDelegate {
         categoryView.index = Int(index) ?? 0
         navigationController.pushViewController(categoryView, animated: true)
     }
-    
-    
 }
 
 

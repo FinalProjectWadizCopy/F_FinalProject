@@ -115,8 +115,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="shn-1u-uaW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="shn-1u-uaW">
+                                                    <rect key="frame" x="0.0" y="31" width="414" height="89"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ovs-s4-2Ai">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -132,7 +132,7 @@
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="shn-1u-uaW" firstAttribute="top" secondItem="IjS-GC-pHt" secondAttribute="top" id="RAn-6E-i8R"/>
+                                                <constraint firstItem="shn-1u-uaW" firstAttribute="top" secondItem="IjS-GC-pHt" secondAttribute="top" constant="30" id="RAn-6E-i8R"/>
                                                 <constraint firstAttribute="bottom" secondItem="shn-1u-uaW" secondAttribute="bottom" id="gNI-lz-jeT"/>
                                                 <constraint firstItem="shn-1u-uaW" firstAttribute="leading" secondItem="IjS-GC-pHt" secondAttribute="leading" id="qFB-NK-uUZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="shn-1u-uaW" secondAttribute="trailing" id="shF-vr-Zo9"/>
@@ -200,7 +200,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ctu-Cd-VQe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                                    <rect key="frame" x="0.0" y="30" width="414" height="90"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BQL-r7-H4V">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -218,7 +218,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="ctu-Cd-VQe" secondAttribute="trailing" id="1Vf-Yw-ha7"/>
                                                 <constraint firstAttribute="bottom" secondItem="ctu-Cd-VQe" secondAttribute="bottom" id="M1v-Vd-puh"/>
-                                                <constraint firstItem="ctu-Cd-VQe" firstAttribute="top" secondItem="zSm-id-d9d" secondAttribute="top" id="SBO-iV-iUj"/>
+                                                <constraint firstItem="ctu-Cd-VQe" firstAttribute="top" secondItem="zSm-id-d9d" secondAttribute="top" constant="30" id="SBO-iV-iUj"/>
                                                 <constraint firstItem="ctu-Cd-VQe" firstAttribute="leading" secondItem="zSm-id-d9d" secondAttribute="leading" id="VbP-8V-4oK"/>
                                             </constraints>
                                         </tableViewCellContentView>

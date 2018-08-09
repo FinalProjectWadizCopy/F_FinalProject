@@ -30,6 +30,9 @@ class RecommendTableViewCell: UITableViewCell {
     func setRecommendScrollView () {
         recommendScrollView.isPagingEnabled = true
         buttonTitle.forEach(addPageScrollView(with:))
+        for i in buttonTitle {
+            addPageScrollView(with: i)
+        }
         
         addSubview(pageController)
         pageController.pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.3)
@@ -43,7 +46,8 @@ class RecommendTableViewCell: UITableViewCell {
     
     func addPageScrollView(with title: String) {
         let pageFrame = CGRect(
-            origin: CGPoint(x: recommendScrollView.contentSize.width, y: recommendScrollView.frame.minY),
+            origin: CGPoint(x: recommendScrollView.contentSize.width,
+                            y: recommendScrollView.frame.minY),
             size: recommendScrollView.frame.size
         )
         
