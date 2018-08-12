@@ -15,6 +15,7 @@ class CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("index :", index)
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +46,8 @@ extension CategoryViewController: UITableViewDataSource {
             = tableView.dequeueReusableCell(
                 withIdentifier: "RewardsTableViewCell",
                 for: indexPath) as! RewardsTableViewCell
+        
+        rewardsTablecell.categoryIndex = index
         
         rewardsTablecell.rewardCollectionView.reloadData()
         

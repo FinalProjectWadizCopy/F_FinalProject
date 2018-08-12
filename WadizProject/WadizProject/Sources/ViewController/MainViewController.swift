@@ -10,7 +10,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    
     @IBOutlet weak var leftNaviButton: UIBarButtonItem!
     @IBOutlet weak var mainTableView: UITableView!
     
@@ -22,6 +21,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let post = PostService()
+        post.rewardPostList()
         menuView = MenuView(frame: view.frame)
         view.addSubview(menuView)
         setNavigation()
@@ -29,7 +30,6 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         mainTableView.reloadData()
     }
     

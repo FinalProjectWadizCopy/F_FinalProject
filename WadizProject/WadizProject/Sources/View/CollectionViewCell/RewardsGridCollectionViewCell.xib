@@ -21,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDX-pz-KEW">
-                        <rect key="frame" x="10" y="10" width="427" height="142"/>
+                        <rect key="frame" x="10" y="10" width="427" height="142.5"/>
                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="iDX-pz-KEW" secondAttribute="height" multiplier="3:1" id="wFj-3i-deY"/>
@@ -29,7 +29,7 @@
                         <state key="normal" title="Button"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ol8-LY-L1G">
-                        <rect key="frame" x="10" y="162" width="385" height="30"/>
+                        <rect key="frame" x="10" y="162.5" width="427" height="30"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                         <state key="normal" title="양말도 장비다! &quot;발목양말 테이핑양말&quot; 승리를 위한 나만의 치트키">
                             <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -63,7 +63,7 @@
                         <rect key="frame" x="10" y="240" width="427" height="2"/>
                     </progressView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzn-gG-Ec3">
-                        <rect key="frame" x="10" y="206" width="64" height="24"/>
+                        <rect key="frame" x="10" y="212" width="64" height="24"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                         <state key="normal" title="스포츠 모빌리티">
                             <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -75,20 +75,22 @@
                 <constraint firstItem="oEH-GJ-im7" firstAttribute="bottom" secondItem="rpf-dA-CoW" secondAttribute="bottom" id="0h7-KC-rFm"/>
                 <constraint firstAttribute="bottom" secondItem="rpf-dA-CoW" secondAttribute="bottom" constant="20" id="4uY-Fg-INI"/>
                 <constraint firstAttribute="trailing" secondItem="iDX-pz-KEW" secondAttribute="trailing" constant="10" id="DLR-fR-M0c"/>
+                <constraint firstItem="aIS-Hh-CHe" firstAttribute="centerY" secondItem="Mzn-gG-Ec3" secondAttribute="centerY" id="Hv7-57-cwk"/>
                 <constraint firstItem="oEH-GJ-im7" firstAttribute="leading" secondItem="rpf-dA-CoW" secondAttribute="trailing" constant="5" id="O02-ZO-vVp"/>
                 <constraint firstItem="Mzn-gG-Ec3" firstAttribute="leading" secondItem="ol8-LY-L1G" secondAttribute="leading" id="PSe-wf-NZx"/>
-                <constraint firstItem="tXg-xt-kN2" firstAttribute="top" secondItem="aIS-Hh-CHe" secondAttribute="bottom" constant="10" id="QvC-4L-bf0"/>
                 <constraint firstItem="ol8-LY-L1G" firstAttribute="top" secondItem="iDX-pz-KEW" secondAttribute="bottom" constant="10" id="RgC-J6-GdF"/>
                 <constraint firstItem="rpf-dA-CoW" firstAttribute="top" secondItem="tXg-xt-kN2" secondAttribute="bottom" constant="20" id="W6d-of-blB"/>
                 <constraint firstItem="aIS-Hh-CHe" firstAttribute="leading" secondItem="Mzn-gG-Ec3" secondAttribute="trailing" constant="5" id="YGN-mz-hXZ"/>
+                <constraint firstItem="VhL-uC-P9G" firstAttribute="bottom" secondItem="ol8-LY-L1G" secondAttribute="bottom" constant="107.5" id="aFb-Q3-UxH"/>
                 <constraint firstItem="D2W-QN-WOS" firstAttribute="trailing" secondItem="tXg-xt-kN2" secondAttribute="trailing" id="bLb-7z-2Sh"/>
+                <constraint firstAttribute="trailing" secondItem="ol8-LY-L1G" secondAttribute="trailing" constant="10" id="l51-uy-e8H"/>
                 <constraint firstItem="iDX-pz-KEW" firstAttribute="top" secondItem="Qwi-hX-VlR" secondAttribute="top" constant="10" id="lCz-bd-R5h"/>
                 <constraint firstItem="tXg-xt-kN2" firstAttribute="leading" secondItem="Mzn-gG-Ec3" secondAttribute="leading" id="mTW-R4-hIv"/>
                 <constraint firstItem="D2W-QN-WOS" firstAttribute="bottom" secondItem="oEH-GJ-im7" secondAttribute="bottom" id="r5Q-LS-5pa"/>
                 <constraint firstItem="ol8-LY-L1G" firstAttribute="leading" secondItem="iDX-pz-KEW" secondAttribute="leading" id="rUD-Oh-iQU"/>
+                <constraint firstItem="tXg-xt-kN2" firstAttribute="top" secondItem="aIS-Hh-CHe" secondAttribute="bottom" constant="10" id="sTM-Yo-8oQ"/>
                 <constraint firstItem="iDX-pz-KEW" firstAttribute="leading" secondItem="Qwi-hX-VlR" secondAttribute="leading" constant="10" id="tH4-QY-CNA"/>
                 <constraint firstItem="tXg-xt-kN2" firstAttribute="trailing" secondItem="iDX-pz-KEW" secondAttribute="trailing" id="tJQ-Yi-ndq"/>
-                <constraint firstItem="aIS-Hh-CHe" firstAttribute="bottom" secondItem="Mzn-gG-Ec3" secondAttribute="bottom" id="uEl-Tb-8hn"/>
                 <constraint firstItem="rpf-dA-CoW" firstAttribute="leading" secondItem="tXg-xt-kN2" secondAttribute="leading" id="wFa-AB-UC4"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="VhL-uC-P9G"/>

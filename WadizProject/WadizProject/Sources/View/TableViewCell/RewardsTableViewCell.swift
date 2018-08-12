@@ -37,9 +37,6 @@ extension RewardsTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        print("collectionView 리로드")
-        print(categoryIndex)
         if GrideView.shared.isShow {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "RewardsCollectionCell",
