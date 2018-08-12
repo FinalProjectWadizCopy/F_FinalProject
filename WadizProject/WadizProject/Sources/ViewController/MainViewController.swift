@@ -23,6 +23,9 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         let post = PostService()
         post.rewardPostList()
+        
+        
+        
         menuView = MenuView(frame: view.frame)
         view.addSubview(menuView)
         setNavigation()
