@@ -14,7 +14,7 @@
         <!--Loading View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController wantsFullScreenLayout="YES" id="BYZ-38-t0r" customClass="LoadingViewController" customModule="WadizProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoadingView" wantsFullScreenLayout="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoadingViewController" customModule="WadizProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="hU6-fo-S58">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="28d-Zy-V4x">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="28d-Zy-V4x">
                                 <rect key="frame" x="157" y="428" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="28d-Zy-V4x" secondAttribute="height" multiplier="1:1" id="YgD-a2-K3w"/>
@@ -45,7 +45,7 @@
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="28d-Zy-V4x" id="t0U-xy-FtG"/>
-                        <segue destination="40K-Rd-ORv" kind="presentation" identifier="appStart" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="0zh-ya-hks"/>
+                        <segue destination="40K-Rd-ORv" kind="show" identifier="appStart" id="0VE-5i-w40"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

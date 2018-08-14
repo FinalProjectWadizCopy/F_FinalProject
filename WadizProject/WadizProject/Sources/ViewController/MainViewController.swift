@@ -27,6 +27,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("MainViewController")
         menuView = MenuView(frame: view.frame)
         view.addSubview(menuView)
         setNavigation()
@@ -156,13 +157,14 @@ extension MainViewController: UITableViewDataSource {
         if section == 2 {
             tableView.register(UINib(nibName: "HeaderCellTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderCellTableViewCell")
             let  header = tableView.dequeueReusableCell(withIdentifier: "HeaderCellTableViewCell") as! HeaderCellTableViewCell
-            print(tableView.frame.width)
             header.searchTextField.delegate = self as UITextFieldDelegate
             header.delegate = self
             return header
         }
         return nil
     }
+    
+    
     
 
 }
@@ -176,6 +178,24 @@ extension MainViewController: UITableViewDelegate {
         }
         return 0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("didSelectRowAt", indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        print("canMoveRowAt", indexPath.row)
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        print("willDisplayFooterView", section)
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("didEndDisplaying", indexPath.row)
+    }
+    
 }
 
 // MARK:- UITextFieldDelegate

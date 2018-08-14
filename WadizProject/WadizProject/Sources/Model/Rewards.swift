@@ -25,7 +25,6 @@ struct Rewards: Decodable {
         let currentAmount: Int
         let totalAAmount: Int
         
-        
         enum CodingKeys: String, CodingKey {
             case pk
             case productName = "product_name"
