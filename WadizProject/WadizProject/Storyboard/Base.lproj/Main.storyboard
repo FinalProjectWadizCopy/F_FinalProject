@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="40K-Rd-ORv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Loading View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="WadizProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="BYZ-38-t0r" customClass="LoadingViewController" customModule="WadizProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,20 +22,35 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="hU6-fo-S58">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="28d-Zy-V4x">
+                                <rect key="frame" x="157" y="428" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="28d-Zy-V4x" secondAttribute="height" multiplier="1:1" id="YgD-a2-K3w"/>
+                                    <constraint firstAttribute="width" constant="100" id="yyY-gi-uRm"/>
+                                </constraints>
+                                <color key="color" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WSN-Pe-KSi" firstAttribute="trailing" secondItem="hU6-fo-S58" secondAttribute="trailing" id="Ets-M2-uBL"/>
-                            <constraint firstItem="hU6-fo-S58" firstAttribute="leading" secondItem="WSN-Pe-KSi" secondAttribute="leading" id="aQA-1O-7bY"/>
-                            <constraint firstItem="WSN-Pe-KSi" firstAttribute="bottom" secondItem="hU6-fo-S58" secondAttribute="bottom" id="d8X-dc-IQk"/>
-                            <constraint firstItem="hU6-fo-S58" firstAttribute="top" secondItem="WSN-Pe-KSi" secondAttribute="top" id="mKZ-RH-3Ef"/>
+                            <constraint firstItem="28d-Zy-V4x" firstAttribute="centerX" secondItem="hU6-fo-S58" secondAttribute="centerX" id="Fyt-eF-1Da"/>
+                            <constraint firstItem="WSN-Pe-KSi" firstAttribute="bottom" secondItem="hU6-fo-S58" secondAttribute="bottom" id="NPg-X9-2xh"/>
+                            <constraint firstItem="28d-Zy-V4x" firstAttribute="centerY" secondItem="hU6-fo-S58" secondAttribute="centerY" constant="100" id="OUq-0J-uW3"/>
+                            <constraint firstItem="hU6-fo-S58" firstAttribute="top" secondItem="WSN-Pe-KSi" secondAttribute="top" id="Xrz-1J-RrO"/>
+                            <constraint firstItem="hU6-fo-S58" firstAttribute="leading" secondItem="WSN-Pe-KSi" secondAttribute="leading" id="lTr-fg-mv9"/>
+                            <constraint firstItem="WSN-Pe-KSi" firstAttribute="trailing" secondItem="hU6-fo-S58" secondAttribute="trailing" id="pru-sC-cG9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WSN-Pe-KSi"/>
                     </view>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="28d-Zy-V4x" id="t0U-xy-FtG"/>
+                        <segue destination="40K-Rd-ORv" kind="presentation" identifier="appStart" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="0zh-ya-hks"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31.884057971014496" y="32.608695652173914"/>
+            <point key="canvasLocation" x="544.92753623188412" y="32.608695652173914"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="HjK-be-dnp">
@@ -108,39 +124,21 @@
                                             <outlet property="categoryCollectionView" destination="fFN-JE-TsE" id="ZgW-Mj-QiR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RewardsTableViewCell" rowHeight="120" id="Zj8-e4-4Tc" customClass="RewardsTableViewCell" customModule="WadizProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="274" width="414" height="120"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RewardsCell" rowHeight="134" id="Zj8-e4-4Tc" customClass="RewardsTableViewCell" customModule="WadizProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="274" width="414" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zj8-e4-4Tc" id="IjS-GC-pHt">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="119.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="133.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="shn-1u-uaW">
-                                                    <rect key="frame" x="0.0" y="31" width="414" height="89"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ovs-s4-2Ai">
-                                                        <size key="itemSize" width="50" height="50"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells/>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="Zj8-e4-4Tc" id="zuY-IP-hyK"/>
-                                                        <outlet property="delegate" destination="Zj8-e4-4Tc" id="zSc-b7-q4N"/>
-                                                    </connections>
-                                                </collectionView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="shn-1u-uaW" firstAttribute="top" secondItem="IjS-GC-pHt" secondAttribute="top" constant="30" id="RAn-6E-i8R"/>
-                                                <constraint firstAttribute="bottom" secondItem="shn-1u-uaW" secondAttribute="bottom" id="gNI-lz-jeT"/>
-                                                <constraint firstItem="shn-1u-uaW" firstAttribute="leading" secondItem="IjS-GC-pHt" secondAttribute="leading" id="qFB-NK-uUZ"/>
-                                                <constraint firstAttribute="trailing" secondItem="shn-1u-uaW" secondAttribute="trailing" id="shF-vr-Zo9"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="rewardCollectionView" destination="shn-1u-uaW" id="exv-wZ-EZJ"/>
-                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RewardsGridCell" rowHeight="129" id="kwB-QV-kLn" customClass="RewardsGridTableViewCell" customModule="WadizProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="408" width="414" height="129"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kwB-QV-kLn" id="NAJ-mQ-jWH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128.66666666666666"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -248,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fER-cv-Hn9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2957.971014492754" y="44.836956521739133"/>
+            <point key="canvasLocation" x="2994" y="33"/>
         </scene>
         <!--Item-->
         <scene sceneID="5vB-56-kDO">

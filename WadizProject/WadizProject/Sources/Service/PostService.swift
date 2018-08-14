@@ -11,10 +11,11 @@ import Alamofire
 
 struct API {
     static let rewardsURL = "https://www.ryanden.kr/api/rewards"
+    static let nextURL = ""
 }
 
 struct PostService {
-    func rewardPostList() {
+    func rewardPostList(completion: @escaping (Rewards) -> ()) {
         Alamofire.request(API.rewardsURL)
             .validate()
             .responseData(completionHandler: { (response) in
@@ -22,18 +23,7 @@ struct PostService {
                 case .success(let value):
                     do {
                         let rewardList = try JSONDecoder().decode(Rewards.self, from: value)
-                        print(rewardList.count)
-                        for reward in rewardList.results {
-                            print(reward.pk)
-                            print(reward.name)
-                            print(reward.type)
-                            print(reward.companyName)
-                            print(reward.interestedCount)
-                            print(reward.startTime)
-                            print(reward.endTime)
-                            print(reward.currentAmount)
-                            print(reward.totalAAmount)
-                        }
+                        completion(rewardList)
                     } catch {
                         print("post err")
                     }
@@ -42,5 +32,23 @@ struct PostService {
                 }
             })
     }
-
+    
+    func nextRewardPostList(completion: @escaping (Rewards) -> ()) {
+        Alamofire.request(API.nextURL)
+            .validate()
+            .responseData(completionHandler: { (response) in
+                switch response.result{
+                case .success(let value):
+                    do {
+                        let rewardList = try JSONDecoder().decode(Rewards.self, from: value)
+                        completion(rewardList)
+                    } catch {
+                        print("post err")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
+    }
 }
+

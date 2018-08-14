@@ -1,5 +1,5 @@
 //
-//  RewardsTableViewCell.swift
+//  RewardsGridTableViewCell.swift
 //  WadizProject
 //
 //  Created by Jo JANGHUI on 2018. 8. 13..
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class RewardsTableViewCell: UITableViewCell {
-    
+class RewardsGridTableViewCell: UITableViewCell {
+
     let productName = UILabel()         // 프로젝트 이름
     let productImg = UIImageView()      // 프로젝트 이미지
     let type = UILabel()                // 프로젝트 카테고리
@@ -34,16 +34,17 @@ class RewardsTableViewCell: UITableViewCell {
         dayFinish.text = " 마감 임박 "
         
         addsubViews()
-        addAutoLayout()
+        addAutoGridLayout()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
+        // Configure the view for the selected state
     }
     
     func addsubViews() {
-
+        
         addSubview(productImg)
         addSubview(productName)
         addSubview(type)
@@ -65,59 +66,64 @@ class RewardsTableViewCell: UITableViewCell {
         progress.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func addAutoLayout() {
-        rowHeight = 100
+    func addAutoGridLayout() {
+        rowHeight = 300
         addSubViewAttribute()
-    
+        
         productImg.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
         productImg.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        productImg.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
-        productImg.widthAnchor.constraint(equalTo: productImg.heightAnchor, multiplier: 1.5).isActive = true
-      
+        productImg.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        productImg.heightAnchor.constraint(lessThanOrEqualTo: productImg.widthAnchor, multiplier: 0.5).isActive = true
+        
         dayFinish.topAnchor.constraint(equalTo: productImg.topAnchor).isActive = true
         dayFinish.leadingAnchor.constraint(equalTo: productImg.leadingAnchor).isActive = true
-
-        productName.topAnchor.constraint(equalTo: productImg.topAnchor).isActive = true
-        productName.leadingAnchor.constraint(equalTo: productImg.trailingAnchor, constant: 10).isActive = true
-        productName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-
+        
+        productName.topAnchor.constraint(equalTo: productImg.bottomAnchor, constant: 10).isActive = true
+        productName.leadingAnchor.constraint(equalTo: productImg.leadingAnchor, constant: 5).isActive = true
+        productName.trailingAnchor.constraint(equalTo: productImg.trailingAnchor, constant: -5).isActive = true
+        
+        
         type.topAnchor.constraint(equalTo: productName.bottomAnchor, constant: 5).isActive = true
         type.leadingAnchor.constraint(equalTo: productName.leadingAnchor).isActive = true
-
+        
         companyName.centerYAnchor.constraint(equalTo: type.centerYAnchor).isActive = true
         companyName.leadingAnchor.constraint(equalTo: type.trailingAnchor, constant: 10).isActive = true
-
-        totalPercent.bottomAnchor.constraint(equalTo: productImg.bottomAnchor).isActive = true
-        totalPercent.leadingAnchor.constraint(equalTo: productName.leadingAnchor).isActive = true
-
-        totalAAmount.bottomAnchor.constraint(equalTo: totalPercent.bottomAnchor).isActive = true
-        totalAAmount.leadingAnchor.constraint(equalTo: totalPercent.trailingAnchor, constant: 5).isActive = true
-
-        dayLeft.bottomAnchor.constraint(equalTo: totalAAmount.bottomAnchor).isActive = true
-        dayLeft.trailingAnchor.constraint(equalTo: productName.trailingAnchor).isActive = true
-
-        progress.bottomAnchor.constraint(equalTo: totalAAmount.topAnchor, constant: -5).isActive = true
+        
+        progress.topAnchor.constraint(equalTo: companyName.bottomAnchor, constant: 5).isActive = true
         progress.leadingAnchor.constraint(equalTo: productName.leadingAnchor).isActive = true
         progress.trailingAnchor.constraint(equalTo: productName.trailingAnchor).isActive = true
+        
+        totalPercent.topAnchor.constraint(equalTo: progress.bottomAnchor, constant: 5).isActive = true
+        totalPercent.leadingAnchor.constraint(equalTo: progress.leadingAnchor).isActive = true
+        
+        totalAAmount.bottomAnchor.constraint(equalTo: totalPercent.bottomAnchor).isActive = true
+        totalAAmount.leadingAnchor.constraint(equalTo: totalPercent.trailingAnchor, constant: 5).isActive = true
+        
+        dayLeft.bottomAnchor.constraint(equalTo: totalPercent.bottomAnchor).isActive = true
+        dayLeft.trailingAnchor.constraint(equalTo: progress.trailingAnchor).isActive = true
     }
     
     func addSubViewAttribute() {
         let fontName = "Helvetica Neue"
-
-            productName.font = UIFont.init(name: fontName, size: 13)
-            productName.numberOfLines = 2
-            
-            type.font = UIFont.init(name: fontName, size: 10)
-            companyName.font = type.font
-            totalPercent.font = UIFont.init(name: fontName, size: 13)
-            totalAAmount.font = UIFont.init(name: fontName, size: 10)
-            dayLeft.font = UIFont.init(name: fontName, size: 10)
-            
-            dayFinish.font = UIFont.init(name: fontName, size: 13)
-            dayFinish.textColor = UIColor.white
-            dayFinish.backgroundColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
-            
-            progress.trackTintColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
-
+        
+        productName.font = UIFont.init(name: fontName, size: 20)
+        productName.numberOfLines = 2
+        
+        type.font = UIFont.init(name: fontName, size: 15)
+        companyName.font = type.font
+        
+        totalPercent.font = UIFont.init(name: fontName, size: 15)
+        totalAAmount.font = UIFont.init(name: fontName, size: 12)
+        
+        dayLeft.font = UIFont.init(name: fontName, size: 12)
+        
+        
+        dayFinish.font = UIFont.init(name: fontName, size: 18)
+        dayFinish.textColor = UIColor.white
+        dayFinish.backgroundColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
+        
+        progress.trackTintColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
+        
     }
+
 }

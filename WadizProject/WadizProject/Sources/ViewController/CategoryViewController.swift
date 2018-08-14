@@ -47,16 +47,6 @@ extension CategoryViewController: UITableViewDataSource {
                 withIdentifier: "RewardsTableViewCell",
                 for: indexPath) as! RewardsTableViewCell
         
-        rewardsTablecell.categoryIndex = index
-        
-        rewardsTablecell.rewardCollectionView.reloadData()
-        
-        guard let heightArr = rewardsTablecell.cellHegiht else { return rewardsTablecell }
-        if GrideView.shared.isShow {
-            tableView.rowHeight = heightArr[0] * 11
-        } else {
-            tableView.rowHeight = heightArr[1] * 11
-        }
         return rewardsTablecell
     }
     

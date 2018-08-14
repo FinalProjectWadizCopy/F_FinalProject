@@ -15,7 +15,7 @@ struct Rewards: Decodable {
     
     struct Results: Decodable{
         let pk: Int
-        let name: String
+        let productName: String
         let type: String
         let companyName: String
         let productImg: String
@@ -25,9 +25,10 @@ struct Rewards: Decodable {
         let currentAmount: Int
         let totalAAmount: Int
         
+        
         enum CodingKeys: String, CodingKey {
             case pk
-            case name = "product_name"
+            case productName = "product_name"
             case type = "product_type"
             case companyName = "product_company_name"
             case productImg = "product_img"

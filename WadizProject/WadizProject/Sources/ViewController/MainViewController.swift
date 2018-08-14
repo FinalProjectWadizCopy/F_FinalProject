@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainViewController: UIViewController {
     
@@ -19,17 +20,16 @@ class MainViewController: UIViewController {
     var isMenuViewOn = false
     var MenuCGPoint = CGPoint()
     
+    let rewards = PostService()
+    var rewardsArr: [Rewards.Results] = []
+    
+    let loadingView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let post = PostService()
-        post.rewardPostList()
-        
-        
-        
         menuView = MenuView(frame: view.frame)
         view.addSubview(menuView)
         setNavigation()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +54,6 @@ class MainViewController: UIViewController {
                 strongSelf.menuView.frame.origin.x += moveLagnth
                 strongSelf.leftNaviButton.image = UIImage(named: "exit")
                 strongSelf.view.layoutIfNeeded()
-                
             }
             isMenuViewOn = true
         } else {
@@ -69,6 +68,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func actionRecommendButton (_ button: UIButton) {
+        print("actionRecommendButton")
     }
 }
 
@@ -77,19 +77,19 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
-    }
+    func numberOfSections(in tableView: UITableView) -> Int { return 3 }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 2 {
+            return rewardsArr.count
+        }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.separatorStyle = .none
+//        tableView.separatorStyle = .none
         
         if indexPath.section == 0 {
-            
             RecommendTableViewCell.viewFrame = view.frame
             let recommendCell = tableView.dequeueReusableCell(
                 withIdentifier: "RecommendTableViewCell",
@@ -99,38 +99,53 @@ extension MainViewController: UITableViewDataSource {
                 button.addTarget(self, action: #selector(actionRecommendButton), for: .touchUpInside)
             }
             tableView.rowHeight = recommendCell.buttonArr[indexPath.row].frame.size.height
-            
             return recommendCell
         }
         else if indexPath.section == 1 {
-            
             let categoryCell = tableView.dequeueReusableCell(
                 withIdentifier: "CategoryTableViewCell",
                 for: indexPath) as! CategoryTableViewCell
             tableView.rowHeight = view.frame.height / 6
             categoryCell.delegate = self
-            
             return categoryCell
         }
-        
-        
-        let rewardsTablecell
-            = tableView.dequeueReusableCell(
-                withIdentifier: "RewardsTableViewCell",
-                for: indexPath) as! RewardsTableViewCell
-        
-        rewardsTablecell.rewardCollectionView.reloadData()
-        
-        guard let heightArr = rewardsTablecell.cellHegiht else { return rewardsTablecell }
+
+        // TODO: - 통신 미구현 프로퍼티
+        //        let dayFinish = UILabel()           // 프로젝트 마감 임박 표시 레이블  // 나중에
+        //        let totalPercent = UILabel()        // 프로젝트 달성 %              // 나중에
+        //        let dayLeft = UILabel()             // 프로젝트 남은 일
+        //        let progress = UIProgressView()     // 프로젝트 목표금액
         
         if GrideView.shared.isShow {
-            tableView.rowHeight = heightArr[0] * 11
+            let rewardsCell
+                = tableView.dequeueReusableCell(
+                    withIdentifier: "RewardsCell",
+                    for: indexPath) as! RewardsTableViewCell
+            let url = URL(string: rewardsArr[indexPath.row].productImg)
+            rewardsCell.productImg.kf.setImage(with: url)
+            rewardsCell.productName.text = rewardsArr[indexPath.row].productName
+            rewardsCell.type.text = rewardsArr[indexPath.row].type
+            rewardsCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
+            rewardsCell.totalAAmount.text = String(rewardsArr[indexPath.row].totalAAmount)
+            
+            tableView.rowHeight = rewardsCell.rowHeight
+            return rewardsCell
         } else {
-            tableView.rowHeight = heightArr[1] * 11
+            let rewardsGridCell
+                = tableView.dequeueReusableCell(
+                    withIdentifier: "RewardsGridCell",
+                    for: indexPath) as! RewardsGridTableViewCell
+            
+            let url = URL(string: rewardsArr[indexPath.row].productImg)
+            rewardsGridCell.productImg.kf.setImage(with: url)
+            rewardsGridCell.productName.text = rewardsArr[indexPath.row].productName
+            rewardsGridCell.type.text = rewardsArr[indexPath.row].type
+            rewardsGridCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
+            rewardsGridCell.totalAAmount.text = String(rewardsArr[indexPath.row].totalAAmount)
+            
+            tableView.rowHeight = rewardsGridCell.rowHeight
+            return rewardsGridCell
         }
-        return rewardsTablecell
-        
-        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -141,6 +156,7 @@ extension MainViewController: UITableViewDataSource {
         if section == 2 {
             tableView.register(UINib(nibName: "HeaderCellTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderCellTableViewCell")
             let  header = tableView.dequeueReusableCell(withIdentifier: "HeaderCellTableViewCell") as! HeaderCellTableViewCell
+            print(tableView.frame.width)
             header.searchTextField.delegate = self as UITextFieldDelegate
             header.delegate = self
             return header
@@ -148,14 +164,12 @@ extension MainViewController: UITableViewDataSource {
         return nil
     }
     
-    
+
 }
 
 // MARK:- UITableViewDelegate
 
 extension MainViewController: UITableViewDelegate {
-    
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 2 {
             return 40
