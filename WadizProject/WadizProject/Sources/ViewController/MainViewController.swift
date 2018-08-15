@@ -71,6 +71,8 @@ class MainViewController: UIViewController {
     @objc func actionRecommendButton (_ button: UIButton) {
         print("actionRecommendButton")
     }
+    
+    
 }
 
 
@@ -88,7 +90,7 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        tableView.separatorStyle = .none
+        //        tableView.separatorStyle = .none
         
         if indexPath.section == 0 {
             RecommendTableViewCell.viewFrame = view.frame
@@ -110,7 +112,7 @@ extension MainViewController: UITableViewDataSource {
             categoryCell.delegate = self
             return categoryCell
         }
-
+        
         // TODO: - 통신 미구현 프로퍼티
         //        let dayFinish = UILabel()           // 프로젝트 마감 임박 표시 레이블  // 나중에
         //        let totalPercent = UILabel()        // 프로젝트 달성 %              // 나중에
@@ -151,6 +153,17 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         tableView.rowHeight = 0
+        
+        let endCell = tableView.numberOfRows(inSection: 2)
+        if indexPath.row == (endCell - 2) {
+            rewards.nextRewardPostList { [weak self] (reward) in
+                guard let strongSelf = self else { return }
+                strongSelf.rewardsArr += reward.results
+                API.nextURL = reward.next
+                print("postlist Update finish")
+                strongSelf.mainTableView.reloadData()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -166,7 +179,7 @@ extension MainViewController: UITableViewDataSource {
     
     
     
-
+    
 }
 
 // MARK:- UITableViewDelegate
@@ -178,24 +191,6 @@ extension MainViewController: UITableViewDelegate {
         }
         return 0
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("didSelectRowAt", indexPath.row)
-    }
-    
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        print("canMoveRowAt", indexPath.row)
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        print("willDisplayFooterView", section)
-    }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("didEndDisplaying", indexPath.row)
-    }
-    
 }
 
 // MARK:- UITextFieldDelegate

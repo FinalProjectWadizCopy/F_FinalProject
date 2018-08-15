@@ -11,7 +11,7 @@ import Alamofire
 
 struct API {
     static let rewardsURL = "https://www.ryanden.kr/api/rewards"
-    static let nextURL = ""
+    static var nextURL = ""
 }
 
 struct PostService {

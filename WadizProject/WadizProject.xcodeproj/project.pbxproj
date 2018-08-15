@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3371ECBE4339BAE019AE4006 /* Pods_WadizProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E946E6A82A94CE591B6110 /* Pods_WadizProject.framework */; };
 		592A070521219A8C00406B79 /* RewardsGridTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A070421219A8C00406B79 /* RewardsGridTableViewCell.swift */; };
-		592A07072121CC7400406B79 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07062121CC7400406B79 /* LoadingViewController.swift */; };
+		592A07072121CC7400406B79 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07062121CC7400406B79 /* LunchViewController.swift */; };
 		593A942A2117DD7800F4F4A2 /* RewardsTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A94292117DD7800F4F4A2 /* RewardsTableViewCell2.swift */; };
 		593A944D2119746800F4F4A2 /* HeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A944B2119746800F4F4A2 /* HeaderCellTableViewCell.swift */; };
 		593A944E2119746800F4F4A2 /* HeaderCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593A944C2119746800F4F4A2 /* HeaderCellTableViewCell.xib */; };
@@ -34,7 +34,7 @@
 		14E946E6A82A94CE591B6110 /* Pods_WadizProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WadizProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		295812419736B62CD9631192 /* Pods-WadizProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WadizProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject.debug.xcconfig"; sourceTree = "<group>"; };
 		592A070421219A8C00406B79 /* RewardsGridTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsGridTableViewCell.swift; sourceTree = "<group>"; };
-		592A07062121CC7400406B79 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		592A07062121CC7400406B79 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		593A94292117DD7800F4F4A2 /* RewardsTableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsTableViewCell2.swift; sourceTree = "<group>"; };
 		593A944B2119746800F4F4A2 /* HeaderCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellTableViewCell.swift; sourceTree = "<group>"; };
 		593A944C2119746800F4F4A2 /* HeaderCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 			children = (
 				593A94532119C5E300F4F4A2 /* CategoryViewController.swift */,
 				597140B721102ECB005FA8DA /* MainViewController.swift */,
-				592A07062121CC7400406B79 /* LoadingViewController.swift */,
+				592A07062121CC7400406B79 /* LunchViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -339,7 +339,7 @@
 			files = (
 				59E78253210EE21C00C19A41 /* AppDelegate.swift in Sources */,
 				593A944D2119746800F4F4A2 /* HeaderCellTableViewCell.swift in Sources */,
-				592A07072121CC7400406B79 /* LoadingViewController.swift in Sources */,
+				592A07072121CC7400406B79 /* LunchViewController.swift in Sources */,
 				59C69D302115320D0085FAD7 /* RecommendTableViewCell.swift in Sources */,
 				596030182110640E00D84942 /* MenuView.swift in Sources */,
 				593A942A2117DD7800F4F4A2 /* RewardsTableViewCell2.swift in Sources */,

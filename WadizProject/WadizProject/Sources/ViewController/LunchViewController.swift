@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoadingViewController: UIViewController {
+class LunchViewController: UIViewController {
 
     private let nextVCModelSegue = "appStart"
     private let symbolColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
@@ -29,6 +29,7 @@ class LoadingViewController: UIViewController {
         super.viewDidLoad()
         firstRewards.rewardPostList { (rewards) in
             self.rewardsArr = rewards.results
+            API.nextURL = rewards.next
         }
         activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         activityIndicator.color = symbolColor
