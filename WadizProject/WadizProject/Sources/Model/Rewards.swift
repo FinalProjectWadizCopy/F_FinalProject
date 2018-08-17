@@ -10,7 +10,7 @@ import Foundation
 
 struct Rewards: Decodable {
     let count: Int
-    let next: String
+    let next: String?
     let results: [Results]
     
     struct Results: Decodable{

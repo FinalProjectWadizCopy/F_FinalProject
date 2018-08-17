@@ -10,12 +10,14 @@ import Foundation
 import Alamofire
 
 struct API {
-    static let rewardsURL = "https://www.ryanden.kr/api/rewards"
+    static let rewardsURL = "https://ryanden.kr/api/rewards/search/?"
     static var nextURL = ""
+    static let searchURL = "https://ryanden.kr/api/rewards/search/?product_name="
+    static let categoryURL = "https://ryanden.kr/api/rewards/search/?category="
 }
 
 struct PostService {
-    func rewardPostList(completion: @escaping (Rewards) -> ()) {
+    func rewardGetList(completion: @escaping (Rewards) -> ()) {
         Alamofire.request(API.rewardsURL)
             .validate()
             .responseData(completionHandler: { (response) in
@@ -33,7 +35,7 @@ struct PostService {
             })
     }
     
-    func nextRewardPostList(completion: @escaping (Rewards) -> ()) {
+    func nextRewardGetList(completion: @escaping (Rewards) -> ()) {
         Alamofire.request(API.nextURL)
             .validate()
             .responseData(completionHandler: { (response) in
@@ -42,6 +44,62 @@ struct PostService {
                     do {
                         let rewardList = try JSONDecoder().decode(Rewards.self, from: value)
                         completion(rewardList)
+                    } catch {
+                        print("post err")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
+    }
+    
+    func searchGetList(frame: CGRect, text: String,  completion: @escaping (Rewards) -> ()) {
+        
+        let lodingView = LodingView(frame: frame)
+        let window = UIApplication.shared.keyWindow
+        window?.addSubview(lodingView)
+        
+        print(text)
+        let sumURL = API.searchURL + text
+        print(sumURL)
+        guard let url = sumURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        Alamofire.request(url)
+            .validate()
+            .responseData(completionHandler: { (response) in
+                switch response.result{
+                case .success(let value):
+                    do {
+                        let searchList = try JSONDecoder().decode(Rewards.self, from: value)
+                        completion(searchList)
+                        lodingView.activityIndicator.stopAnimating()
+                        lodingView.removeFromSuperview()
+                    } catch {
+                        print("post err")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
+    }
+    
+    
+    func categoryGetList(frame: CGRect, title: String, completion: @escaping (Rewards) -> ()) {
+        let lodingView = LodingView(frame: frame)
+        let window = UIApplication.shared.keyWindow
+        window?.addSubview(lodingView)
+        
+        let sumURL = API.categoryURL + title
+        guard let url = sumURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        Alamofire.request(url)
+            .validate()
+            .responseData(completionHandler: { (response) in
+                switch response.result{
+                case .success(let value):
+                    do {
+                        let searchList = try JSONDecoder().decode(Rewards.self, from: value)
+                        completion(searchList)
+                        lodingView.activityIndicator.stopAnimating()
+                        lodingView.removeFromSuperview()
                     } catch {
                         print("post err")
                     }

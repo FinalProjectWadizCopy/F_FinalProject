@@ -21,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="프로젝트 검색" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLW-mQ-Icc">
-                        <rect key="frame" x="10" y="0.0" width="80.5" height="44.5"/>
+                        <rect key="frame" x="10" y="0.0" width="132" height="44.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -63,6 +63,7 @@
                     <constraint firstAttribute="bottom" secondItem="gLW-mQ-Icc" secondAttribute="bottom" id="474-Ix-vhJ"/>
                     <constraint firstItem="YT7-Uk-snE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4cy-IJ-RXE"/>
                     <constraint firstAttribute="bottom" secondItem="WUZ-WC-dIk" secondAttribute="bottom" id="74I-G6-RVf"/>
+                    <constraint firstItem="WUZ-WC-dIk" firstAttribute="leading" secondItem="gLW-mQ-Icc" secondAttribute="trailing" id="CSI-w0-Qxg"/>
                     <constraint firstItem="YT7-Uk-snE" firstAttribute="leading" secondItem="maY-K2-S2P" secondAttribute="trailing" id="Fa5-ZA-BXC"/>
                     <constraint firstAttribute="trailing" secondItem="YT7-Uk-snE" secondAttribute="trailing" id="Svs-rx-iEM"/>
                     <constraint firstItem="gLW-mQ-Icc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dpW-iP-Isp"/>

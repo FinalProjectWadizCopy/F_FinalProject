@@ -22,12 +22,14 @@ class MainViewController: UIViewController {
     
     let rewards = PostService()
     var rewardsArr: [Rewards.Results] = []
-    
-    let loadingView = UIView()
-    
+    var searchResults: [Rewards.Results]? {
+        didSet {
+            mainTableView.reloadData()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("MainViewController")
         menuView = MenuView(frame: view.frame)
         view.addSubview(menuView)
         setNavigation()
@@ -70,6 +72,7 @@ class MainViewController: UIViewController {
     
     @objc func actionRecommendButton (_ button: UIButton) {
         print("actionRecommendButton")
+        print(button.titleLabel?.text)
     }
     
     
@@ -84,13 +87,18 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 2 {
+            if searchResults == nil {
             return rewardsArr.count
+            } else {
+                guard let search = searchResults?.count else { return 0}
+                return search
+            }
         }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        tableView.separatorStyle = .none
+                tableView.separatorStyle = .none
         
         if indexPath.section == 0 {
             RecommendTableViewCell.viewFrame = view.frame
@@ -124,29 +132,47 @@ extension MainViewController: UITableViewDataSource {
                 = tableView.dequeueReusableCell(
                     withIdentifier: "RewardsCell",
                     for: indexPath) as! RewardsTableViewCell
-            let url = URL(string: rewardsArr[indexPath.row].productImg)
-            rewardsCell.productImg.kf.setImage(with: url)
-            rewardsCell.productName.text = rewardsArr[indexPath.row].productName
-            rewardsCell.type.text = rewardsArr[indexPath.row].type
-            rewardsCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
-            rewardsCell.totalAAmount.text = String(rewardsArr[indexPath.row].totalAAmount)
-            
             tableView.rowHeight = rewardsCell.rowHeight
+            if searchResults == nil {
+                let url = URL(string: rewardsArr[indexPath.row].productImg)
+                rewardsCell.productImg.kf.setImage(with: url)
+                rewardsCell.productName.text = rewardsArr[indexPath.row].productName
+                rewardsCell.type.text = rewardsArr[indexPath.row].type
+                rewardsCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
+                rewardsCell.totalAAmount.text = String(rewardsArr[indexPath.row].totalAAmount)
+            } else {
+                guard let search = searchResults else { return rewardsCell }
+                let searchURL = URL(string: search[indexPath.row].productImg)
+                rewardsCell.productImg.kf.setImage(with: searchURL)
+                rewardsCell.productName.text = search[indexPath.row].productName
+                rewardsCell.type.text = search[indexPath.row].type
+                rewardsCell.companyName.text = "| " + search[indexPath.row].companyName
+                rewardsCell.totalAAmount.text = String(search[indexPath.row].totalAAmount)
+            }
             return rewardsCell
         } else {
             let rewardsGridCell
                 = tableView.dequeueReusableCell(
                     withIdentifier: "RewardsGridCell",
                     for: indexPath) as! RewardsGridTableViewCell
-            
-            let url = URL(string: rewardsArr[indexPath.row].productImg)
-            rewardsGridCell.productImg.kf.setImage(with: url)
-            rewardsGridCell.productName.text = rewardsArr[indexPath.row].productName
-            rewardsGridCell.type.text = rewardsArr[indexPath.row].type
-            rewardsGridCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
-            rewardsGridCell.totalAAmount.text = String(rewardsArr[indexPath.row].totalAAmount)
-            
             tableView.rowHeight = rewardsGridCell.rowHeight
+            
+            if searchResults == nil {
+                let url = URL(string: rewardsArr[indexPath.row].productImg)
+                rewardsGridCell.productImg.kf.setImage(with: url)
+                rewardsGridCell.productName.text = rewardsArr[indexPath.row].productName
+                rewardsGridCell.type.text = rewardsArr[indexPath.row].type
+                rewardsGridCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
+                rewardsGridCell.totalAAmount.text = String(rewardsArr[indexPath.row].totalAAmount)
+            } else {
+                guard let search = searchResults else { return rewardsGridCell }
+                let searchURL = URL(string: search[indexPath.row].productImg)
+                rewardsGridCell.productImg.kf.setImage(with: searchURL)
+                rewardsGridCell.productName.text = search[indexPath.row].productName
+                rewardsGridCell.type.text = search[indexPath.row].type
+                rewardsGridCell.companyName.text = "| " + search[indexPath.row].companyName
+                rewardsGridCell.totalAAmount.text = String(search[indexPath.row].totalAAmount)
+            }
             return rewardsGridCell
         }
     }
@@ -156,12 +182,13 @@ extension MainViewController: UITableViewDataSource {
         
         let endCell = tableView.numberOfRows(inSection: 2)
         if indexPath.row == (endCell - 2) {
-            rewards.nextRewardPostList { [weak self] (reward) in
+            rewards.nextRewardGetList { [weak self] (reward) in
                 guard let strongSelf = self else { return }
                 strongSelf.rewardsArr += reward.results
-                API.nextURL = reward.next
-                print("postlist Update finish")
+                guard let nextURL = reward.next else {strongSelf.mainTableView.reloadData(); return }
+                API.nextURL = nextURL
                 strongSelf.mainTableView.reloadData()
+                //TODO: - 6번째 로드시 post err 발생 (원인찾기)
             }
         }
     }
@@ -197,8 +224,12 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else { return  true }
+        rewards.searchGetList(frame: view.frame, text: text){[weak self] (reward) in
+            guard let strongSelf = self else { return }
+            strongSelf.searchResults = reward.results
+        }
         textField.resignFirstResponder()
-        mainTableView.reloadData()
         return true
     }
 }
@@ -207,13 +238,21 @@ extension MainViewController: UITextFieldDelegate{
 // MARK: - CategorybuttonDelegate
 
 extension MainViewController: CategorybuttonDelegate {
-    func presentView(_ index: String) {
-        guard let storyboard = self.storyboard,
-            let navigationController = self.navigationController
-            else { return }
-        let categoryView = storyboard.instantiateViewController(withIdentifier: "CategoryView") as! CategoryViewController
-        categoryView.index = Int(index) ?? 0
-        navigationController.pushViewController(categoryView, animated: true)
+    func presentView(_ title: String) {
+        
+        switch title {
+        case "전체보기":
+            searchResults = nil
+            mainTableView.reloadData()
+        default:
+            print("default")
+            let category = self.storyboard?.instantiateViewController(withIdentifier: "CategoryView") as! CategoryViewController
+            rewards.categoryGetList(frame: view.frame, title: title) { [weak self] (reward) in
+                guard let strongSelf = self else { return }
+                category.rewardsArr = reward.results
+                strongSelf.navigationController?.pushViewController(category, animated: true)
+            }
+        }
     }
 }
 

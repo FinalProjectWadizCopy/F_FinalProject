@@ -10,12 +10,39 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    
+    //        ["전체보기", "테크·가전", "패션·잡화", "뷰티", "푸드", "홈리빙", "디자인소품", "여행·레저", "스포츠·모빌리티", "반려동물", "공연·컬처", "소셜·캠페인", "교육·키즈", "게임·취미", "출판"]
+    
     @IBOutlet weak var tableView: UITableView!
-    var index: Int?
+    
+    var titlename: String?
+    
+    let rewards = PostService()
+    var rewardsArr: [Rewards.Results] = []
+    var searchResults: [Rewards.Results]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("index :", index)
+        print("rewardsArr : ", rewardsArr.isEmpty)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.isHidden = false
+        if rewardsArr.isEmpty {
+            tableView.isHidden = true
+            print("tableView.isHidden")
+            let empty = EmptyView(frame: view.frame)
+            view.addSubview(empty)
+//            let view = EmptyView(frame: self.view.frame)
+//            view.addSubview(view)
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,23 +65,71 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+            if searchResults == nil {
+                return rewardsArr.count
+            } else {
+                guard let search = searchResults?.count else { return 0}
+                return search
+            }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let rewardsTablecell
-            = tableView.dequeueReusableCell(
-                withIdentifier: "RewardsTableViewCell",
-                for: indexPath) as! RewardsTableViewCell
-        
-        return rewardsTablecell
+        if GrideView.shared.isShow {
+            let rewardsCell
+                = tableView.dequeueReusableCell(
+                    withIdentifier: "RewardsCell",
+                    for: indexPath) as! RewardsTableViewCell
+            tableView.rowHeight = rewardsCell.rowHeight
+
+            if searchResults == nil {
+                let url = URL(string: rewardsArr[indexPath.row].productImg)
+                rewardsCell.productImg.kf.setImage(with: url)
+                rewardsCell.productName.text = rewardsArr[indexPath.row].productName
+                rewardsCell.type.text = rewardsArr[indexPath.row].type
+                rewardsCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
+                rewardsCell.totalAAmount.text = String(rewardsArr[indexPath.row].totalAAmount)
+            } else {
+                guard let search = searchResults else { return rewardsCell }
+                let searchURL = URL(string: search[indexPath.row].productImg)
+                rewardsCell.productImg.kf.setImage(with: searchURL)
+                rewardsCell.productName.text = search[indexPath.row].productName
+                rewardsCell.type.text = search[indexPath.row].type
+                rewardsCell.companyName.text = "| " + search[indexPath.row].companyName
+                rewardsCell.totalAAmount.text = String(search[indexPath.row].totalAAmount)
+            }
+            return rewardsCell
+        } else {
+            let rewardsGridCell
+                = tableView.dequeueReusableCell(
+                    withIdentifier: "RewardsGridCell",
+                    for: indexPath) as! RewardsGridTableViewCell
+            tableView.rowHeight = rewardsGridCell.rowHeight
+
+            if searchResults == nil {
+                let url = URL(string: rewardsArr[indexPath.row].productImg)
+                rewardsGridCell.productImg.kf.setImage(with: url)
+                rewardsGridCell.productName.text = rewardsArr[indexPath.row].productName
+                rewardsGridCell.type.text = rewardsArr[indexPath.row].type
+                rewardsGridCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
+                rewardsGridCell.totalAAmount.text = String(rewardsArr[indexPath.row].totalAAmount)
+            } else {
+                guard let search = searchResults else { return rewardsGridCell }
+                let searchURL = URL(string: search[indexPath.row].productImg)
+                rewardsGridCell.productImg.kf.setImage(with: searchURL)
+                rewardsGridCell.productName.text = search[indexPath.row].productName
+                rewardsGridCell.type.text = search[indexPath.row].type
+                rewardsGridCell.companyName.text = "| " + search[indexPath.row].companyName
+                rewardsGridCell.totalAAmount.text = String(search[indexPath.row].totalAAmount)
+            }
+            return rewardsGridCell
+        }
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         tableView.register(UINib(nibName: "HeaderCellTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderCellTableViewCell")
         let  header = tableView.dequeueReusableCell(withIdentifier: "HeaderCellTableViewCell") as! HeaderCellTableViewCell
         header.searchTextField.delegate = self as UITextFieldDelegate
-        header.delegate = self as HeaderCellTableViewCellDelegate
+        header.delegate = self
         return header
     }
 }
@@ -71,8 +146,12 @@ extension CategoryViewController: UITableViewDelegate {
 
 extension CategoryViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else { return  true }
+        rewards.searchGetList(frame: view.frame, text: text){[weak self] (reward) in
+            guard let strongSelf = self else { return }
+            strongSelf.searchResults = reward.results
+        }
         textField.resignFirstResponder()
-        tableView.reloadData()
         return true
     }
 }
@@ -81,7 +160,6 @@ extension CategoryViewController: UITextFieldDelegate{
 
 extension CategoryViewController: HeaderCellTableViewCellDelegate {
     func viewChange() {
-        print("tableView.reloadData()")
         tableView.reloadData()
     }
 }

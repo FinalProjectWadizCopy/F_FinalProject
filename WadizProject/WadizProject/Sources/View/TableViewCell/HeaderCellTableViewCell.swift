@@ -59,7 +59,6 @@ class HeaderCellTableViewCell: UITableViewCell {
             for idx in 0..<soringButtonArr.count {
                 soringButtonArr[idx].frame.size.width = 0
             }
-            
             popButtonSelected = true
         }
         

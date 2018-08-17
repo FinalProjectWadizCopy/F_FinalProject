@@ -27,24 +27,24 @@ class LunchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstRewards.rewardPostList { (rewards) in
-            self.rewardsArr = rewards.results
-            API.nextURL = rewards.next
+        
+        firstRewards.rewardGetList { (reward) in
+            self.rewardsArr = reward.results
+            guard let rewardArr = reward.next else { return }
+            API.nextURL = rewardArr
         }
+        
         activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
         activityIndicator.color = symbolColor
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        print("LoadingViewController viewDidAppear")
-        
         timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(viewPerformSegue),
                              userInfo: nil, repeats: true)
     }
 
     // MARK:- @objc
     @objc func viewPerformSegue() {
-        print("veiwpr")
         self.performSegue(withIdentifier: "appStart", sender: nil)
         timer.invalidate()
     }
