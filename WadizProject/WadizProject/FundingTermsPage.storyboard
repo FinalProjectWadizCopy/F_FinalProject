@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Funding Terms View Controller-->
+        <scene sceneID="HsN-D4-f89">
+            <objects>
+                <viewController id="J6T-tv-ddU" customClass="FundingTermsViewController" customModule="WadizProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AVR-eI-ZCR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxX-20-LRV">
+                                <rect key="frame" x="15" y="35" width="129" height="30"/>
+                                <state key="normal" title="&lt;- 스토리로 돌아가기"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잠깐! 펀딩과 쇼핑이 어떻게 다른지 확인 후 펀딩을 진행하세요" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RqW-DY-p7Y">
+                                <rect key="frame" x="15" y="75" width="330" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="8yH-eG-DxE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71j-uP-N8g">
+                                <rect key="frame" x="15" y="155" width="345" height="30"/>
+                                <state key="normal" title="바로 결제되지 않아요"/>
+                                <connections>
+                                    <action selector="checkButton:" destination="J6T-tv-ddU" eventType="touchUpInside" id="ZSk-YS-akx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puP-k2-B8f">
+                                <rect key="frame" x="15" y="185" width="345" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Iv2-HH-xdh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjJ-YQ-qs2">
+                                <rect key="frame" x="15" y="260" width="345" height="30"/>
+                                <state key="normal" title="펀딩 종료 후에는 취소 할 수 없어요"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTl-YF-GJT">
+                                <rect key="frame" x="63" y="389" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKi-m9-Hm5">
+                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.46666666666666667" green="0.76470588235294112" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="펀딩하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="50v-nB-nn7" firstAttribute="trailing" secondItem="XKi-m9-Hm5" secondAttribute="trailing" id="340-5K-Kbr"/>
+                            <constraint firstItem="50v-nB-nn7" firstAttribute="trailing" secondItem="71j-uP-N8g" secondAttribute="trailing" constant="15" id="6Uq-Vz-V2p"/>
+                            <constraint firstItem="puP-k2-B8f" firstAttribute="leading" secondItem="50v-nB-nn7" secondAttribute="leading" constant="15" id="6e0-En-ZKn"/>
+                            <constraint firstItem="puP-k2-B8f" firstAttribute="top" secondItem="71j-uP-N8g" secondAttribute="bottom" id="CdG-hC-vg8"/>
+                            <constraint firstItem="cjJ-YQ-qs2" firstAttribute="top" secondItem="puP-k2-B8f" secondAttribute="bottom" constant="5" id="Iga-X5-boR"/>
+                            <constraint firstItem="71j-uP-N8g" firstAttribute="leading" secondItem="50v-nB-nn7" secondAttribute="leading" constant="15" id="LGd-NN-7PA"/>
+                            <constraint firstItem="QxX-20-LRV" firstAttribute="top" secondItem="50v-nB-nn7" secondAttribute="top" constant="15" id="PGT-bo-wer"/>
+                            <constraint firstItem="RqW-DY-p7Y" firstAttribute="top" secondItem="QxX-20-LRV" secondAttribute="bottom" constant="10" id="QEF-Ms-wyV"/>
+                            <constraint firstItem="50v-nB-nn7" firstAttribute="trailing" secondItem="cjJ-YQ-qs2" secondAttribute="trailing" constant="15" id="bLo-Ct-UlV"/>
+                            <constraint firstItem="XKi-m9-Hm5" firstAttribute="leading" secondItem="50v-nB-nn7" secondAttribute="leading" id="bdE-OO-m4Q"/>
+                            <constraint firstItem="cjJ-YQ-qs2" firstAttribute="leading" secondItem="50v-nB-nn7" secondAttribute="leading" constant="15" id="blZ-Co-2tj"/>
+                            <constraint firstItem="QxX-20-LRV" firstAttribute="leading" secondItem="50v-nB-nn7" secondAttribute="leading" constant="15" id="cOV-QS-ajy"/>
+                            <constraint firstItem="50v-nB-nn7" firstAttribute="trailing" secondItem="puP-k2-B8f" secondAttribute="trailing" constant="15" id="f25-kX-3Ja"/>
+                            <constraint firstItem="50v-nB-nn7" firstAttribute="trailing" secondItem="RqW-DY-p7Y" secondAttribute="trailing" constant="30" id="i2T-b2-t0G"/>
+                            <constraint firstItem="50v-nB-nn7" firstAttribute="bottom" secondItem="XKi-m9-Hm5" secondAttribute="bottom" id="l8s-fQ-8mG"/>
+                            <constraint firstItem="RqW-DY-p7Y" firstAttribute="leading" secondItem="50v-nB-nn7" secondAttribute="leading" constant="15" id="rdg-eq-iEf"/>
+                            <constraint firstItem="71j-uP-N8g" firstAttribute="top" secondItem="RqW-DY-p7Y" secondAttribute="bottom" constant="30" id="tjf-T9-Ijb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="50v-nB-nn7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bwa-RA-EjQ"/>
+                    <connections>
+                        <outlet property="fundingButton" destination="XKi-m9-Hm5" id="ext-Un-IxN"/>
+                        <outlet property="payText" destination="puP-k2-B8f" id="7Bq-In-MB5"/>
+                        <outlet property="paymentButton" destination="71j-uP-N8g" id="vJO-Kb-Spn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iXY-WY-aPZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1007.2" y="-47.226386806596707"/>
+        </scene>
+    </scenes>
+</document>
