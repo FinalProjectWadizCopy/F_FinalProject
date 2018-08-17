@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCellTableViewCell" rowHeight="45" id="KGk-i7-Jjw" customClass="HeaderCellTableViewCell" customModule="WadizProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="프로젝트 검색" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLW-mQ-Icc">
+                        <rect key="frame" x="10" y="0.0" width="132" height="44.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YT7-Uk-snE">
+                        <rect key="frame" x="275.5" y="0.0" width="44.5" height="44.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="YT7-Uk-snE" secondAttribute="height" multiplier="1:1" id="Veb-pV-3gz"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="HeaderGrid"/>
+                        <connections>
+                            <action selector="viewChangeButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dEZ-2b-OtO"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUZ-WC-dIk">
+                        <rect key="frame" x="142" y="0.0" width="44.5" height="44.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="WUZ-WC-dIk" secondAttribute="height" multiplier="1:1" id="ecY-K5-tZt"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="search"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maY-K2-S2P">
+                        <rect key="frame" x="186.5" y="0.0" width="89" height="44.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="maY-K2-S2P" secondAttribute="height" multiplier="2:1" id="Mr3-6E-Jka"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                        <state key="normal" title="추천순 ↓↑">
+                            <color key="titleColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="popSortingmenu:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="S7Q-fE-Egj"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="gLW-mQ-Icc" secondAttribute="bottom" id="474-Ix-vhJ"/>
+                    <constraint firstItem="YT7-Uk-snE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4cy-IJ-RXE"/>
+                    <constraint firstAttribute="bottom" secondItem="WUZ-WC-dIk" secondAttribute="bottom" id="74I-G6-RVf"/>
+                    <constraint firstItem="WUZ-WC-dIk" firstAttribute="leading" secondItem="gLW-mQ-Icc" secondAttribute="trailing" id="CSI-w0-Qxg"/>
+                    <constraint firstItem="YT7-Uk-snE" firstAttribute="leading" secondItem="maY-K2-S2P" secondAttribute="trailing" id="Fa5-ZA-BXC"/>
+                    <constraint firstAttribute="trailing" secondItem="YT7-Uk-snE" secondAttribute="trailing" id="Svs-rx-iEM"/>
+                    <constraint firstItem="gLW-mQ-Icc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dpW-iP-Isp"/>
+                    <constraint firstItem="WUZ-WC-dIk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="eu8-2p-2QW"/>
+                    <constraint firstAttribute="bottom" secondItem="maY-K2-S2P" secondAttribute="bottom" id="ftB-Mr-QWw"/>
+                    <constraint firstItem="maY-K2-S2P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="h2A-mK-lzx"/>
+                    <constraint firstAttribute="bottom" secondItem="YT7-Uk-snE" secondAttribute="bottom" id="tTz-CX-TZt"/>
+                    <constraint firstItem="maY-K2-S2P" firstAttribute="leading" secondItem="WUZ-WC-dIk" secondAttribute="trailing" id="wVf-VA-V3C"/>
+                    <constraint firstItem="gLW-mQ-Icc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="z4f-NM-xvO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="popSortingViewButton" destination="maY-K2-S2P" id="eEx-gH-oG8"/>
+                <outlet property="searchTextField" destination="gLW-mQ-Icc" id="SdH-xG-vrb"/>
+                <outlet property="viewChangeButton" destination="YT7-Uk-snE" id="ZaT-nI-fTg"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="69.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="HeaderGrid" width="96" height="88"/>
+        <image name="search" width="307" height="230"/>
+    </resources>
+</document>
