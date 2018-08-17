@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23EB73E62126944E0035C44B /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EB73DE2126944D0035C44B /* CardCell.xib */; };
+		23EB73E72126944E0035C44B /* FundingTermsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB73DF2126944D0035C44B /* FundingTermsPageViewController.swift */; };
+		23EB73E82126944E0035C44B /* FundingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB73E02126944D0035C44B /* FundingPageViewController.swift */; };
+		23EB73E92126944E0035C44B /* PersonalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB73E12126944D0035C44B /* PersonalPageViewController.swift */; };
+		23EB73EA2126944E0035C44B /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB73E22126944D0035C44B /* CardCell.swift */; };
+		23EB73EB2126944E0035C44B /* PersonalPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EB73E32126944D0035C44B /* PersonalPage.storyboard */; };
+		23EB73EC2126944E0035C44B /* FundingPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EB73E42126944E0035C44B /* FundingPage.storyboard */; };
+		23EB73ED2126944E0035C44B /* FundingTermsPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EB73E52126944E0035C44B /* FundingTermsPage.storyboard */; };
+		59E78253210EE21C00C19A41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E78252210EE21C00C19A41 /* AppDelegate.swift */; };
 		3371ECBE4339BAE019AE4006 /* Pods_WadizProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E946E6A82A94CE591B6110 /* Pods_WadizProject.framework */; };
 		592A070521219A8C00406B79 /* RewardsGridTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A070421219A8C00406B79 /* RewardsGridTableViewCell.swift */; };
 		592A07072121CC7400406B79 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07062121CC7400406B79 /* LunchViewController.swift */; };
@@ -33,6 +42,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23EB73DE2126944D0035C44B /* CardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
+		23EB73DF2126944D0035C44B /* FundingTermsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundingTermsPageViewController.swift; sourceTree = "<group>"; };
+		23EB73E02126944D0035C44B /* FundingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundingPageViewController.swift; sourceTree = "<group>"; };
+		23EB73E12126944D0035C44B /* PersonalPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageViewController.swift; sourceTree = "<group>"; };
+		23EB73E22126944D0035C44B /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		23EB73E32126944D0035C44B /* PersonalPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalPage.storyboard; sourceTree = "<group>"; };
+		23EB73E42126944E0035C44B /* FundingPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FundingPage.storyboard; sourceTree = "<group>"; };
+		23EB73E52126944E0035C44B /* FundingTermsPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FundingTermsPage.storyboard; sourceTree = "<group>"; };
+		59E7824F210EE21C00C19A41 /* WadizProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WadizProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59E78252210EE21C00C19A41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14E946E6A82A94CE591B6110 /* Pods_WadizProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WadizProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		295812419736B62CD9631192 /* Pods-WadizProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WadizProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject.debug.xcconfig"; sourceTree = "<group>"; };
 		592A070421219A8C00406B79 /* RewardsGridTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsGridTableViewCell.swift; sourceTree = "<group>"; };
@@ -200,6 +219,17 @@
 		59E78251210EE21C00C19A41 /* WadizProject */ = {
 			isa = PBXGroup;
 			children = (
+				59E78252210EE21C00C19A41 /* AppDelegate.swift */,
+				23EB73E22126944D0035C44B /* CardCell.swift */,
+				23EB73DE2126944D0035C44B /* CardCell.xib */,
+				23EB73E42126944E0035C44B /* FundingPage.storyboard */,
+				23EB73E02126944D0035C44B /* FundingPageViewController.swift */,
+				23EB73E52126944E0035C44B /* FundingTermsPage.storyboard */,
+				23EB73DF2126944D0035C44B /* FundingTermsPageViewController.swift */,
+				23EB73E32126944D0035C44B /* PersonalPage.storyboard */,
+				23EB73E12126944D0035C44B /* PersonalPageViewController.swift */,
+				59E7825C210EE21F00C19A41 /* Assets.xcassets */,
+				59E7825E210EE21F00C19A41 /* LaunchScreen.storyboard */,
 				597140B321102685005FA8DA /* Storyboard */,
 				597140B6211026DB005FA8DA /* Sources */,
 				597140B5211026BF005FA8DA /* Resources */,
@@ -288,7 +318,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				59E78260210EE21F00C19A41 /* LaunchScreen.storyboard in Resources */,
+				23EB73ED2126944E0035C44B /* FundingTermsPage.storyboard in Resources */,
+				23EB73EC2126944E0035C44B /* FundingPage.storyboard in Resources */,
+				23EB73E62126944E0035C44B /* CardCell.xib in Resources */,
 				59E7825D210EE21F00C19A41 /* Assets.xcassets in Resources */,
+				23EB73EB2126944E0035C44B /* PersonalPage.storyboard in Resources */,
 				593A944E2119746800F4F4A2 /* HeaderCellTableViewCell.xib in Resources */,
 				59E78258210EE21D00C19A41 /* Main.storyboard in Resources */,
 				59C69D292114A1D50085FAD7 /* CategoryCollectionViewCell.xib in Resources */,
@@ -344,6 +378,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				59E78253210EE21C00C19A41 /* AppDelegate.swift in Sources */,
+				23EB73E82126944E0035C44B /* FundingPageViewController.swift in Sources */,
+				23EB73E72126944E0035C44B /* FundingTermsPageViewController.swift in Sources */,
+				59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */,
+				23EB73E92126944E0035C44B /* PersonalPageViewController.swift in Sources */,
+				23EB73EA2126944E0035C44B /* CardCell.swift in Sources */,
 				593A944D2119746800F4F4A2 /* HeaderCellTableViewCell.swift in Sources */,
 				592A07072121CC7400406B79 /* LunchViewController.swift in Sources */,
 				59C69D302115320D0085FAD7 /* RecommendTableViewCell.swift in Sources */,
@@ -366,14 +405,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		59E78256210EE21D00C19A41 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				59E78257210EE21D00C19A41 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		59E7825E210EE21F00C19A41 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
