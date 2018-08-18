@@ -27,7 +27,6 @@ class CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("rewardsArr : ", rewardsArr.isEmpty)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -38,8 +37,8 @@ class CategoryViewController: UIViewController {
             print("tableView.isHidden")
             let empty = EmptyView(frame: view.frame)
             view.addSubview(empty)
-//            let view = EmptyView(frame: self.view.frame)
-//            view.addSubview(view)
+            
+            print(titlename)
         }
         
         
@@ -160,6 +159,22 @@ extension CategoryViewController: UITableViewDataSource {
             return rewardsGridCell
         }
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        tableView.rowHeight = 0
+        
+        let endCell = tableView.numberOfRows(inSection: 0)
+        if indexPath.row == (endCell - 4) {
+            rewards.nextRewardGetList { [weak self] (reward) in
+                guard let strongSelf = self else { return }
+                strongSelf.rewardsArr += reward.results
+                guard let nextURL = reward.next else {strongSelf.tableView.reloadData(); return }
+                API.nextURL = nextURL
+                strongSelf.tableView.reloadData()
+                //TODO: - 6번째 로드시 post err 발생 (원인찾기)
+            }
+        }
+    }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         tableView.register(UINib(nibName: "HeaderCellTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderCellTableViewCell")
@@ -195,6 +210,48 @@ extension CategoryViewController: UITextFieldDelegate{
 // MARK: - HeaderCellTableViewCellDelegate
 
 extension CategoryViewController: HeaderCellTableViewCellDelegate {
+    
+    func actionSoringChange() {
+        let textArr = ["-product_interested_count", "-product_cur_amount", "-product_end_time"]
+        
+        let alertContoller = UIAlertController(title: "정렬", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let interestedCount = UIAlertAction(title: "인기순", style: .default) { (action) in
+            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[0], category: self.titlename!, completion: { (reward) in
+                self.rewardsArr = reward.results
+                API.nextURL = reward.next!
+                self.tableView.reloadData()
+            })
+        }
+        
+        let currentCount = UIAlertAction(title: "펀딩액순", style: .default) { (action) in
+            print("currentCount")
+            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[1], category: self.titlename!, completion: { (reward) in
+                self.rewardsArr = reward.results
+                API.nextURL = reward.next!
+                self.tableView.reloadData()
+            })
+        }
+        
+        let endTime = UIAlertAction(title: "마감임박", style: .default) { (action) in
+            print("endTime")
+            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[2], category: self.titlename!, completion: { (reward) in
+                self.rewardsArr = reward.results
+                API.nextURL = reward.next!
+                self.tableView.reloadData()
+            })
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            print("cancel")
+        }
+        
+        for alert in [interestedCount, currentCount, endTime, cancel] {
+            alertContoller.addAction(alert)
+        }
+        present(alertContoller, animated: true)
+    }
+    
     func viewChange() {
         tableView.reloadData()
     }
