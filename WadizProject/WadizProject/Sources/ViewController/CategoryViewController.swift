@@ -80,14 +80,23 @@ extension CategoryViewController: UITableViewDataSource {
                     withIdentifier: "RewardsCell",
                     for: indexPath) as! RewardsTableViewCell
             tableView.rowHeight = rewardsCell.rowHeight
-
+            rewardsCell.totalPercent.textColor = Color.shared.symbolColor
             if searchResults == nil {
                 let url = URL(string: rewardsArr[indexPath.row].productImg)
                 rewardsCell.productImg.kf.setImage(with: url)
                 rewardsCell.productName.text = rewardsArr[indexPath.row].productName
                 rewardsCell.type.text = rewardsArr[indexPath.row].type
                 rewardsCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
-                rewardsCell.totalAAmount.text = String(rewardsArr[indexPath.row].totalAAmount)
+                rewardsCell.currentAmount.text = rewardsArr[indexPath.row].currentAmountFormatter
+                rewardsCell.dayLeft.text = rewardsArr[indexPath.row].remainingDay
+                rewardsCell.totalPercent.text = String(rewardsArr[indexPath.row].totalPercent)
+                
+                if rewardsArr[indexPath.row].isFinish {
+                    rewardsCell.dayFinish.isHidden = true
+                } else {
+                    rewardsCell.dayFinish.isHidden = false
+                }
+                
             } else {
                 guard let search = searchResults else { return rewardsCell }
                 let searchURL = URL(string: search[indexPath.row].productImg)
@@ -95,7 +104,16 @@ extension CategoryViewController: UITableViewDataSource {
                 rewardsCell.productName.text = search[indexPath.row].productName
                 rewardsCell.type.text = search[indexPath.row].type
                 rewardsCell.companyName.text = "| " + search[indexPath.row].companyName
-                rewardsCell.totalAAmount.text = String(search[indexPath.row].totalAAmount)
+                rewardsCell.currentAmount.text = search[indexPath.row].currentAmountFormatter
+                
+                rewardsCell.dayLeft.text = search[indexPath.row].remainingDay
+                rewardsCell.totalPercent.text = String(search[indexPath.row].totalPercent)
+                
+                if search[indexPath.row].isFinish {
+                    rewardsCell.dayFinish.isHidden = true
+                } else {
+                    rewardsCell.dayFinish.isHidden = false
+                }
             }
             return rewardsCell
         } else {
@@ -104,14 +122,23 @@ extension CategoryViewController: UITableViewDataSource {
                     withIdentifier: "RewardsGridCell",
                     for: indexPath) as! RewardsGridTableViewCell
             tableView.rowHeight = rewardsGridCell.rowHeight
-
+            rewardsGridCell.totalPercent.textColor = Color.shared.symbolColor
             if searchResults == nil {
                 let url = URL(string: rewardsArr[indexPath.row].productImg)
                 rewardsGridCell.productImg.kf.setImage(with: url)
                 rewardsGridCell.productName.text = rewardsArr[indexPath.row].productName
                 rewardsGridCell.type.text = rewardsArr[indexPath.row].type
                 rewardsGridCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
-                rewardsGridCell.totalAAmount.text = String(rewardsArr[indexPath.row].totalAAmount)
+                rewardsGridCell.currentAmount.text = rewardsArr[indexPath.row].currentAmountFormatter
+                
+                rewardsGridCell.dayLeft.text = rewardsArr[indexPath.row].remainingDay
+                rewardsGridCell.totalPercent.text = String(rewardsArr[indexPath.row].totalPercent)
+                
+                if rewardsArr[indexPath.row].isFinish {
+                    rewardsGridCell.dayFinish.isHidden = true
+                } else {
+                    rewardsGridCell.dayFinish.isHidden = false
+                }
             } else {
                 guard let search = searchResults else { return rewardsGridCell }
                 let searchURL = URL(string: search[indexPath.row].productImg)
@@ -119,7 +146,16 @@ extension CategoryViewController: UITableViewDataSource {
                 rewardsGridCell.productName.text = search[indexPath.row].productName
                 rewardsGridCell.type.text = search[indexPath.row].type
                 rewardsGridCell.companyName.text = "| " + search[indexPath.row].companyName
-                rewardsGridCell.totalAAmount.text = String(search[indexPath.row].totalAAmount)
+                rewardsGridCell.currentAmount.text = search[indexPath.row].currentAmountFormatter
+                
+                rewardsGridCell.dayLeft.text = search[indexPath.row].remainingDay
+                rewardsGridCell.totalPercent.text = String(search[indexPath.row].totalPercent)
+                
+                if search[indexPath.row].isFinish {
+                    rewardsGridCell.dayFinish.isHidden = true
+                } else {
+                    rewardsGridCell.dayFinish.isHidden = false
+                }
             }
             return rewardsGridCell
         }

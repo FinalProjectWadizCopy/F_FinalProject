@@ -14,12 +14,12 @@ class RewardsTableViewCell: UITableViewCell {
     let productImg = UIImageView()      // 프로젝트 이미지
     let type = UILabel()                // 프로젝트 카테고리
     let companyName = UILabel()         // 프로젝트 회사 이름
-    let dayFinish = UILabel()           // 프로젝트 마감 임박 표시 레이블
+    var dayFinish = UILabel()           // 프로젝트 마감 임박 표시 레이블
     let totalPercent = UILabel()        // 프로젝트 달성 %
-    let totalAAmount = UILabel()        // 프로젝트 목표 금액
+    let currentAmount = UILabel()        // 프로젝트 현재 금액
     let dayLeft = UILabel()             // 프로젝트 남은 일
     let progress = UIProgressView()     // 프로젝트 목표금액
-    
+
     var rowHeight: CGFloat!
     
     override func awakeFromNib() {
@@ -29,7 +29,7 @@ class RewardsTableViewCell: UITableViewCell {
         type.text = "테크·가전"
         companyName.text = "| 디메이커스"
         totalPercent.text = "2,000%"
-        totalAAmount.text = "20,000,000"
+        currentAmount.text = "20,000,000"
         dayLeft.text = "50일 남음"
         dayFinish.text = " 마감 임박 "
         
@@ -43,13 +43,13 @@ class RewardsTableViewCell: UITableViewCell {
     }
     
     func addsubViews() {
-
+        
         addSubview(productImg)
         addSubview(productName)
         addSubview(type)
         addSubview(companyName)
-        addSubview(dayFinish)
-        addSubview(totalAAmount)
+        
+        addSubview(currentAmount)
         addSubview(totalPercent)
         addSubview(dayLeft)
         addSubview(progress)
@@ -58,11 +58,14 @@ class RewardsTableViewCell: UITableViewCell {
         productName.translatesAutoresizingMaskIntoConstraints = false
         type.translatesAutoresizingMaskIntoConstraints = false
         companyName.translatesAutoresizingMaskIntoConstraints = false
-        totalAAmount.translatesAutoresizingMaskIntoConstraints = false
+        currentAmount.translatesAutoresizingMaskIntoConstraints = false
         totalPercent.translatesAutoresizingMaskIntoConstraints = false
         dayLeft.translatesAutoresizingMaskIntoConstraints = false
-        dayFinish.translatesAutoresizingMaskIntoConstraints = false
+        
         progress.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(dayFinish)
+        dayFinish.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func addAutoLayout() {
@@ -74,8 +77,7 @@ class RewardsTableViewCell: UITableViewCell {
         productImg.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
         productImg.widthAnchor.constraint(equalTo: productImg.heightAnchor, multiplier: 1.5).isActive = true
       
-        dayFinish.topAnchor.constraint(equalTo: productImg.topAnchor).isActive = true
-        dayFinish.leadingAnchor.constraint(equalTo: productImg.leadingAnchor).isActive = true
+        
 
         productName.topAnchor.constraint(equalTo: productImg.topAnchor).isActive = true
         productName.leadingAnchor.constraint(equalTo: productImg.trailingAnchor, constant: 10).isActive = true
@@ -90,15 +92,19 @@ class RewardsTableViewCell: UITableViewCell {
         totalPercent.bottomAnchor.constraint(equalTo: productImg.bottomAnchor).isActive = true
         totalPercent.leadingAnchor.constraint(equalTo: productName.leadingAnchor).isActive = true
 
-        totalAAmount.bottomAnchor.constraint(equalTo: totalPercent.bottomAnchor).isActive = true
-        totalAAmount.leadingAnchor.constraint(equalTo: totalPercent.trailingAnchor, constant: 5).isActive = true
+        currentAmount.bottomAnchor.constraint(equalTo: totalPercent.bottomAnchor).isActive = true
+        currentAmount.leadingAnchor.constraint(equalTo: totalPercent.trailingAnchor, constant: 5).isActive = true
 
-        dayLeft.bottomAnchor.constraint(equalTo: totalAAmount.bottomAnchor).isActive = true
+        dayLeft.bottomAnchor.constraint(equalTo: currentAmount.bottomAnchor).isActive = true
         dayLeft.trailingAnchor.constraint(equalTo: productName.trailingAnchor).isActive = true
 
-        progress.bottomAnchor.constraint(equalTo: totalAAmount.topAnchor, constant: -5).isActive = true
+        progress.bottomAnchor.constraint(equalTo: currentAmount.topAnchor, constant: -5).isActive = true
         progress.leadingAnchor.constraint(equalTo: productName.leadingAnchor).isActive = true
         progress.trailingAnchor.constraint(equalTo: productName.trailingAnchor).isActive = true
+        
+        
+        dayFinish.topAnchor.constraint(equalTo: productImg.topAnchor).isActive = true
+        dayFinish.leadingAnchor.constraint(equalTo: productImg.leadingAnchor).isActive = true
     }
     
     func addSubViewAttribute() {
@@ -110,14 +116,15 @@ class RewardsTableViewCell: UITableViewCell {
             type.font = UIFont.init(name: fontName, size: 10)
             companyName.font = type.font
             totalPercent.font = UIFont.init(name: fontName, size: 13)
-            totalAAmount.font = UIFont.init(name: fontName, size: 10)
+            currentAmount.font = UIFont.init(name: fontName, size: 10)
             dayLeft.font = UIFont.init(name: fontName, size: 10)
             
-            dayFinish.font = UIFont.init(name: fontName, size: 13)
-            dayFinish.textColor = UIColor.white
-            dayFinish.backgroundColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
+        
             
             progress.trackTintColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
-
+        
+        dayFinish.font = UIFont.init(name: fontName, size: 13)
+        dayFinish.textColor = UIColor.white
+        dayFinish.backgroundColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
     }
 }

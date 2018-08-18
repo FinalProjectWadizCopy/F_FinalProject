@@ -1,24 +1,26 @@
 //
-//  Search.swift
+//  Detail.swift
 //  WadizProject
 //
-//  Created by Jo JANGHUI on 2018. 8. 15..
+//  Created by Jo JANGHUI on 2018. 8. 17..
 //  Copyright © 2018년 JhDAT. All rights reserved.
 //
 
 import Foundation
 
-struct Search: Decodable {
+struct Detail: Decodable {
     let pk: Int
     let productName: String
     let type: String
     let companyName: String
     let productImg: String
+    let productDetailImg: String
     let interestedCount: Int
     let startTime: String
     let endTime: String
     let currentAmount: Int
     let totalAAmount: Int
+    let rewards: [DetailRewards]
     
     var remainingDay: String {
         let dateFormatter = DateFormatter()
@@ -63,15 +65,43 @@ struct Search: Decodable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case pk
+        case pk, rewards
         case productName = "product_name"
         case type = "product_type"
         case companyName = "product_company_name"
         case productImg = "product_img"
+        case productDetailImg = "product_detail_img"
         case interestedCount = "product_interested_count"
         case startTime = "product_start_time"
         case endTime = "product_end_time"
         case currentAmount = "product_cur_amount"
         case totalAAmount = "product_total_amount"
     }
+    
+    struct DetailRewards: Decodable {        
+        let pk: Int
+        let rewardName: String
+        let rewardOption: String
+        let rewardPrice: Int
+        let rewardShippingCharge: Int
+        let rewardExpectingDepartureDate: String
+        let rewardTotalCount: Int
+        let rewardSoldCount: Int
+        let rewardOnSale: Bool
+        let product: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case pk, product
+            case rewardName = "reward_name"
+            case rewardOption = "reward_option"
+            case rewardPrice = "reward_price"
+            case rewardShippingCharge = "reward_shipping_charge"
+            case rewardExpectingDepartureDate = "reward_expecting_departure_date"
+            case rewardTotalCount = "reward_total_count"
+            case rewardSoldCount = "reward_sold_count"
+            case rewardOnSale = "reward_on_sale"
+        }
+        
+    }
+    
 }

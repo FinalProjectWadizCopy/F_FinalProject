@@ -14,6 +14,8 @@ struct API {
     static var nextURL = ""
     static let searchURL = "https://ryanden.kr/api/rewards/search/?product_name="
     static let categoryURL = "https://ryanden.kr/api/rewards/search/?category="
+    
+    static let detailURL = "https://ryanden.kr/api/rewards/"
 }
 
 struct PostService {
@@ -100,6 +102,25 @@ struct PostService {
                         completion(searchList)
                         lodingView.activityIndicator.stopAnimating()
                         lodingView.removeFromSuperview()
+                    } catch {
+                        print("post err")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
+    }
+    
+    func detailGetList(title: String, completion: @escaping (Detail) -> ()){
+        let url = API.detailURL + title
+        Alamofire.request(url)
+            .validate()
+            .responseData(completionHandler: { (response) in
+                switch response.result{
+                case .success(let value):
+                    do {
+                        let detailList = try JSONDecoder().decode(Detail.self, from: value)
+                        completion(detailList)
                     } catch {
                         print("post err")
                     }

@@ -8,10 +8,7 @@
 
 import UIKit
 
-class GrideView {
-    static let shared = GrideView()
-    var isShow = true
-}
+
 
 protocol HeaderCellTableViewCellDelegate: class {
     func viewChange()
@@ -53,7 +50,6 @@ class HeaderCellTableViewCell: UITableViewCell {
                     strongSelf.soringButtonArr[idx].layoutIfNeeded()
                 }
             }
-            
             popButtonSelected = false
         } else {
             for idx in 0..<soringButtonArr.count {
