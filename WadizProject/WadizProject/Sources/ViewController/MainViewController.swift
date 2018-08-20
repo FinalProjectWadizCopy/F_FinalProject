@@ -103,7 +103,7 @@ extension MainViewController: UITableViewDataSource {
                 withIdentifier: "RecommendTableViewCell",
                 for: indexPath) as! RecommendTableViewCell
             recommendCell.buttonArr.forEach { (button) in
-                button.frame.size.height = view.frame.height / 4
+                button.frame.size.height = view.frame.height / 3
                 button.addTarget(self, action: #selector(actionRecommendButton), for: .touchUpInside)
             }
             tableView.rowHeight = recommendCell.buttonArr[indexPath.row].frame.size.height
@@ -253,7 +253,6 @@ extension MainViewController: UITableViewDelegate {
             detailView.detailData = detail
             self.navigationController?.pushViewController(detailView, animated: true)
         }
-        
     }
 }
 
@@ -282,7 +281,6 @@ extension MainViewController: CategorybuttonDelegate {
             searchResults = nil
             mainTableView.reloadData()
         default:
-            print("title", title)
             let category = self.storyboard?.instantiateViewController(withIdentifier: "CategoryView") as! CategoryViewController
             rewards.categoryGetList(frame: view.frame, title: title) { [weak self] (reward) in
                 guard let strongSelf = self else { return }

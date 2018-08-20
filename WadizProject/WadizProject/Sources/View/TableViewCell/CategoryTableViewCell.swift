@@ -23,7 +23,6 @@ class CategoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         categoryCollectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil),
                                         forCellWithReuseIdentifier: "CategoryCell")
-
     }
     
     @objc func actionCategoryButton (_ button: UIButton) {

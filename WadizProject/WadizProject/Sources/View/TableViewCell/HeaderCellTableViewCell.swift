@@ -40,26 +40,7 @@ class HeaderCellTableViewCell: UITableViewCell {
     }
     
     @IBAction func popSortingmenu (_ sender: UIButton) {
-        print("delegate popSortingmenu")
         delegate?.actionSoringChange()
-        
-//        popSortingViewButton.setTitle(title, for: .normal)
-//        if popButtonSelected {
-//            let popframe = popSortingViewButton.frame
-//            UIView.animate(withDuration: 0.5) { [weak self] in
-//                guard let strongSelf = self else { return }
-//                for idx in 0..<strongSelf.sortingButtonArr.count {
-//                    strongSelf.sortingButtonArr[idx].frame.size.width = popframe.width
-//                    strongSelf.sortingButtonArr[idx].layoutIfNeeded()
-//                }
-//            }
-//            popButtonSelected = false
-//        } else {
-//            for idx in 0..<sortingButtonArr.count {
-//                sortingButtonArr[idx].frame.size.width = 0
-//            }
-//            popButtonSelected = true
-//        }
     }
     
     override func awakeFromNib() {
@@ -76,17 +57,8 @@ class HeaderCellTableViewCell: UITableViewCell {
         
         popSortingViewButton.layer.borderColor = UIColor.gray.cgColor
         popSortingViewButton.layer.borderWidth = 1
-        
-//        for idx in 0..<buttonTitle.count {
-//            addSortingButton(buttonTitle[idx], index: idx)
-//        }
-        
-        
     }
-    
-    func test() {
-        print("test")
-    }
+
     
     func addSortingButton (_ name: String, index: Int) {
         let button = UIButton()

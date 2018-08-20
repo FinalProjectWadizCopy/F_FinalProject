@@ -14,13 +14,14 @@ class DetailViewController: UIViewController {
     
     //MARK: - IBOutlet
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var dayLeft: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var totalPrecent: UILabel!
     @IBOutlet weak var currentAmount: UILabel!
+    @IBOutlet weak var dayLeft: UILabel!
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var progress: UIProgressView!
     
-    @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()

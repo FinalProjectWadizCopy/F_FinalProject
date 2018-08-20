@@ -70,7 +70,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="201.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRS-1l-De1">
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRS-1l-De1">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="201"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="4eT-yQ-XAl" id="7L1-d3-aM2"/>

@@ -64,7 +64,6 @@ extension CategoryViewController: UITableViewDataSource {
                 rewardsCell.currentAmount.text = rewardsArr[indexPath.row].currentAmountFormatter
                 rewardsCell.dayLeft.text = rewardsArr[indexPath.row].remainingDay
                 rewardsCell.totalPercent.text = String(rewardsArr[indexPath.row].totalPercent)
-                
                 rewardsCell.progress.progress = rewardsArr[indexPath.row].progress
                 
                 if rewardsArr[indexPath.row].isFinish {
@@ -81,10 +80,8 @@ extension CategoryViewController: UITableViewDataSource {
                 rewardsCell.type.text = search[indexPath.row].type
                 rewardsCell.companyName.text = "| " + search[indexPath.row].companyName
                 rewardsCell.currentAmount.text = search[indexPath.row].currentAmountFormatter
-                
                 rewardsCell.dayLeft.text = search[indexPath.row].remainingDay
                 rewardsCell.totalPercent.text = String(search[indexPath.row].totalPercent)
-                
                 rewardsCell.progress.progress = search[indexPath.row].progress
                 
                 if search[indexPath.row].isFinish {
@@ -170,6 +167,14 @@ extension CategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return 40
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+        rewards.detailGetList(pk: rewardsArr[indexPath.row].pk) { (detail) in
+            detailView.detailData = detail
+            self.navigationController?.pushViewController(detailView, animated: true)
+        }
+    }
 }
 
 // MARK:- UITextFieldDelegate
@@ -191,12 +196,18 @@ extension CategoryViewController: UITextFieldDelegate{
 extension CategoryViewController: HeaderCellTableViewCellDelegate {
     
     func actionSoringChange() {
-        let textArr = ["-product_interested_count", "-product_cur_amount", "-product_end_time"]
+        let textArr = ["-product_interested_count", "-product_cur_amount", "product_end_time"]
         
-        let alertContoller = UIAlertController(title: "정렬", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alertContoller = UIAlertController(title: "정렬",
+                                               message: nil,
+                                               preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        let interestedCount = UIAlertAction(title: "인기순", style: .default) { (action) in
-            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[0], category: self.titlename!, completion: { (reward) in
+        let interestedCount = UIAlertAction(title: "인기순",
+                                            style: .default) { (action) in
+            self.rewards.sortedGetList(frame: self.view.frame,
+                                       title: textArr[0],
+                                       category: self.titlename!,
+                                       completion: { (reward) in
                 self.rewardsArr = reward.results
                 API.nextURL = reward.next!
                 self.tableView.reloadData()
@@ -205,7 +216,10 @@ extension CategoryViewController: HeaderCellTableViewCellDelegate {
         
         let currentCount = UIAlertAction(title: "펀딩액순", style: .default) { (action) in
             print("currentCount")
-            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[1], category: self.titlename!, completion: { (reward) in
+            self.rewards.sortedGetList(frame: self.view.frame,
+                                       title: textArr[1],
+                                       category: self.titlename!,
+                                       completion: { (reward) in
                 self.rewardsArr = reward.results
                 API.nextURL = reward.next!
                 self.tableView.reloadData()
@@ -214,7 +228,10 @@ extension CategoryViewController: HeaderCellTableViewCellDelegate {
         
         let endTime = UIAlertAction(title: "마감임박", style: .default) { (action) in
             print("endTime")
-            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[2], category: self.titlename!, completion: { (reward) in
+            self.rewards.sortedGetList(frame: self.view.frame,
+                                       title: textArr[2],
+                                       category: self.titlename!,
+                                       completion: { (reward) in
                 self.rewardsArr = reward.results
                 API.nextURL = reward.next!
                 self.tableView.reloadData()
