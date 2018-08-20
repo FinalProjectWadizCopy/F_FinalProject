@@ -14,12 +14,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var leftNaviButton: UIBarButtonItem!
     @IBOutlet weak var mainTableView: UITableView!
     
+    let rewards = PostService()
+    
     var cellHeight: CGFloat?
     var menuView: UIView!
     var isMenuViewOn = false
     var MenuCGPoint = CGPoint()
-    
-    let rewards = PostService()
     var rewardsArr: [Rewards.Results] = []
     var searchResults: [Rewards.Results]? {
         didSet {
@@ -73,8 +73,6 @@ class MainViewController: UIViewController {
         print("actionRecommendButton")
         print(button.titleLabel?.text)
     }
-    
-    
 }
 
 
@@ -136,6 +134,7 @@ extension MainViewController: UITableViewDataSource {
                 rewardsCell.currentAmount.text = rewardsArr[indexPath.row].currentAmountFormatter
                 rewardsCell.dayLeft.text = rewardsArr[indexPath.row].remainingDay
                 rewardsCell.totalPercent.text = String(rewardsArr[indexPath.row].totalPercent)
+                rewardsCell.progress.progress = rewardsArr[indexPath.row].progress
                 
                 if rewardsArr[indexPath.row].isFinish {
                    rewardsCell.dayFinish.isHidden = true
@@ -152,9 +151,9 @@ extension MainViewController: UITableViewDataSource {
                 rewardsCell.type.text = search[indexPath.row].type
                 rewardsCell.companyName.text = "| " + search[indexPath.row].companyName
                 rewardsCell.currentAmount.text = String(search[indexPath.row].currentAmountFormatter)
-                
                 rewardsCell.dayLeft.text = search[indexPath.row].remainingDay
                 rewardsCell.totalPercent.text = String(search[indexPath.row].totalPercent)
+                rewardsCell.progress.progress = search[indexPath.row].progress
                 
                 if search[indexPath.row].isFinish {
                     rewardsCell.dayFinish.isHidden = true
@@ -177,10 +176,10 @@ extension MainViewController: UITableViewDataSource {
                 rewardsGridCell.type.text = rewardsArr[indexPath.row].type
                 rewardsGridCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
                 rewardsGridCell.currentAmount.text = rewardsArr[indexPath.row].currentAmountFormatter
-                
                 rewardsGridCell.dayLeft.text = rewardsArr[indexPath.row].remainingDay
                 rewardsGridCell.totalPercent.text = String(rewardsArr[indexPath.row].totalPercent)
                 
+                rewardsGridCell.progress.progress = rewardsArr[indexPath.row].progress
                 if rewardsArr[indexPath.row].isFinish {
                     rewardsGridCell.dayFinish.isHidden = true
                 } else {
@@ -195,9 +194,9 @@ extension MainViewController: UITableViewDataSource {
                 rewardsGridCell.type.text = search[indexPath.row].type
                 rewardsGridCell.companyName.text = "| " + search[indexPath.row].companyName
                 rewardsGridCell.currentAmount.text = String(search[indexPath.row].currentAmountFormatter)
-                
                 rewardsGridCell.dayLeft.text = search[indexPath.row].remainingDay
                 rewardsGridCell.totalPercent.text = String(search[indexPath.row].totalPercent)
+                rewardsGridCell.progress.progress = search[indexPath.row].progress
                 
                 if search[indexPath.row].isFinish {
                     rewardsGridCell.dayFinish.isHidden = true
@@ -235,7 +234,7 @@ extension MainViewController: UITableViewDataSource {
         }
         return nil
     }
-
+    
 }
 
 // MARK:- UITableViewDelegate
@@ -243,9 +242,18 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 2 {
-            return 40
+            return 45
         }
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+        rewards.detailGetList(pk: rewardsArr[indexPath.row].pk) { (detail) in
+            detailView.detailData = detail
+            self.navigationController?.pushViewController(detailView, animated: true)
+        }
+        
     }
 }
 
@@ -336,7 +344,6 @@ extension MainViewController: HeaderCellTableViewCellDelegate {
         present(alertContoller, animated: true)
         
     }
-    
     func viewChange() {
         mainTableView.reloadData()
     }

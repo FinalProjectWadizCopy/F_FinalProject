@@ -143,8 +143,9 @@ struct PostService {
             })
     }
     
-    func detailGetList(title: String, completion: @escaping (Detail) -> ()){
-        let url = API.detailURL + title
+    func detailGetList(pk: Int, completion: @escaping (Detail) -> ()){
+        let stringPk = String(pk)
+        let url = API.detailURL + stringPk
         Alamofire.request(url)
             .validate()
             .responseData(completionHandler: { (response) in

@@ -117,12 +117,13 @@ class RewardsGridTableViewCell: UITableViewCell {
         
         dayLeft.font = UIFont.init(name: fontName, size: 12)
         
-        
         dayFinish.font = UIFont.init(name: fontName, size: 18)
         dayFinish.textColor = UIColor.white
-        dayFinish.backgroundColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
+        dayFinish.backgroundColor = Color.shared.symbolColor
         
-        progress.trackTintColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
+        progress.trackTintColor = UIColor.gray
+        progress.progressTintColor = Color.shared.symbolColor
+        progress.backgroundColor = UIColor.gray
         
     }
 

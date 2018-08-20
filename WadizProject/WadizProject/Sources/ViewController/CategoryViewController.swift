@@ -10,14 +10,12 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
-    
-    //        ["전체보기", "테크·가전", "패션·잡화", "뷰티", "푸드", "홈리빙", "디자인소품", "여행·레저", "스포츠·모빌리티", "반려동물", "공연·컬처", "소셜·캠페인", "교육·키즈", "게임·취미", "출판"]
-    
+    //MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
     
-    var titlename: String?
-    
     let rewards = PostService()
+    
+    var titlename: String?
     var rewardsArr: [Rewards.Results] = []
     var searchResults: [Rewards.Results]? {
         didSet {
@@ -27,39 +25,16 @@ class CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.isHidden = false
         if rewardsArr.isEmpty {
             tableView.isHidden = true
-            print("tableView.isHidden")
             let empty = EmptyView(frame: view.frame)
             view.addSubview(empty)
-            
-            print(titlename)
         }
-        
-        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension CategoryViewController: UITableViewDataSource {
@@ -90,6 +65,8 @@ extension CategoryViewController: UITableViewDataSource {
                 rewardsCell.dayLeft.text = rewardsArr[indexPath.row].remainingDay
                 rewardsCell.totalPercent.text = String(rewardsArr[indexPath.row].totalPercent)
                 
+                rewardsCell.progress.progress = rewardsArr[indexPath.row].progress
+                
                 if rewardsArr[indexPath.row].isFinish {
                     rewardsCell.dayFinish.isHidden = true
                 } else {
@@ -107,6 +84,8 @@ extension CategoryViewController: UITableViewDataSource {
                 
                 rewardsCell.dayLeft.text = search[indexPath.row].remainingDay
                 rewardsCell.totalPercent.text = String(search[indexPath.row].totalPercent)
+                
+                rewardsCell.progress.progress = search[indexPath.row].progress
                 
                 if search[indexPath.row].isFinish {
                     rewardsCell.dayFinish.isHidden = true
@@ -129,9 +108,9 @@ extension CategoryViewController: UITableViewDataSource {
                 rewardsGridCell.type.text = rewardsArr[indexPath.row].type
                 rewardsGridCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
                 rewardsGridCell.currentAmount.text = rewardsArr[indexPath.row].currentAmountFormatter
-                
                 rewardsGridCell.dayLeft.text = rewardsArr[indexPath.row].remainingDay
                 rewardsGridCell.totalPercent.text = String(rewardsArr[indexPath.row].totalPercent)
+                rewardsGridCell.progress.progress = rewardsArr[indexPath.row].progress
                 
                 if rewardsArr[indexPath.row].isFinish {
                     rewardsGridCell.dayFinish.isHidden = true
@@ -146,9 +125,9 @@ extension CategoryViewController: UITableViewDataSource {
                 rewardsGridCell.type.text = search[indexPath.row].type
                 rewardsGridCell.companyName.text = "| " + search[indexPath.row].companyName
                 rewardsGridCell.currentAmount.text = search[indexPath.row].currentAmountFormatter
-                
                 rewardsGridCell.dayLeft.text = search[indexPath.row].remainingDay
                 rewardsGridCell.totalPercent.text = String(search[indexPath.row].totalPercent)
+                rewardsGridCell.progress.progress = search[indexPath.row].progress
                 
                 if search[indexPath.row].isFinish {
                     rewardsGridCell.dayFinish.isHidden = true
