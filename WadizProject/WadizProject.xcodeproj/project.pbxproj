@@ -96,8 +96,8 @@
 			children = (
 				23EB73E22126944D0035C44B /* CardCell.swift */,
 				23EB73DE2126944D0035C44B /* CardCell.xib */,
-				59C69D262114A1D50085FAD7 /* CategoryCollectionViewCell.swift */,
 				59C69D272114A1D50085FAD7 /* CategoryCollectionViewCell.xib */,
+				59C69D262114A1D50085FAD7 /* CategoryCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
