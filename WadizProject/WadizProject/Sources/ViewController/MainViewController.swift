@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
         menuView = MenuView(frame: view.frame)
         view.addSubview(menuView)
         setNavigation()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +45,31 @@ class MainViewController: UIViewController {
         titleView.text = "Wadiz"
         titleView.font = UIFont.boldSystemFont(ofSize: 20)
         navigationItem.titleView = titleView
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "뒤로가기",
+                                                           style: UIBarButtonItemStyle.plain,
+                                                           target: nil, action: nil)
+        
+        navigationItem.backBarButtonItem?.tintColor = Color.shared.symbolColor
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(naviTitleTouch))
+        titleView.isUserInteractionEnabled = true
+        titleView.addGestureRecognizer(recognizer)
+    }
+    @objc func naviTitleTouch() {
+        searchResults = nil
+        rewards.rewardGetList { [weak self] (reward) in
+            guard let strongSelf = self else { return }
+            strongSelf.rewardsArr = reward.results
+            if reward.next == nil {
+                API.nextURL = ""
+            } else {
+                API.nextURL = reward.next!
+            }
+            strongSelf.mainTableView.reloadData()
+            let index = IndexPath.init(row: 0, section: 2)
+            strongSelf.mainTableView.scrollToRow(at: index, at: .top, animated: true)
+        }
     }
     
     // MARK: - IBAction
@@ -279,7 +305,17 @@ extension MainViewController: CategorybuttonDelegate {
         switch title {
         case "전체보기":
             searchResults = nil
-            mainTableView.reloadData()
+            rewards.rewardGetList { [weak self] (reward) in
+                guard let strongSelf = self else { return }
+                strongSelf.rewardsArr = reward.results
+                if reward.next == nil {
+                    API.nextURL = ""
+                } else {
+                    API.nextURL = reward.next!
+                }
+                strongSelf.mainTableView.reloadData()
+            }
+            
         default:
             let category = self.storyboard?.instantiateViewController(withIdentifier: "CategoryView") as! CategoryViewController
             rewards.categoryGetList(frame: view.frame, title: title) { [weak self] (reward) in
@@ -302,12 +338,21 @@ extension MainViewController: CategorybuttonDelegate {
 extension MainViewController: HeaderCellTableViewCellDelegate {
     
     func actionSoringChange() {
-        let textArr = ["-product_interested_count", "-product_cur_amount", "-product_end_time"]
+        let textArr = ["-product_start_time", "-product_interested_count", "-product_cur_amount", "product_end_time"]
         
         let alertContoller = UIAlertController(title: "정렬", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        let interestedCount = UIAlertAction(title: "인기순", style: .default) { (action) in
+        let startTime = UIAlertAction(title: "최신순", style: .default) { (action) in
+            print("endTime")
             self.rewards.sortedGetList(frame: self.view.frame, title: textArr[0], category: "", completion: { (reward) in
+                self.rewardsArr = reward.results
+                API.nextURL = reward.next!
+                self.mainTableView.reloadData()
+            })
+        }
+        
+        let interestedCount = UIAlertAction(title: "인기순", style: .default) { (action) in
+            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[1], category: "", completion: { (reward) in
                 self.rewardsArr = reward.results
                 API.nextURL = reward.next!
                 self.mainTableView.reloadData()
@@ -316,15 +361,6 @@ extension MainViewController: HeaderCellTableViewCellDelegate {
         
         let currentCount = UIAlertAction(title: "펀딩액순", style: .default) { (action) in
             print("currentCount")
-            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[1], category: "", completion: { (reward) in
-                self.rewardsArr = reward.results
-                API.nextURL = reward.next!
-                self.mainTableView.reloadData()
-            })
-        }
-        
-        let endTime = UIAlertAction(title: "마감임박", style: .default) { (action) in
-            print("endTime")
             self.rewards.sortedGetList(frame: self.view.frame, title: textArr[2], category: "", completion: { (reward) in
                 self.rewardsArr = reward.results
                 API.nextURL = reward.next!
@@ -332,11 +368,22 @@ extension MainViewController: HeaderCellTableViewCellDelegate {
             })
         }
         
+        let endTime = UIAlertAction(title: "마감순", style: .default) { (action) in
+            print("endTime")
+            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[3], category: "", completion: { (reward) in
+                self.rewardsArr = reward.results
+                API.nextURL = reward.next!
+                self.mainTableView.reloadData()
+            })
+        }
+        
+       
+        
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             print("cancel")
         }
         
-        for alert in [interestedCount, currentCount, endTime, cancel] {
+        for alert in [startTime, interestedCount, currentCount, endTime, cancel] {
             alertContoller.addAction(alert)
         }
         present(alertContoller, animated: true)

@@ -28,10 +28,10 @@ struct Rewards: Decodable {
         var remainingDay: String {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "YYYY.MM.dd"
-            guard let start = dateFormatter.date(from: self.startTime) else { return "err"}
+            let nowDate = Date()
             guard let end = dateFormatter.date(from: self.endTime) else { return "err" }
             
-            let interval = end.timeIntervalSince(start)
+            let interval = end.timeIntervalSince(nowDate)
             let day = Int(interval / 86400)
             
             return String(day) + "일 남음"
@@ -40,13 +40,12 @@ struct Rewards: Decodable {
         var isFinish: Bool {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "YYYY.MM.dd"
-            guard let start = dateFormatter.date(from: self.startTime) else { return true }
-//            let nowDate = Date()
+            let nowDate = Date()
             guard let end = dateFormatter.date(from: self.endTime) else { return true }
             
-            let interval = end.timeIntervalSince(now)
+            let interval = end.timeIntervalSince(nowDate)
             let day = Int(interval / 86400)
-            guard day > 20 else { return false }
+            guard day > 3 else { return false }
             return true
         }
         

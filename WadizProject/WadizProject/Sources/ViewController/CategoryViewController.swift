@@ -25,6 +25,7 @@ class CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleSetup()
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -34,6 +35,14 @@ class CategoryViewController: UIViewController {
             let empty = EmptyView(frame: view.frame)
             view.addSubview(empty)
         }
+    }
+    
+    func titleSetup () {
+        let title = UILabel()
+        title.textColor = Color.shared.symbolColor
+        title.text = titlename
+        title.font = UIFont.boldSystemFont(ofSize: 20)
+        navigationItem.titleView = title
     }
 }
 

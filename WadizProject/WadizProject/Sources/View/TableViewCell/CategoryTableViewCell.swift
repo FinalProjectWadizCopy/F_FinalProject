@@ -56,6 +56,12 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
         cell.categoryCellTitle.text = categoryTitle[indexPath.row]
         cell.categoryCellButton.titleLabel?.text = categoryTitle[indexPath.row]
         cell.categoryCellButton.addTarget(self, action: #selector(actionCategoryButton(_:)), for: .touchUpInside)
+        
+        if indexPath.row == 0 {
+            cell.categoryCellButton.layer.borderWidth = 2
+            cell.categoryCellButton.layer.borderColor = Color.shared.symbolColor.cgColor
+            cell.categoryCellTitle.textColor = Color.shared.symbolColor
+        }
         return cell
     }
 }
