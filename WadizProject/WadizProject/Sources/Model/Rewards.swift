@@ -37,16 +37,24 @@ struct Rewards: Decodable {
             return String(day) + "일 남음"
         }
         
-        var isFinish: Bool {
+        var isFinish: String {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "YYYY.MM.dd"
             let nowDate = Date()
-            guard let end = dateFormatter.date(from: self.endTime) else { return true }
+            guard let end = dateFormatter.date(from: self.endTime) else { return "err" }
             
             let interval = end.timeIntervalSince(nowDate)
             let day = Int(interval / 86400)
-            guard day > 3 else { return false }
-            return true
+            
+            if day < 0 {
+                return "마감"
+            } else if day == 1 {
+                return "오늘 마감"
+            }else if day < 5 {
+                return "마감 임박"
+            } else {
+                return "통과"
+            }
         }
         
         var currentAmountFormatter: String {

@@ -162,13 +162,15 @@ extension MainViewController: UITableViewDataSource {
                 rewardsCell.totalPercent.text = String(rewardsArr[indexPath.row].totalPercent)
                 rewardsCell.progress.progress = rewardsArr[indexPath.row].progress
                 
-                if rewardsArr[indexPath.row].isFinish {
-                   rewardsCell.dayFinish.isHidden = true
-                } else {
+                switch rewardsArr[indexPath.row].isFinish {
+                case "err":
+                    rewardsCell.dayFinish.isHidden = true
+                case "통과":
+                    rewardsCell.dayFinish.isHidden = true
+                default:
                     rewardsCell.dayFinish.isHidden = false
+                    rewardsCell.dayFinish.text = rewardsArr[indexPath.row].isFinish
                 }
-                
-                
             } else {
                 guard let search = searchResults else { return rewardsCell }
                 let searchURL = URL(string: search[indexPath.row].productImg)
@@ -181,10 +183,14 @@ extension MainViewController: UITableViewDataSource {
                 rewardsCell.totalPercent.text = String(search[indexPath.row].totalPercent)
                 rewardsCell.progress.progress = search[indexPath.row].progress
                 
-                if search[indexPath.row].isFinish {
+                switch search[indexPath.row].isFinish {
+                case "err":
                     rewardsCell.dayFinish.isHidden = true
-                } else {
+                case "통과":
+                    rewardsCell.dayFinish.isHidden = true
+                default:
                     rewardsCell.dayFinish.isHidden = false
+                    rewardsCell.dayFinish.text = search[indexPath.row].isFinish
                 }
             }
             return rewardsCell
@@ -206,10 +212,14 @@ extension MainViewController: UITableViewDataSource {
                 rewardsGridCell.totalPercent.text = String(rewardsArr[indexPath.row].totalPercent)
                 
                 rewardsGridCell.progress.progress = rewardsArr[indexPath.row].progress
-                if rewardsArr[indexPath.row].isFinish {
+                switch rewardsArr[indexPath.row].isFinish {
+                case "err":
                     rewardsGridCell.dayFinish.isHidden = true
-                } else {
+                case "통과":
+                    rewardsGridCell.dayFinish.isHidden = true
+                default:
                     rewardsGridCell.dayFinish.isHidden = false
+                    rewardsGridCell.dayFinish.text = rewardsArr[indexPath.row].isFinish
                 }
                 
             } else {
@@ -224,10 +234,14 @@ extension MainViewController: UITableViewDataSource {
                 rewardsGridCell.totalPercent.text = String(search[indexPath.row].totalPercent)
                 rewardsGridCell.progress.progress = search[indexPath.row].progress
                 
-                if search[indexPath.row].isFinish {
+                switch search[indexPath.row].isFinish {
+                case "err":
                     rewardsGridCell.dayFinish.isHidden = true
-                } else {
+                case "통과":
+                    rewardsGridCell.dayFinish.isHidden = true
+                default:
                     rewardsGridCell.dayFinish.isHidden = false
+                    rewardsGridCell.dayFinish.text = search[indexPath.row].isFinish
                 }
             }
             return rewardsGridCell
