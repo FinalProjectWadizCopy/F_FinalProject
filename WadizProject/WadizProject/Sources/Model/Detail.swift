@@ -64,8 +64,6 @@ struct Detail: Decodable {
     }
     
     var totalPercent: String {
-        print(self.totalAAmount)
-        print(self.currentAmount)
         let total = Double(self.totalAAmount)
         let current = Double(self.currentAmount)
         

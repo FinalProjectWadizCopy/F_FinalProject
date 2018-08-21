@@ -51,7 +51,7 @@ class LunchViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         guard let navi = segue.destination as? UINavigationController else { return }
         guard let secondVC = navi.topViewController as? MainViewController else { return }
-        secondVC.rewardsArr = rewardsArr
+        secondVC.rewardsResults = rewardsArr
     }
 
     deinit {

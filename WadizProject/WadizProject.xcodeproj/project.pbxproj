@@ -22,7 +22,6 @@
 		3371ECBE4339BAE019AE4006 /* Pods_WadizProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E946E6A82A94CE591B6110 /* Pods_WadizProject.framework */; };
 		592A070521219A8C00406B79 /* RewardsGridTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A070421219A8C00406B79 /* RewardsGridTableViewCell.swift */; };
 		592A07072121CC7400406B79 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07062121CC7400406B79 /* LunchViewController.swift */; };
-		592A070B2123D70400406B79 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A070A2123D70400406B79 /* Search.swift */; };
 		592A070D21250F9500406B79 /* LodingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A070C21250F9500406B79 /* LodingView.swift */; };
 		592A073A21257B2C00406B79 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A073921257B2C00406B79 /* EmptyView.swift */; };
 		592A073C2126A90700406B79 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A073B2126A90700406B79 /* DetailViewController.swift */; };
@@ -61,7 +60,6 @@
 		295812419736B62CD9631192 /* Pods-WadizProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WadizProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject.debug.xcconfig"; sourceTree = "<group>"; };
 		592A070421219A8C00406B79 /* RewardsGridTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsGridTableViewCell.swift; sourceTree = "<group>"; };
 		592A07062121CC7400406B79 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
-		592A070A2123D70400406B79 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		592A070C21250F9500406B79 /* LodingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodingView.swift; sourceTree = "<group>"; };
 		592A073921257B2C00406B79 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		592A073B2126A90700406B79 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				59C5D0D121202AD40088CD87 /* Rewards.swift */,
-				592A070A2123D70400406B79 /* Search.swift */,
 				592A073D2126AF7E00406B79 /* Detail.swift */,
 			);
 			path = Model;
@@ -411,7 +408,6 @@
 				59C69D282114A1D50085FAD7 /* CategoryCollectionViewCell.swift in Sources */,
 				593A94552119C5E300F4F4A2 /* CategoryViewController.swift in Sources */,
 				59C69D2E2114BE050085FAD7 /* CategoryTableViewCell.swift in Sources */,
-				592A070B2123D70400406B79 /* Search.swift in Sources */,
 				59C5D0D221202AD40088CD87 /* Rewards.swift in Sources */,
 				592A07832127CC6800406B79 /* Singleton.swift in Sources */,
 				59C5D0D9212152760088CD87 /* RewardsTableViewCell.swift in Sources */,

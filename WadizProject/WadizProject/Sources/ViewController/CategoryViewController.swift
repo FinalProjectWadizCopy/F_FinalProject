@@ -207,7 +207,7 @@ extension CategoryViewController: UITableViewDelegate {
 extension CategoryViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text else { return  true }
-        rewards.searchGetList(frame: view.frame, text: text){[weak self] (reward) in
+        rewards.rewardsSearchGetList(frame: view.frame, text: text){[weak self] (reward) in
             guard let strongSelf = self else { return }
             strongSelf.searchResults = reward.results
         }

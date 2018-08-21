@@ -12,7 +12,7 @@ import Kingfisher
 class MainViewController: UIViewController {
     
     @IBOutlet weak var leftNaviButton: UIBarButtonItem!
-    @IBOutlet weak var mainTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     let rewards = PostService()
     
@@ -20,23 +20,17 @@ class MainViewController: UIViewController {
     var menuView: UIView!
     var isMenuViewOn = false
     var MenuCGPoint = CGPoint()
-    var rewardsArr: [Rewards.Results] = []
-    var searchResults: [Rewards.Results]? {
-        didSet {
-            mainTableView.reloadData()
-        }
-    }
-
+    var rewardsResults: [Rewards.Results] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         menuView = MenuView(frame: view.frame)
         view.addSubview(menuView)
         setNavigation()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        mainTableView.reloadData()
+        tableView.reloadData()
     }
     
     func setNavigation() {
@@ -57,18 +51,18 @@ class MainViewController: UIViewController {
         titleView.addGestureRecognizer(recognizer)
     }
     @objc func naviTitleTouch() {
-        searchResults = nil
+        //        searchResults = nil
         rewards.rewardGetList { [weak self] (reward) in
             guard let strongSelf = self else { return }
-            strongSelf.rewardsArr = reward.results
+            strongSelf.rewardsResults = reward.results
             if reward.next == nil {
                 API.nextURL = ""
             } else {
                 API.nextURL = reward.next!
             }
-            strongSelf.mainTableView.reloadData()
+            strongSelf.tableView.reloadData()
             let index = IndexPath.init(row: 0, section: 2)
-            strongSelf.mainTableView.scrollToRow(at: index, at: .top, animated: true)
+            strongSelf.tableView.scrollToRow(at: index, at: .top, animated: true)
         }
     }
     
@@ -99,6 +93,14 @@ class MainViewController: UIViewController {
         print("actionRecommendButton")
         print(button.titleLabel?.text)
     }
+    
+    func checkNextURL(_ next: String?) {
+        if next == nil {
+            API.nextURL = ""
+        } else {
+            API.nextURL = next!
+        }
+    }
 }
 
 
@@ -110,18 +112,13 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 2 {
-            if searchResults == nil {
-            return rewardsArr.count
-            } else {
-                guard let search = searchResults?.count else { return 0}
-                return search
-            }
+            return rewardsResults.count
         }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                tableView.separatorStyle = .none
+        tableView.separatorStyle = .none
         
         if indexPath.section == 0 {
             RecommendTableViewCell.viewFrame = view.frame
@@ -151,47 +148,25 @@ extension MainViewController: UITableViewDataSource {
                     for: indexPath) as! RewardsTableViewCell
             tableView.rowHeight = rewardsCell.rowHeight
             rewardsCell.totalPercent.textColor = Color.shared.symbolColor
-            if searchResults == nil {
-                let url = URL(string: rewardsArr[indexPath.row].productImg)
-                rewardsCell.productImg.kf.setImage(with: url)
-                rewardsCell.productName.text = rewardsArr[indexPath.row].productName
-                rewardsCell.type.text = rewardsArr[indexPath.row].type
-                rewardsCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
-                rewardsCell.currentAmount.text = rewardsArr[indexPath.row].currentAmountFormatter
-                rewardsCell.dayLeft.text = rewardsArr[indexPath.row].remainingDay
-                rewardsCell.totalPercent.text = String(rewardsArr[indexPath.row].totalPercent)
-                rewardsCell.progress.progress = rewardsArr[indexPath.row].progress
-                
-                switch rewardsArr[indexPath.row].isFinish {
-                case "err":
-                    rewardsCell.dayFinish.isHidden = true
-                case "통과":
-                    rewardsCell.dayFinish.isHidden = true
-                default:
-                    rewardsCell.dayFinish.isHidden = false
-                    rewardsCell.dayFinish.text = rewardsArr[indexPath.row].isFinish
-                }
-            } else {
-                guard let search = searchResults else { return rewardsCell }
-                let searchURL = URL(string: search[indexPath.row].productImg)
-                rewardsCell.productImg.kf.setImage(with: searchURL)
-                rewardsCell.productName.text = search[indexPath.row].productName
-                rewardsCell.type.text = search[indexPath.row].type
-                rewardsCell.companyName.text = "| " + search[indexPath.row].companyName
-                rewardsCell.currentAmount.text = String(search[indexPath.row].currentAmountFormatter)
-                rewardsCell.dayLeft.text = search[indexPath.row].remainingDay
-                rewardsCell.totalPercent.text = String(search[indexPath.row].totalPercent)
-                rewardsCell.progress.progress = search[indexPath.row].progress
-                
-                switch search[indexPath.row].isFinish {
-                case "err":
-                    rewardsCell.dayFinish.isHidden = true
-                case "통과":
-                    rewardsCell.dayFinish.isHidden = true
-                default:
-                    rewardsCell.dayFinish.isHidden = false
-                    rewardsCell.dayFinish.text = search[indexPath.row].isFinish
-                }
+            
+            let url = URL(string: rewardsResults[indexPath.row].productImg)
+            rewardsCell.productImg.kf.setImage(with: url)
+            rewardsCell.productName.text = rewardsResults[indexPath.row].productName
+            rewardsCell.type.text = rewardsResults[indexPath.row].type
+            rewardsCell.companyName.text = "| " + rewardsResults[indexPath.row].companyName
+            rewardsCell.currentAmount.text = rewardsResults[indexPath.row].currentAmountFormatter
+            rewardsCell.dayLeft.text = rewardsResults[indexPath.row].remainingDay
+            rewardsCell.totalPercent.text = String(rewardsResults[indexPath.row].totalPercent)
+            rewardsCell.progress.progress = rewardsResults[indexPath.row].progress
+            
+            switch rewardsResults[indexPath.row].isFinish {
+            case "err":
+                rewardsCell.dayFinish.isHidden = true
+            case "통과":
+                rewardsCell.dayFinish.isHidden = true
+            default:
+                rewardsCell.dayFinish.isHidden = false
+                rewardsCell.dayFinish.text = rewardsResults[indexPath.row].isFinish
             }
             return rewardsCell
         } else {
@@ -201,48 +176,24 @@ extension MainViewController: UITableViewDataSource {
                     for: indexPath) as! RewardsGridTableViewCell
             tableView.rowHeight = rewardsGridCell.rowHeight
             rewardsGridCell.totalPercent.textColor = Color.shared.symbolColor
-            if searchResults == nil {
-                let url = URL(string: rewardsArr[indexPath.row].productImg)
-                rewardsGridCell.productImg.kf.setImage(with: url)
-                rewardsGridCell.productName.text = rewardsArr[indexPath.row].productName
-                rewardsGridCell.type.text = rewardsArr[indexPath.row].type
-                rewardsGridCell.companyName.text = "| " + rewardsArr[indexPath.row].companyName
-                rewardsGridCell.currentAmount.text = rewardsArr[indexPath.row].currentAmountFormatter
-                rewardsGridCell.dayLeft.text = rewardsArr[indexPath.row].remainingDay
-                rewardsGridCell.totalPercent.text = String(rewardsArr[indexPath.row].totalPercent)
-                
-                rewardsGridCell.progress.progress = rewardsArr[indexPath.row].progress
-                switch rewardsArr[indexPath.row].isFinish {
-                case "err":
-                    rewardsGridCell.dayFinish.isHidden = true
-                case "통과":
-                    rewardsGridCell.dayFinish.isHidden = true
-                default:
-                    rewardsGridCell.dayFinish.isHidden = false
-                    rewardsGridCell.dayFinish.text = rewardsArr[indexPath.row].isFinish
-                }
-                
-            } else {
-                guard let search = searchResults else { return rewardsGridCell }
-                let searchURL = URL(string: search[indexPath.row].productImg)
-                rewardsGridCell.productImg.kf.setImage(with: searchURL)
-                rewardsGridCell.productName.text = search[indexPath.row].productName
-                rewardsGridCell.type.text = search[indexPath.row].type
-                rewardsGridCell.companyName.text = "| " + search[indexPath.row].companyName
-                rewardsGridCell.currentAmount.text = String(search[indexPath.row].currentAmountFormatter)
-                rewardsGridCell.dayLeft.text = search[indexPath.row].remainingDay
-                rewardsGridCell.totalPercent.text = String(search[indexPath.row].totalPercent)
-                rewardsGridCell.progress.progress = search[indexPath.row].progress
-                
-                switch search[indexPath.row].isFinish {
-                case "err":
-                    rewardsGridCell.dayFinish.isHidden = true
-                case "통과":
-                    rewardsGridCell.dayFinish.isHidden = true
-                default:
-                    rewardsGridCell.dayFinish.isHidden = false
-                    rewardsGridCell.dayFinish.text = search[indexPath.row].isFinish
-                }
+            let url = URL(string: rewardsResults[indexPath.row].productImg)
+            rewardsGridCell.productImg.kf.setImage(with: url)
+            rewardsGridCell.productName.text = rewardsResults[indexPath.row].productName
+            rewardsGridCell.type.text = rewardsResults[indexPath.row].type
+            rewardsGridCell.companyName.text = "| " + rewardsResults[indexPath.row].companyName
+            rewardsGridCell.currentAmount.text = rewardsResults[indexPath.row].currentAmountFormatter
+            rewardsGridCell.dayLeft.text = rewardsResults[indexPath.row].remainingDay
+            rewardsGridCell.totalPercent.text = String(rewardsResults[indexPath.row].totalPercent)
+            rewardsGridCell.progress.progress = rewardsResults[indexPath.row].progress
+            
+            switch rewardsResults[indexPath.row].isFinish {
+            case "err":
+                rewardsGridCell.dayFinish.isHidden = true
+            case "통과":
+                rewardsGridCell.dayFinish.isHidden = true
+            default:
+                rewardsGridCell.dayFinish.isHidden = false
+                rewardsGridCell.dayFinish.text = rewardsResults[indexPath.row].isFinish
             }
             return rewardsGridCell
         }
@@ -255,11 +206,9 @@ extension MainViewController: UITableViewDataSource {
         if indexPath.row == (endCell - 4) {
             rewards.nextRewardGetList { [weak self] (reward) in
                 guard let strongSelf = self else { return }
-                strongSelf.rewardsArr += reward.results
-                guard let nextURL = reward.next else {strongSelf.mainTableView.reloadData(); return }
-                API.nextURL = nextURL
-                strongSelf.mainTableView.reloadData()
-                //TODO: - 6번째 로드시 post err 발생 (원인찾기)
+                strongSelf.rewardsResults += reward.results
+                strongSelf.checkNextURL(reward.next)
+                strongSelf.tableView.reloadData()
             }
         }
     }
@@ -289,7 +238,7 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
-        rewards.detailGetList(pk: rewardsArr[indexPath.row].pk) { (detail) in
+        rewards.detailGetList(pk: rewardsResults[indexPath.row].pk) { (detail) in
             detailView.detailData = detail
             self.navigationController?.pushViewController(detailView, animated: true)
         }
@@ -301,9 +250,12 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text else { return  true }
-        rewards.searchGetList(frame: view.frame, text: text){[weak self] (reward) in
+        rewards.rewardsSearchGetList(frame: view.frame, text: text){ [weak self] (reward) in
             guard let strongSelf = self else { return }
-            strongSelf.searchResults = reward.results
+            strongSelf.rewardsResults = []
+            strongSelf.rewardsResults = reward.results
+            strongSelf.checkNextURL(reward.next)
+            strongSelf.tableView.reloadData()
         }
         textField.resignFirstResponder()
         return true
@@ -315,19 +267,14 @@ extension MainViewController: UITextFieldDelegate{
 
 extension MainViewController: CategorybuttonDelegate {
     func presentView(_ title: String) {
-
+        
         switch title {
         case "전체보기":
-            searchResults = nil
             rewards.rewardGetList { [weak self] (reward) in
                 guard let strongSelf = self else { return }
-                strongSelf.rewardsArr = reward.results
-                if reward.next == nil {
-                    API.nextURL = ""
-                } else {
-                    API.nextURL = reward.next!
-                }
-                strongSelf.mainTableView.reloadData()
+                strongSelf.rewardsResults = reward.results
+                strongSelf.checkNextURL(reward.next)
+                strongSelf.tableView.reloadData()
             }
             
         default:
@@ -336,11 +283,7 @@ extension MainViewController: CategorybuttonDelegate {
                 guard let strongSelf = self else { return }
                 category.titlename = title
                 category.rewardsArr = reward.results
-                if reward.next == nil {
-                    API.nextURL = ""
-                } else {
-                    API.nextURL = reward.next!
-                }
+                strongSelf.checkNextURL(reward.next)
                 strongSelf.navigationController?.pushViewController(category, animated: true)
             }
         }
@@ -356,43 +299,53 @@ extension MainViewController: HeaderCellTableViewCellDelegate {
         
         let alertContoller = UIAlertController(title: "정렬", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
-        let startTime = UIAlertAction(title: "최신순", style: .default) { (action) in
-            print("endTime")
-            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[0], category: "", completion: { (reward) in
-                self.rewardsArr = reward.results
-                API.nextURL = reward.next!
-                self.mainTableView.reloadData()
+        let startTime = UIAlertAction(title: "최신순", style: .default) { [weak self] (action) in
+            guard let strongSelf = self else { return }
+            strongSelf.rewards.sortedGetList(frame: strongSelf.view.frame,
+                                             title: textArr[0],
+                                             category: "",
+                                             completion: { (reward) in
+                                                strongSelf.rewardsResults = reward.results
+                                                strongSelf.checkNextURL(reward.next)
+                                                strongSelf.tableView.reloadData()
             })
         }
         
-        let interestedCount = UIAlertAction(title: "인기순", style: .default) { (action) in
-            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[1], category: "", completion: { (reward) in
-                self.rewardsArr = reward.results
-                API.nextURL = reward.next!
-                self.mainTableView.reloadData()
+        let interestedCount = UIAlertAction(title: "인기순", style: .default) { [weak self] (action) in
+            guard let strongSelf = self else { return }
+            strongSelf.rewards.sortedGetList(frame: strongSelf.view.frame,
+                                             title: textArr[1],
+                                             category: "",
+                                             completion: { (reward) in
+                                                strongSelf.rewardsResults = reward.results
+                                                strongSelf.checkNextURL(reward.next)
+                                                strongSelf.tableView.reloadData()
             })
         }
         
-        let currentCount = UIAlertAction(title: "펀딩액순", style: .default) { (action) in
-            print("currentCount")
-            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[2], category: "", completion: { (reward) in
-                self.rewardsArr = reward.results
-                API.nextURL = reward.next!
-                self.mainTableView.reloadData()
+        let currentCount = UIAlertAction(title: "펀딩액순", style: .default) { [weak self] (action) in
+            guard let strongSelf = self else { return }
+            strongSelf.rewards.sortedGetList(frame: strongSelf.view.frame,
+                                             title: textArr[2],
+                                             category: "",
+                                             completion: { (reward) in
+                                                strongSelf.rewardsResults = reward.results
+                                                strongSelf.checkNextURL(reward.next)
+                                                strongSelf.tableView.reloadData()
             })
         }
         
-        let endTime = UIAlertAction(title: "마감순", style: .default) { (action) in
-            print("endTime")
-            self.rewards.sortedGetList(frame: self.view.frame, title: textArr[3], category: "", completion: { (reward) in
-                self.rewardsArr = reward.results
-                API.nextURL = reward.next!
-                self.mainTableView.reloadData()
+        let endTime = UIAlertAction(title: "마감순", style: .default) { [weak self] (action) in
+            guard let strongSelf = self else { return }
+            strongSelf.rewards.sortedGetList(frame: strongSelf.view.frame,
+                                             title: textArr[3],
+                                             category: "",
+                                             completion: { (reward) in
+                                                strongSelf.rewardsResults = reward.results
+                                                strongSelf.checkNextURL(reward.next)
+                                                strongSelf.tableView.reloadData()
             })
         }
-        
-       
-        
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             print("cancel")
         }
@@ -404,7 +357,7 @@ extension MainViewController: HeaderCellTableViewCellDelegate {
         
     }
     func viewChange() {
-        mainTableView.reloadData()
+        tableView.reloadData()
     }
 }
 

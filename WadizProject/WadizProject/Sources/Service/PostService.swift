@@ -55,15 +55,12 @@ struct PostService {
             })
     }
     
-    func searchGetList(frame: CGRect, text: String,  completion: @escaping (Rewards) -> ()) {
-        
+    func rewardsSearchGetList(frame: CGRect, text: String,  completion: @escaping (Rewards) -> ()) {
         let lodingView = LodingView(frame: frame)
         let window = UIApplication.shared.keyWindow
         window?.addSubview(lodingView)
-        
-        print(text)
+
         let sumURL = API.searchURL + text
-        print(sumURL)
         guard let url = sumURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         Alamofire.request(url)
             .validate()
@@ -71,8 +68,8 @@ struct PostService {
                 switch response.result{
                 case .success(let value):
                     do {
-                        let searchList = try JSONDecoder().decode(Rewards.self, from: value)
-                        completion(searchList)
+                        let rewardList = try JSONDecoder().decode(Rewards.self, from: value)
+                        completion(rewardList)
                         lodingView.activityIndicator.stopAnimating()
                         lodingView.removeFromSuperview()
                     } catch {
@@ -83,8 +80,7 @@ struct PostService {
                 }
             })
     }
-    
-    
+
     func categoryGetList(frame: CGRect, title: String, completion: @escaping (Rewards) -> ()) {
         let lodingView = LodingView(frame: frame)
         let window = UIApplication.shared.keyWindow

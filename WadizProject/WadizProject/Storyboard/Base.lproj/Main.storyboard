@@ -170,7 +170,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="leftNaviButton" destination="8c7-uH-oQ9" id="0KF-eW-Cgy"/>
-                        <outlet property="mainTableView" destination="Azr-TB-CrO" id="5qG-gU-ak8"/>
+                        <outlet property="tableView" destination="Azr-TB-CrO" id="5qG-gU-ak8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VtG-7m-x8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
