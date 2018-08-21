@@ -61,8 +61,6 @@ class MainViewController: UIViewController {
                 API.nextURL = reward.next!
             }
             strongSelf.tableView.reloadData()
-            let index = IndexPath.init(row: 0, section: 2)
-            strongSelf.tableView.scrollToRow(at: index, at: .top, animated: true)
         }
     }
     
@@ -208,6 +206,7 @@ extension MainViewController: UITableViewDataSource {
                 strongSelf.tableView.reloadData()
             }
         }
+
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -251,10 +250,33 @@ extension MainViewController: UITextFieldDelegate{
             strongSelf.rewardsResults = []
             strongSelf.rewardsResults = reward.results
             strongSelf.checkNextURL(reward.next)
+            if strongSelf.rewardsResults.isEmpty {
+                strongSelf.searchEmptyAlert()
+            }
             strongSelf.tableView.reloadData()
         }
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let index = IndexPath.init(row: 0, section: 2)
+        self.tableView.scrollToRow(at: index, at: .middle, animated: false)
+        return true
+    }
+    
+    func searchEmptyAlert() {
+        let alertController = UIAlertController(title: "검색 결과가 없습니다.", message:  nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .default) { [weak self] (action) in
+            guard let strongSelf = self else { return }
+            strongSelf.rewards.rewardGetList { (reward) in
+                strongSelf.rewardsResults = reward.results
+                strongSelf.checkNextURL(reward.next)
+                strongSelf.tableView.reloadData()
+            }
+        }
+        alertController.addAction(ok)
+        present(alertController, animated: true)
     }
 }
 
