@@ -50,8 +50,8 @@ class MainViewController: UIViewController {
         titleView.isUserInteractionEnabled = true
         titleView.addGestureRecognizer(recognizer)
     }
+    
     @objc func naviTitleTouch() {
-        //        searchResults = nil
         rewards.rewardGetList { [weak self] (reward) in
             guard let strongSelf = self else { return }
             strongSelf.rewardsResults = reward.results
@@ -90,7 +90,6 @@ class MainViewController: UIViewController {
     }
     
     @objc func actionRecommendButton (_ button: UIButton) {
-        print("actionRecommendButton")
         print(button.titleLabel?.text)
     }
     
@@ -119,7 +118,6 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.separatorStyle = .none
-        
         if indexPath.section == 0 {
             RecommendTableViewCell.viewFrame = view.frame
             let recommendCell = tableView.dequeueReusableCell(
@@ -201,7 +199,6 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         tableView.rowHeight = 0
-        
         let endCell = tableView.numberOfRows(inSection: 2)
         if indexPath.row == (endCell - 4) {
             rewards.nextRewardGetList { [weak self] (reward) in
@@ -246,7 +243,6 @@ extension MainViewController: UITableViewDelegate {
 }
 
 // MARK:- UITextFieldDelegate
-
 extension MainViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text else { return  true }
@@ -264,7 +260,6 @@ extension MainViewController: UITextFieldDelegate{
 
 
 // MARK: - CategorybuttonDelegate
-
 extension MainViewController: CategorybuttonDelegate {
     func presentView(_ title: String) {
         
@@ -282,7 +277,7 @@ extension MainViewController: CategorybuttonDelegate {
             rewards.categoryGetList(frame: view.frame, title: title) { [weak self] (reward) in
                 guard let strongSelf = self else { return }
                 category.titlename = title
-                category.rewardsArr = reward.results
+                category.rewardsResults = reward.results
                 strongSelf.checkNextURL(reward.next)
                 strongSelf.navigationController?.pushViewController(category, animated: true)
             }
@@ -291,13 +286,20 @@ extension MainViewController: CategorybuttonDelegate {
 }
 
 // MARK: - HeaderCellTableViewCellDelegate
-
 extension MainViewController: HeaderCellTableViewCellDelegate {
+    func viewChange() {
+        tableView.reloadData()
+    }
     
     func actionSoringChange() {
-        let textArr = ["-product_start_time", "-product_interested_count", "-product_cur_amount", "product_end_time"]
+        let textArr = ["-product_start_time",
+                       "-product_interested_count",
+                       "-product_cur_amount",
+                       "product_end_time"]
         
-        let alertContoller = UIAlertController(title: "정렬", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alertContoller = UIAlertController(title: "정렬",
+                                               message: nil,
+                                               preferredStyle: UIAlertControllerStyle.actionSheet)
         
         let startTime = UIAlertAction(title: "최신순", style: .default) { [weak self] (action) in
             guard let strongSelf = self else { return }
@@ -346,18 +348,13 @@ extension MainViewController: HeaderCellTableViewCellDelegate {
                                                 strongSelf.tableView.reloadData()
             })
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-            print("cancel")
-        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
         
         for alert in [startTime, interestedCount, currentCount, endTime, cancel] {
             alertContoller.addAction(alert)
         }
-        present(alertContoller, animated: true)
         
-    }
-    func viewChange() {
-        tableView.reloadData()
+        present(alertContoller, animated: true)
     }
 }
 

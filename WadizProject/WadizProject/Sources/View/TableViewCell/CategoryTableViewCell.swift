@@ -33,7 +33,6 @@ class CategoryTableViewCell: UITableViewCell {
 }
 
 // MARK: - UICollectionViewDataSource
-
 extension CategoryTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
@@ -43,13 +42,11 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         collectionView.decelerationRate = UIScrollViewDecelerationRateFast
         
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "CategoryCell",
             for: indexPath) as! CategoryCollectionViewCell
-        
         cell.categoryCellButton.setBackgroundImage(
             UIImage(named: categoryTitle[indexPath.row]),
             for: .normal)
@@ -67,21 +64,16 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout {
     
     private struct Metric {
         static let numberOfLine: CGFloat = 3.3
-        
         static let leftPadding: CGFloat = 10.0
         static let rightPadding: CGFloat = 10.0
         static let topPadding: CGFloat = 0.0
-
         static let bottomPadding: CGFloat = 0
-        
         static let itemSpacing: CGFloat = 10.0
         static let lineSpacing: CGFloat = 10
-        
         static let nextOffset: CGFloat = 10.0
     }
     

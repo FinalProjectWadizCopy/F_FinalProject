@@ -63,6 +63,15 @@ struct Detail: Decodable {
         return result + "원"
     }
     
+    var totalAmountFormatter: String {
+        let decimalFormatter = NumberFormatter()
+        decimalFormatter.numberStyle = NumberFormatter.Style.decimal
+        decimalFormatter.groupingSeparator = ","
+        decimalFormatter.groupingSize = 3
+        guard let result = decimalFormatter.string(from: self.totalAAmount as NSNumber) else { return "0" }
+        return result + "원"
+    }
+    
     var totalPercent: String {
         let total = Double(self.totalAAmount)
         let current = Double(self.currentAmount)
