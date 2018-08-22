@@ -79,7 +79,7 @@ extension CategoryViewController: UITableViewDataSource {
             rewardsCell.dayLeft.text = rewardsResults[indexPath.row].remainingDay
             rewardsCell.totalPercent.text = String(rewardsResults[indexPath.row].totalPercent)
             rewardsCell.progress.progress = rewardsResults[indexPath.row].progress
-            
+            rewardsCell.selectionStyle = UITableViewCellSelectionStyle.none
             switch rewardsResults[indexPath.row].isFinish {
             case "err":
                 rewardsCell.dayFinish.isHidden = true
@@ -106,7 +106,7 @@ extension CategoryViewController: UITableViewDataSource {
             rewardsGridCell.dayLeft.text = rewardsResults[indexPath.row].remainingDay
             rewardsGridCell.totalPercent.text = String(rewardsResults[indexPath.row].totalPercent)
             rewardsGridCell.progress.progress = rewardsResults[indexPath.row].progress
-            
+            rewardsGridCell.selectionStyle = UITableViewCellSelectionStyle.none
             switch rewardsResults[indexPath.row].isFinish {
             case "err":
                 rewardsGridCell.dayFinish.isHidden = true
