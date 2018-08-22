@@ -47,6 +47,8 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "CategoryCell",
             for: indexPath) as! CategoryCollectionViewCell
+        cell.tag = indexPath.row
+        
         cell.categoryCellButton.setBackgroundImage(
             UIImage(named: categoryTitle[indexPath.row]),
             for: .normal)
@@ -54,11 +56,16 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
         cell.categoryCellButton.titleLabel?.text = categoryTitle[indexPath.row]
         cell.categoryCellButton.addTarget(self, action: #selector(actionCategoryButton(_:)), for: .touchUpInside)
         
-        if indexPath.row == 0 {
+        if cell.tag == indexPath.row, indexPath.row == 0 {
             cell.categoryCellButton.layer.borderWidth = 2
             cell.categoryCellButton.layer.borderColor = Color.shared.symbolColor.cgColor
             cell.categoryCellTitle.textColor = Color.shared.symbolColor
+        } else {
+            cell.categoryCellButton.layer.borderWidth = 0
+            cell.categoryCellTitle.textColor = UIColor.black
         }
+        
+        
         return cell
     }
 }
