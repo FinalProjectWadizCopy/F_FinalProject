@@ -21,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="프로젝트 검색" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLW-mQ-Icc">
-                        <rect key="frame" x="10" y="0.0" width="132" height="44.5"/>
+                        <rect key="frame" x="34.5" y="0.0" width="152" height="44.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -37,13 +37,6 @@
                             <action selector="viewChangeButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dEZ-2b-OtO"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUZ-WC-dIk">
-                        <rect key="frame" x="142" y="0.0" width="44.5" height="44.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="WUZ-WC-dIk" secondAttribute="height" multiplier="1:1" id="ecY-K5-tZt"/>
-                        </constraints>
-                        <state key="normal" backgroundImage="search"/>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maY-K2-S2P">
                         <rect key="frame" x="186.5" y="0.0" width="89" height="44.5"/>
                         <constraints>
@@ -57,21 +50,28 @@
                             <action selector="popSortingmenu:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="S7Q-fE-Egj"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUZ-WC-dIk">
+                        <rect key="frame" x="10" y="10" width="24.5" height="24.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="WUZ-WC-dIk" secondAttribute="height" multiplier="1:1" id="ecY-K5-tZt"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="search"/>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="gLW-mQ-Icc" secondAttribute="bottom" id="474-Ix-vhJ"/>
                     <constraint firstItem="YT7-Uk-snE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4cy-IJ-RXE"/>
-                    <constraint firstAttribute="bottom" secondItem="WUZ-WC-dIk" secondAttribute="bottom" id="74I-G6-RVf"/>
-                    <constraint firstItem="WUZ-WC-dIk" firstAttribute="leading" secondItem="gLW-mQ-Icc" secondAttribute="trailing" id="CSI-w0-Qxg"/>
+                    <constraint firstAttribute="bottom" secondItem="WUZ-WC-dIk" secondAttribute="bottom" constant="10" id="74I-G6-RVf"/>
+                    <constraint firstItem="gLW-mQ-Icc" firstAttribute="leading" secondItem="WUZ-WC-dIk" secondAttribute="trailing" id="8vI-sL-vZD"/>
                     <constraint firstItem="YT7-Uk-snE" firstAttribute="leading" secondItem="maY-K2-S2P" secondAttribute="trailing" id="Fa5-ZA-BXC"/>
                     <constraint firstAttribute="trailing" secondItem="YT7-Uk-snE" secondAttribute="trailing" id="Svs-rx-iEM"/>
-                    <constraint firstItem="gLW-mQ-Icc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dpW-iP-Isp"/>
-                    <constraint firstItem="WUZ-WC-dIk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="eu8-2p-2QW"/>
+                    <constraint firstItem="WUZ-WC-dIk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="afD-K3-KOS"/>
+                    <constraint firstItem="WUZ-WC-dIk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="eu8-2p-2QW"/>
                     <constraint firstAttribute="bottom" secondItem="maY-K2-S2P" secondAttribute="bottom" id="ftB-Mr-QWw"/>
                     <constraint firstItem="maY-K2-S2P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="h2A-mK-lzx"/>
                     <constraint firstAttribute="bottom" secondItem="YT7-Uk-snE" secondAttribute="bottom" id="tTz-CX-TZt"/>
-                    <constraint firstItem="maY-K2-S2P" firstAttribute="leading" secondItem="WUZ-WC-dIk" secondAttribute="trailing" id="wVf-VA-V3C"/>
+                    <constraint firstItem="maY-K2-S2P" firstAttribute="leading" secondItem="gLW-mQ-Icc" secondAttribute="trailing" id="xwR-iy-jqf"/>
                     <constraint firstItem="gLW-mQ-Icc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="z4f-NM-xvO"/>
                 </constraints>
             </tableViewCellContentView>
@@ -86,6 +86,6 @@
     </objects>
     <resources>
         <image name="HeaderGrid" width="96" height="88"/>
-        <image name="search" width="307" height="230"/>
+        <image name="search" width="512" height="512"/>
     </resources>
 </document>

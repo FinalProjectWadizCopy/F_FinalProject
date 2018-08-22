@@ -142,11 +142,11 @@
 		597140B12110266E005FA8DA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				596030172110640E00D84942 /* MenuView.swift */,
 				592A073921257B2C00406B79 /* EmptyView.swift */,
 				592A070C21250F9500406B79 /* LodingView.swift */,
 				59C69D2C2114BDD50085FAD7 /* TableViewCell */,
 				593A942421173C1600F4F4A2 /* CollectionViewCell */,
-				596030172110640E00D84942 /* MenuView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
