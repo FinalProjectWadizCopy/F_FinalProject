@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     var pundingView = UIView()
     var webView = WKWebView()
     let webViewPregross = UIProgressView()
+    var isSelected: Bool = true
     
     //MARK: - IBOutlet
     @IBOutlet weak var scrollView: UIScrollView!
@@ -295,31 +296,52 @@ extension DetailViewController: UICollectionViewDataSource {
         cell.shippingCharge.text = "\(reward.rewardShippingCharge)원"
         cell.soldCount.text = "총 \(reward.rewardSoldCount)개 펀딩 완료"
         cell.balanceCount.text = "현재 \(reward.rewardTotalCount - reward.rewardSoldCount)개 남음!"
-        
         return cell
     }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if isSelected {
+            collectionView.cellForItem(at: indexPath)?.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            isSelected = false
+        } else {
+            collectionView.cellForItem(at: indexPath)?.transform = CGAffineTransform(scaleX: 1, y: 1)
+            isSelected = true
+        }
+        
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+       collectionView.cellForItem(at: indexPath)?.transform = CGAffineTransform(scaleX: 1, y: 1)
+    }
+    
 }
 
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
     
     private struct Metric {
-        static let numberOfLine: CGFloat = 1
+        static let numberOfLine: CGFloat = 2
         
-        static let lineSpacing: CGFloat = 20
+        static let lineSpacing: CGFloat = 30
         
-        static let topPadding: CGFloat = 5
-        static let bottomPadding: CGFloat = 5
-        static let leftPadding: CGFloat = 10
-        static let rightPadding: CGFloat = 10
+        static let topPadding: CGFloat = 25
+        static let bottomPadding: CGFloat = 25
+        static let leftPadding: CGFloat = 25
+        static let rightPadding: CGFloat = 25
         
         static let nextOffset: CGFloat = 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let lineSpacing = Metric.lineSpacing * (Metric.numberOfLine - 1)
         let horizontalPadding = Metric.leftPadding + Metric.rightPadding
-        let width = collectionView.frame.width - lineSpacing - horizontalPadding
+        let width = collectionView.frame.width - lineSpacing - horizontalPadding - Metric.nextOffset
         let height = collectionView.frame.height - Metric.topPadding - Metric.bottomPadding
         return CGSize(width: width, height: height)
     }
