@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
+<<<<<<< HEAD
   - BEMCheckBox (1.4.1)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
@@ -27,10 +28,18 @@ DEPENDENCIES:
   - FBSDKPlacesKit
   - FBSDKShareKit
   - Kingfisher (~> 4.0)
+=======
+  - Kingfisher (4.8.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kingfisher
+>>>>>>> Develop
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+<<<<<<< HEAD
     - BEMCheckBox
     - Bolts
     - FBSDKCoreKit
@@ -38,10 +47,13 @@ SPEC REPOS:
     - FBSDKMessengerShareKit
     - FBSDKPlacesKit
     - FBSDKShareKit
+=======
+>>>>>>> Develop
     - Kingfisher
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+<<<<<<< HEAD
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FBSDKCoreKit: 1a5b2e3ceb5ca827a53c54aa5f4a3480efff80d2
@@ -52,5 +64,10 @@ SPEC CHECKSUMS:
   Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
 
 PODFILE CHECKSUM: bcb396f5ae9f273af30715d034111dcffffcf148
+=======
+  Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
+
+PODFILE CHECKSUM: 403df0945f46400b57ff6f316852a1262e799f25
+>>>>>>> Develop
 
 COCOAPODS: 1.5.3

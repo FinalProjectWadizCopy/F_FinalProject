@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="gTV-IL-0wX" customClass="CategoryCollectionViewCell" customModule="WadizProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="123"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="123"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBy-Rf-k1z">
+                        <rect key="frame" x="0.0" y="108.5" width="160" height="14.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="ZQR-oc-y48"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZa-xL-kqB">
+                        <rect key="frame" x="50.5" y="43.5" width="60" height="60"/>
+                        <color key="backgroundColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="PZa-xL-kqB" secondAttribute="height" multiplier="1:1" id="R72-Y9-keJ"/>
+                            <constraint firstAttribute="width" constant="60" id="avt-K5-Mzy"/>
+                        </constraints>
+                    </button>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="wBy-Rf-k1z" secondAttribute="bottom" id="AXf-kg-JdL"/>
+                <constraint firstItem="wBy-Rf-k1z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="HvZ-vu-QlN"/>
+                <constraint firstAttribute="trailing" secondItem="wBy-Rf-k1z" secondAttribute="trailing" id="Wjr-Mw-GOa"/>
+                <constraint firstItem="wBy-Rf-k1z" firstAttribute="top" secondItem="PZa-xL-kqB" secondAttribute="bottom" constant="5" id="hDl-n2-PS0"/>
+                <constraint firstItem="PZa-xL-kqB" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="ypQ-d7-xR8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="155" height="100"/>
+            <connections>
+                <outlet property="categoryCellButton" destination="PZa-xL-kqB" id="1Kh-6s-hcv"/>
+                <outlet property="categoryCellTitle" destination="wBy-Rf-k1z" id="9K4-3A-Etc"/>
+            </connections>
+            <point key="canvasLocation" x="143" y="78.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
