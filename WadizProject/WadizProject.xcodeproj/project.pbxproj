@@ -33,6 +33,12 @@
 		592A07E3212EBB3800406B79 /* FundingListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592A07E1212EBB3800406B79 /* FundingListCollectionViewCell.xib */; };
 		592A07E7212EE11300406B79 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07E6212EE11300406B79 /* UserInfo.swift */; };
 		592A07EB212F28DA00406B79 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07EA212F28DA00406B79 /* Like.swift */; };
+		592A07F9212F467C00406B79 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592A07F8212F467C00406B79 /* LoginView.storyboard */; };
+		592A07FB212F468A00406B79 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07FA212F468A00406B79 /* Home.swift */; };
+		592A0800212F46A500406B79 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07FC212F46A500406B79 /* LoginViewController.swift */; };
+		592A0801212F46A500406B79 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07FD212F46A500406B79 /* RegisterViewController.swift */; };
+		592A0802212F46A500406B79 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07FE212F46A500406B79 /* SignViewController.swift */; };
+		592A0803212F46A500406B79 /* SignTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07FF212F46A500406B79 /* SignTermsViewController.swift */; };
 		593A944D2119746800F4F4A2 /* HeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A944B2119746800F4F4A2 /* HeaderCellTableViewCell.swift */; };
 		593A944E2119746800F4F4A2 /* HeaderCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593A944C2119746800F4F4A2 /* HeaderCellTableViewCell.xib */; };
 		593A94552119C5E300F4F4A2 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A94532119C5E300F4F4A2 /* CategoryViewController.swift */; };
@@ -46,13 +52,6 @@
 		59C69D2E2114BE050085FAD7 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C69D2D2114BE050085FAD7 /* CategoryTableViewCell.swift */; };
 		59C69D302115320D0085FAD7 /* RecommendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C69D2F2115320D0085FAD7 /* RecommendTableViewCell.swift */; };
 		59E78258210EE21D00C19A41 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59E78259210EE21D00C19A41 /* WadizProject.xcdatamodeld */; };
-		CB196B2D212F17B5009EE862 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB196B2C212F17B5009EE862 /* LoginView.storyboard */; };
-		CB196B2F212F17D8009EE862 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB196B2E212F17D7009EE862 /* LoginViewController.swift */; };
-		CB196B31212F17E0009EE862 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB196B30212F17E0009EE862 /* RegisterViewController.swift */; };
-		CB196B33212F186B009EE862 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB196B32212F186B009EE862 /* SignViewController.swift */; };
-		CB196B35212F187D009EE862 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB196B34212F187D009EE862 /* Home.swift */; };
-		CB196B37212F1891009EE862 /* SignTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB196B36212F1891009EE862 /* SignTermsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +82,12 @@
 		592A07E1212EBB3800406B79 /* FundingListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FundingListCollectionViewCell.xib; sourceTree = "<group>"; };
 		592A07E6212EE11300406B79 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		592A07EA212F28DA00406B79 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		592A07F8212F467C00406B79 /* LoginView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LoginView.storyboard; path = "../../../../../Downloads/아카이브 (2)/LoginView.storyboard"; sourceTree = "<group>"; };
+		592A07FA212F468A00406B79 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home.swift; path = "../../../../../../Downloads/아카이브 (2)/Home.swift"; sourceTree = "<group>"; };
+		592A07FC212F46A500406B79 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "../../../../../../Downloads/아카이브 (2)/LoginViewController.swift"; sourceTree = "<group>"; };
+		592A07FD212F46A500406B79 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "../../../../../../Downloads/아카이브 (2)/RegisterViewController.swift"; sourceTree = "<group>"; };
+		592A07FE212F46A500406B79 /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignViewController.swift; path = "../../../../../../Downloads/아카이브 (2)/SignViewController.swift"; sourceTree = "<group>"; };
+		592A07FF212F46A500406B79 /* SignTermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignTermsViewController.swift; path = "../../../../../../Downloads/아카이브 (2)/SignTermsViewController.swift"; sourceTree = "<group>"; };
 		593A944B2119746800F4F4A2 /* HeaderCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellTableViewCell.swift; sourceTree = "<group>"; };
 		593A944C2119746800F4F4A2 /* HeaderCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCellTableViewCell.xib; sourceTree = "<group>"; };
 		593A94532119C5E300F4F4A2 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -99,12 +104,6 @@
 		59E7825A210EE21D00C19A41 /* WadizProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WadizProject.xcdatamodel; sourceTree = "<group>"; };
 		59E78261210EE21F00C19A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8006C8B7BFC2F28A39A71723 /* Pods-WadizProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WadizProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject.release.xcconfig"; sourceTree = "<group>"; };
-		CB196B2C212F17B5009EE862 /* LoginView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LoginView.storyboard; path = ../../../../Desktop/WadizProject/LoginView.storyboard; sourceTree = "<group>"; };
-		CB196B2E212F17D7009EE862 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../../../../../Desktop/WadizProject/LoginViewController.swift; sourceTree = "<group>"; };
-		CB196B30212F17E0009EE862 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ../../../../../Desktop/WadizProject/RegisterViewController.swift; sourceTree = "<group>"; };
-		CB196B32212F186B009EE862 /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignViewController.swift; path = ../../../../../Desktop/WadizProject/SignViewController.swift; sourceTree = "<group>"; };
-		CB196B34212F187D009EE862 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home.swift; path = ../../../../../Desktop/WadizProject/Home.swift; sourceTree = "<group>"; };
-		CB196B36212F1891009EE862 /* SignTermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignTermsViewController.swift; path = ../../../../../Desktop/WadizProject/SignTermsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +171,7 @@
 		597140B12110266E005FA8DA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CB196B34212F187D009EE862 /* Home.swift */,
+				592A07FA212F468A00406B79 /* Home.swift */,
 				596030172110640E00D84942 /* MenuView.swift */,
 				592A073921257B2C00406B79 /* EmptyView.swift */,
 				592A070C21250F9500406B79 /* LodingView.swift */,
@@ -192,10 +191,10 @@
 				23EB73E02126944D0035C44B /* FundingPageViewController.swift */,
 				23EB73DF2126944D0035C44B /* FundingTermsPageViewController.swift */,
 				23EB73E12126944D0035C44B /* PersonalPageViewController.swift */,
-				CB196B30212F17E0009EE862 /* RegisterViewController.swift */,
-				CB196B2E212F17D7009EE862 /* LoginViewController.swift */,
-				CB196B32212F186B009EE862 /* SignViewController.swift */,
-				CB196B36212F1891009EE862 /* SignTermsViewController.swift */,
+				592A07FC212F46A500406B79 /* LoginViewController.swift */,
+				592A07FD212F46A500406B79 /* RegisterViewController.swift */,
+				592A07FF212F46A500406B79 /* SignTermsViewController.swift */,
+				592A07FE212F46A500406B79 /* SignViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -207,7 +206,7 @@
 				23EB73E42126944E0035C44B /* FundingPage.storyboard */,
 				23EB73E52126944E0035C44B /* FundingTermsPage.storyboard */,
 				23EB73E32126944D0035C44B /* PersonalPage.storyboard */,
-				CB196B2C212F17B5009EE862 /* LoginView.storyboard */,
+				592A07F8212F467C00406B79 /* LoginView.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -362,7 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB196B2D212F17B5009EE862 /* LoginView.storyboard in Resources */,
+				592A07F9212F467C00406B79 /* LoginView.storyboard in Resources */,
 				592A07DB212DA3B400406B79 /* DetailRewardCollectionViewCell.xib in Resources */,
 				23EB73F421269B140035C44B /* Main.storyboard in Resources */,
 				23EB73ED2126944E0035C44B /* FundingTermsPage.storyboard in Resources */,
@@ -432,15 +431,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB196B2F212F17D8009EE862 /* LoginViewController.swift in Sources */,
-				CB196B35212F187D009EE862 /* Home.swift in Sources */,
+				592A0800212F46A500406B79 /* LoginViewController.swift in Sources */,
+				592A07FB212F468A00406B79 /* Home.swift in Sources */,
 				23EB73F121269AB90035C44B /* AppDelegate.swift in Sources */,
 				23EB73E82126944E0035C44B /* FundingPageViewController.swift in Sources */,
 				592A073E2126AF7E00406B79 /* Detail.swift in Sources */,
 				592A073C2126A90700406B79 /* DetailViewController.swift in Sources */,
 				23EB73E72126944E0035C44B /* FundingTermsPageViewController.swift in Sources */,
-				59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */,
-				CB196B33212F186B009EE862 /* SignViewController.swift in Sources */,
+				592A0802212F46A500406B79 /* SignViewController.swift in Sources */,
 				592A07E7212EE11300406B79 /* UserInfo.swift in Sources */,
 				23EB73E92126944E0035C44B /* PersonalPageViewController.swift in Sources */,
 				23EB73EA2126944E0035C44B /* CardCell.swift in Sources */,
@@ -449,13 +447,12 @@
 				59C69D302115320D0085FAD7 /* RecommendTableViewCell.swift in Sources */,
 				596030182110640E00D84942 /* MenuView.swift in Sources */,
 				592A070D21250F9500406B79 /* LodingView.swift in Sources */,
-				59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */,
 				592A073A21257B2C00406B79 /* EmptyView.swift in Sources */,
-				CB196B37212F1891009EE862 /* SignTermsViewController.swift in Sources */,
 				592A070521219A8C00406B79 /* RewardsGridTableViewCell.swift in Sources */,
 				597140B821102ECB005FA8DA /* MainViewController.swift in Sources */,
 				592A07EB212F28DA00406B79 /* Like.swift in Sources */,
 				592A07E2212EBB3800406B79 /* FundingListCollectionViewCell.swift in Sources */,
+				592A0803212F46A500406B79 /* SignTermsViewController.swift in Sources */,
 				59C5D0D421202B3C0088CD87 /* PostService.swift in Sources */,
 				592A07DA212DA3B400406B79 /* DetailRewardCollectionViewCell.swift in Sources */,
 				59C69D282114A1D50085FAD7 /* CategoryCollectionViewCell.swift in Sources */,
@@ -464,7 +461,7 @@
 				59C5D0D221202AD40088CD87 /* Rewards.swift in Sources */,
 				592A07832127CC6800406B79 /* Singleton.swift in Sources */,
 				59C5D0D9212152760088CD87 /* RewardsTableViewCell.swift in Sources */,
-				CB196B31212F17E0009EE862 /* RegisterViewController.swift in Sources */,
+				592A0801212F46A500406B79 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
