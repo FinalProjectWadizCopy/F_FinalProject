@@ -57,6 +57,12 @@ class CategoryViewController: UIViewController {
             API.nextURL = next!
         }
     }
+    
+    func moveDisplayToWantPosition (row: Int, section: Int) {
+        self.tableView.reloadData()
+        let index = IndexPath.init(row: row, section: section)
+        self.tableView.scrollToRow(at: index, at: .middle, animated: false)
+    }
 }
 
 extension CategoryViewController: UITableViewDataSource {
@@ -167,9 +173,7 @@ extension CategoryViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text else { print("1"); return  true }
         if text == "" {
-            self.tableView.reloadData()
-            let index = IndexPath.init(row: 0, section: 0)
-            self.tableView.scrollToRow(at: index, at: .middle, animated: false)
+            moveDisplayToWantPosition(row: 0, section: 0)
         } else {
             rewards.rewardsSearchGetList(frame: view.frame, text: text){ [weak self] (reward) in
                 guard let strongSelf = self else { return }
@@ -191,7 +195,10 @@ extension CategoryViewController: UITextFieldDelegate{
         let alertController = UIAlertController(title: "검색 결과가 없습니다.", message:  nil, preferredStyle: .alert)
         let ok = UIAlertAction(title: "Ok", style: .default) { [weak self] (action) in
             guard let strongSelf = self else { return }
-            strongSelf.rewards.categoryGetList(frame: strongSelf.view.frame, title: strongSelf.titlename!, completion: { (reward) in
+            strongSelf.rewards.categoryGetList(
+                frame: strongSelf.view.frame,
+                title: strongSelf.titlename!,
+                completion: { (reward) in
                 strongSelf.rewardsResults = reward.results
                 strongSelf.checkNextURL(reward.next)
                 strongSelf.titleSetup(strongSelf.titlename)
@@ -221,13 +228,14 @@ extension CategoryViewController: HeaderCellTableViewCellDelegate {
         
         let startTime = UIAlertAction(title: "최신순", style: .default) { [weak self] (action) in
             guard let strongSelf = self else { return }
+            
             strongSelf.rewards.sortedGetList(frame: strongSelf.view.frame,
                                              title: textArr[0],
-                                             category: "",
+                                             category: strongSelf.titlename!,
                                              completion: { (reward) in
                                                 strongSelf.rewardsResults = reward.results
                                                 strongSelf.checkNextURL(reward.next)
-                                                strongSelf.tableView.reloadData()
+                                                strongSelf.moveDisplayToWantPosition(row: 0, section: 0)
             })
         }
         
@@ -235,11 +243,11 @@ extension CategoryViewController: HeaderCellTableViewCellDelegate {
             guard let strongSelf = self else { return }
             strongSelf.rewards.sortedGetList(frame: strongSelf.view.frame,
                                              title: textArr[1],
-                                             category: "",
+                                             category: strongSelf.titlename!,
                                              completion: { (reward) in
                                                 strongSelf.rewardsResults = reward.results
                                                 strongSelf.checkNextURL(reward.next)
-                                                strongSelf.tableView.reloadData()
+                                                strongSelf.moveDisplayToWantPosition(row: 0, section: 0)
             })
         }
         
@@ -247,11 +255,11 @@ extension CategoryViewController: HeaderCellTableViewCellDelegate {
             guard let strongSelf = self else { return }
             strongSelf.rewards.sortedGetList(frame: strongSelf.view.frame,
                                              title: textArr[2],
-                                             category: "",
+                                             category: strongSelf.titlename!,
                                              completion: { (reward) in
                                                 strongSelf.rewardsResults = reward.results
                                                 strongSelf.checkNextURL(reward.next)
-                                                strongSelf.tableView.reloadData()
+                                                strongSelf.moveDisplayToWantPosition(row: 0, section: 0)
             })
         }
         
@@ -259,11 +267,11 @@ extension CategoryViewController: HeaderCellTableViewCellDelegate {
             guard let strongSelf = self else { return }
             strongSelf.rewards.sortedGetList(frame: strongSelf.view.frame,
                                              title: textArr[3],
-                                             category: "",
+                                             category: strongSelf.titlename!,
                                              completion: { (reward) in
                                                 strongSelf.rewardsResults = reward.results
                                                 strongSelf.checkNextURL(reward.next)
-                                                strongSelf.tableView.reloadData()
+                                                strongSelf.moveDisplayToWantPosition(row: 0, section: 0)
             })
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }

@@ -98,6 +98,12 @@ class MainViewController: UIViewController {
             API.nextURL = next!
         }
     }
+    
+    func moveDisplayToWantPosition (row: Int, section: Int) {
+        self.tableView.reloadData()
+        let index = IndexPath.init(row: row, section: section)
+        self.tableView.scrollToRow(at: index, at: .middle, animated: false)
+    }
 }
 
 
@@ -195,7 +201,10 @@ extension MainViewController: UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath) {
         tableView.rowHeight = 0
         let endCell = tableView.numberOfRows(inSection: 2)
         if indexPath.row == (endCell - 4) {
@@ -209,10 +218,15 @@ extension MainViewController: UITableViewDataSource {
 
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(
+        _ tableView: UITableView,
+        viewForHeaderInSection section: Int) -> UIView? {
         if section == 2 {
-            tableView.register(UINib(nibName: "HeaderCellTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderCellTableViewCell")
-            let  header = tableView.dequeueReusableCell(withIdentifier: "HeaderCellTableViewCell") as! HeaderCellTableViewCell
+            tableView.register(
+                UINib(nibName: "HeaderCellTableViewCell", bundle: nil),
+                forCellReuseIdentifier: "HeaderCellTableViewCell")
+            let  header = tableView.dequeueReusableCell(
+                withIdentifier: "HeaderCellTableViewCell") as! HeaderCellTableViewCell
             header.searchTextField.delegate = self as UITextFieldDelegate
             header.delegate = self
             return header
@@ -233,7 +247,8 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+        let detailView = self.storyboard?.instantiateViewController(
+            withIdentifier: "DetailView") as! DetailViewController
         rewards.detailGetList(pk: rewardsResults[indexPath.row].pk) { (detail) in
             detailView.detailData = detail
             self.navigationController?.pushViewController(detailView, animated: true)
@@ -246,10 +261,7 @@ extension MainViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text else { print("1"); return  true }
         if text == "" {
-            self.tableView.reloadData()
-            let index = IndexPath.init(row: 0, section: 0)
-            self.tableView.scrollToRow(at: index, at: .middle, animated: false)
-            
+            moveDisplayToWantPosition(row: 0, section: 0)
         } else {
             rewards.rewardsSearchGetList(frame: view.frame, text: text){ [weak self] (reward) in
                 guard let strongSelf = self else { return }
@@ -301,7 +313,8 @@ extension MainViewController: CategorybuttonDelegate {
                 strongSelf.tableView.reloadData()
             }
         default:
-            let category = self.storyboard?.instantiateViewController(withIdentifier: "CategoryView") as! CategoryViewController
+            let category = self.storyboard?.instantiateViewController(
+                withIdentifier: "CategoryView") as! CategoryViewController
             rewards.categoryGetList(frame: view.frame, title: title) { [weak self] (reward) in
                 guard let strongSelf = self else { return }
                 category.titlename = title
@@ -337,7 +350,8 @@ extension MainViewController: HeaderCellTableViewCellDelegate {
                                              completion: { (reward) in
                                                 strongSelf.rewardsResults = reward.results
                                                 strongSelf.checkNextURL(reward.next)
-                                                strongSelf.tableView.reloadData()
+                                                strongSelf.moveDisplayToWantPosition(row: 0,
+                                                                                     section: 1)
             })
         }
         
@@ -349,7 +363,8 @@ extension MainViewController: HeaderCellTableViewCellDelegate {
                                              completion: { (reward) in
                                                 strongSelf.rewardsResults = reward.results
                                                 strongSelf.checkNextURL(reward.next)
-                                                strongSelf.tableView.reloadData()
+                                                 strongSelf.moveDisplayToWantPosition(row: 0,
+                                                                                      section: 1)
             })
         }
         
@@ -361,7 +376,8 @@ extension MainViewController: HeaderCellTableViewCellDelegate {
                                              completion: { (reward) in
                                                 strongSelf.rewardsResults = reward.results
                                                 strongSelf.checkNextURL(reward.next)
-                                                strongSelf.tableView.reloadData()
+                                                 strongSelf.moveDisplayToWantPosition(row: 0,
+                                                                                      section: 1)
             })
         }
         
@@ -373,7 +389,8 @@ extension MainViewController: HeaderCellTableViewCellDelegate {
                                              completion: { (reward) in
                                                 strongSelf.rewardsResults = reward.results
                                                 strongSelf.checkNextURL(reward.next)
-                                                strongSelf.tableView.reloadData()
+                                                 strongSelf.moveDisplayToWantPosition(row: 0,
+                                                                                      section: 1)
             })
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
