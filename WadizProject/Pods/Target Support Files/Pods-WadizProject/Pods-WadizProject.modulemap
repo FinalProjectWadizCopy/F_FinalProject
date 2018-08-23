@@ -1,0 +1,6 @@
+framework module Pods_WadizProject {
+  umbrella header "Pods-WadizProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
