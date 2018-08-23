@@ -13,11 +13,12 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var leftNaviButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    
+
+    @IBOutlet weak var collectionView: UICollectionView!
     let rewards = PostService()
     
     var cellHeight: CGFloat?
-    var menuView: UIView!
+    var menuView: MenuView!
     var isMenuViewOn = false
     var MenuCGPoint = CGPoint()
     var rewardsResults: [Rewards.Results] = []
@@ -26,7 +27,27 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         menuView = MenuView(frame: view.frame)
         view.addSubview(menuView)
+        menuView.fundingList.addTarget(self, action: #selector(presentfundingListView), for: .touchUpInside)
+        menuView.likeListButton.addTarget(self, action: #selector(presentLikeListView), for: .touchUpInside)
+        
         setNavigation()
+    }
+    @objc func presentfundingListView() {
+        let storyboard = UIStoryboard(name: "FundingPage", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "FundingPageLIst") as! FundingPageViewController
+        rewards.fundingListGet(frame: view.frame) { (userInfo) in
+           vc.fundinglist = userInfo.fundingSet
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @objc func presentLikeListView() {
+        let storyboard = UIStoryboard(name: "PersonalPage", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PersonalPage") as! PersonalPageViewController
+        rewards.fundingListGet(frame: view.frame) { (userInfo) in
+            vc.likeList = userInfo.likeProducts
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

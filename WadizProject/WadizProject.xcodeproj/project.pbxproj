@@ -29,6 +29,9 @@
 		592A07832127CC6800406B79 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07822127CC6800406B79 /* Singleton.swift */; };
 		592A07DA212DA3B400406B79 /* DetailRewardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07D8212DA3B400406B79 /* DetailRewardCollectionViewCell.swift */; };
 		592A07DB212DA3B400406B79 /* DetailRewardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592A07D9212DA3B400406B79 /* DetailRewardCollectionViewCell.xib */; };
+		592A07E2212EBB3800406B79 /* FundingListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07E0212EBB3800406B79 /* FundingListCollectionViewCell.swift */; };
+		592A07E3212EBB3800406B79 /* FundingListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592A07E1212EBB3800406B79 /* FundingListCollectionViewCell.xib */; };
+		592A07E7212EE11300406B79 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07E6212EE11300406B79 /* UserInfo.swift */; };
 		593A944D2119746800F4F4A2 /* HeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A944B2119746800F4F4A2 /* HeaderCellTableViewCell.swift */; };
 		593A944E2119746800F4F4A2 /* HeaderCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593A944C2119746800F4F4A2 /* HeaderCellTableViewCell.xib */; };
 		593A94552119C5E300F4F4A2 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A94532119C5E300F4F4A2 /* CategoryViewController.swift */; };
@@ -69,6 +72,9 @@
 		592A07822127CC6800406B79 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		592A07D8212DA3B400406B79 /* DetailRewardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRewardCollectionViewCell.swift; sourceTree = "<group>"; };
 		592A07D9212DA3B400406B79 /* DetailRewardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRewardCollectionViewCell.xib; sourceTree = "<group>"; };
+		592A07E0212EBB3800406B79 /* FundingListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundingListCollectionViewCell.swift; sourceTree = "<group>"; };
+		592A07E1212EBB3800406B79 /* FundingListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FundingListCollectionViewCell.xib; sourceTree = "<group>"; };
+		592A07E6212EE11300406B79 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		593A944B2119746800F4F4A2 /* HeaderCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellTableViewCell.swift; sourceTree = "<group>"; };
 		593A944C2119746800F4F4A2 /* HeaderCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCellTableViewCell.xib; sourceTree = "<group>"; };
 		593A94532119C5E300F4F4A2 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +118,8 @@
 			children = (
 				592A07D8212DA3B400406B79 /* DetailRewardCollectionViewCell.swift */,
 				592A07D9212DA3B400406B79 /* DetailRewardCollectionViewCell.xib */,
+				592A07E0212EBB3800406B79 /* FundingListCollectionViewCell.swift */,
+				592A07E1212EBB3800406B79 /* FundingListCollectionViewCell.xib */,
 				23EB73E22126944D0035C44B /* CardCell.swift */,
 				23EB73DE2126944D0035C44B /* CardCell.xib */,
 				59C69D262114A1D50085FAD7 /* CategoryCollectionViewCell.swift */,
@@ -141,6 +149,7 @@
 			children = (
 				59C5D0D121202AD40088CD87 /* Rewards.swift */,
 				592A073D2126AF7E00406B79 /* Detail.swift */,
+				592A07E6212EE11300406B79 /* UserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +349,7 @@
 				23EB73EB2126944E0035C44B /* PersonalPage.storyboard in Resources */,
 				593A944E2119746800F4F4A2 /* HeaderCellTableViewCell.xib in Resources */,
 				59E78258210EE21D00C19A41 /* (null) in Resources */,
+				592A07E3212EBB3800406B79 /* FundingListCollectionViewCell.xib in Resources */,
 				23EB73EF21269A9E0035C44B /* Assets.xcassets in Resources */,
 				23EB73F721269BE40035C44B /* LaunchScreen.storyboard in Resources */,
 				59C69D292114A1D50085FAD7 /* CategoryCollectionViewCell.xib in Resources */,
@@ -400,6 +410,7 @@
 				592A073C2126A90700406B79 /* DetailViewController.swift in Sources */,
 				23EB73E72126944E0035C44B /* FundingTermsPageViewController.swift in Sources */,
 				59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */,
+				592A07E7212EE11300406B79 /* UserInfo.swift in Sources */,
 				23EB73E92126944E0035C44B /* PersonalPageViewController.swift in Sources */,
 				23EB73EA2126944E0035C44B /* CardCell.swift in Sources */,
 				593A944D2119746800F4F4A2 /* HeaderCellTableViewCell.swift in Sources */,
@@ -411,6 +422,7 @@
 				592A073A21257B2C00406B79 /* EmptyView.swift in Sources */,
 				592A070521219A8C00406B79 /* RewardsGridTableViewCell.swift in Sources */,
 				597140B821102ECB005FA8DA /* MainViewController.swift in Sources */,
+				592A07E2212EBB3800406B79 /* FundingListCollectionViewCell.swift in Sources */,
 				59C5D0D421202B3C0088CD87 /* PostService.swift in Sources */,
 				592A07DA212DA3B400406B79 /* DetailRewardCollectionViewCell.swift in Sources */,
 				59C69D282114A1D50085FAD7 /* CategoryCollectionViewCell.swift in Sources */,

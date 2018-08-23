@@ -16,6 +16,9 @@ struct API {
     static let categoryURL = "https://ryanden.kr/api/rewards/search/?category="
     static let sortingURL = "https://ryanden.kr/api/rewards/search/?ordering="
     static let detailURL = "https://ryanden.kr/api/rewards/"
+    static let userInfoURL = "https://ryanden.kr/api/users/myinfo/"
+    
+    static let param = ["Authorization" : "Token 66ad49fb44a660fa6043f0af9bd5a6f1769aa545"]
 }
 
 struct PostService {
@@ -150,6 +153,34 @@ struct PostService {
                     do {
                         let detailList = try JSONDecoder().decode(Detail.self, from: value)
                         completion(detailList)
+                    } catch {
+                        print("post err")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            })
+    }
+    
+    func fundingListGet(frame: CGRect, completion: @escaping (UserInfo) -> ()) {
+        let lodingView = LodingView(frame: frame)
+        let window = UIApplication.shared.keyWindow
+        window?.addSubview(lodingView)
+        
+       
+        
+        let sumURL = API.userInfoURL
+        guard let url = sumURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        Alamofire.request(url, method: .get, headers: API.param)
+            .validate()
+            .responseData(completionHandler: { (response) in
+                switch response.result{
+                case .success(let value):
+                    do {
+                        let fundingList = try JSONDecoder().decode(UserInfo.self, from: value)
+                        completion(fundingList)
+                        lodingView.activityIndicator.stopAnimating()
+                        lodingView.removeFromSuperview()
                     } catch {
                         print("post err")
                     }

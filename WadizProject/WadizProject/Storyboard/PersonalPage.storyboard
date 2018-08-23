@@ -13,7 +13,7 @@
         <!--Personal Page View Controller-->
         <scene sceneID="lt2-Y0-tz2">
             <objects>
-                <viewController id="5hQ-xy-tA9" customClass="PersonalPageViewController" customModule="WadizProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonalPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5hQ-xy-tA9" customClass="PersonalPageViewController" customModule="WadizProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J6d-zo-7P8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -86,7 +86,6 @@ struct Rewards: Decodable {
         var progress: Float {
             let total = Double(self.totalAAmount)
             let current = Double(self.currentAmount)
-            
             let percent = (current / total)
             return Float(percent)
         }

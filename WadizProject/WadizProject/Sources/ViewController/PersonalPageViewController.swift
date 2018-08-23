@@ -7,85 +7,81 @@
 //
 
 import UIKit
-// 로그인 판별
-// 좋아한 제품 유무 판별
 
 class PersonalPageViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
-//    var like_List :Bool = true
-    var like_List :Bool = true
-   
+    
+    let rewards = PostService()
+    var likeList: [UserInfo.LikeProducts] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            print("viewDidLoad")
-        
+        collectionView.delegate = self
         collectionView.register(
             UINib(nibName: "CardCell", bundle: nil),
             forCellWithReuseIdentifier:"CardCell"
         )
         
-        if like_List { //좋아한 제품이 없는경우 컬랙션 하나만 두고
-            
-            
-       }else { //그렇지 않고 하나 이상 있는경우 좋아한 제품을 보여준다
-                //타 ViewController와 연결과정이 필요할듯..
+        if !likeList.isEmpty {
+            collectionView.isHidden = false
+        }else {
             collectionView.isHidden = true
             let size = CGSize(width: view.frame.width / 1.7, height: 200)
             let textLable = UILabel()
             textLable.frame = CGRect(origin: CGPoint(x: view.frame.midX - (size.width / 2),
                                                      y: view.frame.midX),
                                      size: size)
-//            let textLabel = UILabel(frame: CGRect(x: view.frame.midX, y: 130, width: view.frame.width / 2, height: 200))
+            
             textLable.text = "좋아하는 프로젝트가 없습니다. 프로젝트를 좋아해 보실래요?"
             textLable.numberOfLines = 3
-            
-            let button = UIButton()
-            button.frame = CGRect(x: view.frame.midX - 100, y: 330,
-                                       width: 200, height: 30)
-            button.setTitle("리워드 프로젝트 가기 > ", for: UIControlState.normal)
-            button.setTitleColor(UIColor.green, for: UIControlState.normal)
-            button.addTarget(self, action: #selector(mainButtonAction(_:)), for: .touchUpInside)
             view.addSubview(textLable)
-            view.addSubview(button)
         }
     }
-    @objc func mainButtonAction(_ sender: UIButton!){
-        print("메인으로 이동")
-    }
+    
 }
-//
 extension PersonalPageViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int) -> Int {
+        return likeList.count
     }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as! CardCell
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell",
+                                                      for: indexPath) as! CardCell
+        let like = likeList[indexPath.row]
+        cell.rewardProgress.progress = like.progress
+
+        cell.persentLabel.text = like.totalPercent
+        cell.rewardLabel.text = like.totalAmountFormatter
+        cell.dayLabel.text = like.remainingDay
+        cell.prodectLabel.text = like.productName
+        cell.brandLabel.text = like.productCompanyName
         
-        //외부에서 가져온 값을 받아오는거
-        //퍼센트(이건 계산해야 될거 같네요)
-        //펀딩금액, 남은 날짜, 제품설명, 브랜드명, 제품사진(썸내일), 제품종류(여러가지 등등)
-        
-        
-        var persentLevel = Int("50")
-        
-        if persentLevel! >= 100 { //퍼센트에 따른 상태바 판별 100%가 넘어가면 바를 꽉채움
-            cell.rewardProgress.progress = 1
-        }else {
-            cell.rewardProgress.progress = Float(persentLevel!) / 100
-        
-        }
-        cell.persentLabel.text = String(persentLevel!)+"%"
-        cell.rewardLabel.text = "12,345,670원"
-        cell.dayLabel.text = "12일 남음"
-        cell.prodectLabel.text = "리워드 제품을 설명해 주세요 \n리워드 하고 싶습니다"
-        cell.brandLabel.text = "브랜드명"
-        
-        cell.mainImage.image = UIImage(named: "dog")
-        cell.proLable.text = "제품종류"
+        let url = URL(string: like.productImg)
+        cell.mainImage.kf.setImage(with: url)
+        cell.proLable.text = like.productType
         
         return cell
+    }
+}
+
+extension PersonalPageViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let detailView = storyboard.instantiateViewController(
+            withIdentifier: "DetailView") as! DetailViewController
+        let pk = likeList[indexPath.row].product
+        rewards.detailGetList(pk: pk) { (detail) in
+            detailView.detailData = detail
+            self.navigationController?.pushViewController(detailView, animated: true)
+        }
+        return true
     }
 }

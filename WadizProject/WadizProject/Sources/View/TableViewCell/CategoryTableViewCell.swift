@@ -29,7 +29,6 @@ class CategoryTableViewCell: UITableViewCell {
         guard let title = button.titleLabel?.text else { return }
         delegate?.presentView(title)
     }
-    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -72,7 +71,6 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout {
-    
     private struct Metric {
         static let numberOfLine: CGFloat = 3.3
         static let leftPadding: CGFloat = 10.0

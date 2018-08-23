@@ -12,14 +12,14 @@ class MenuView: UIView {
     
     let layerView = UIView()
     let margin = CGFloat(10)
+    let fundingList = UIButton()
+    let likeListButton = UIButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.frame = frame
         self.frame.origin = CGPoint(x: frame.origin.x - frame.width, y: frame.origin.y)
-        self.frame.size.width = (frame.width / 5) * 4
         backgroundColor = UIColor.white
-
 //        setSignUpView()
         setSignIpView()
     }
@@ -29,7 +29,6 @@ class MenuView: UIView {
     }
     
     func setSignUpView(){
-
         let signInButton = UIButton()
         let detailLabel = UILabel()
         let signUPButton = UIButton()
@@ -76,17 +75,15 @@ class MenuView: UIView {
     }
     
     func setSignIpView(){
-        
         let userImage = UIImageView()
         let userNameLabel = UILabel()
-        let fundingButton = UIButton()
-        let likeListButton = UIButton()
+        
         
         let imageSize = CGFloat(55)
         
         addSubview(userImage)
         addSubview(userNameLabel)
-        addSubview(fundingButton)
+        addSubview(fundingList)
         addSubview(likeListButton)
         
         userImage.image = UIImage(named: "imagePicker")
@@ -100,12 +97,12 @@ class MenuView: UIView {
         userNameLabel.textAlignment = .left
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        fundingButton.setTitle("펀딩 내역", for: .normal)
-        fundingButton.setTitleColor(UIColor.black, for: .normal)
-        fundingButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        fundingButton.imageView?.image = UIImage(named: "fundingList")
-        fundingButton.contentHorizontalAlignment = .leading
-        fundingButton.translatesAutoresizingMaskIntoConstraints = false
+        fundingList.setTitle("펀딩 내역", for: .normal)
+        fundingList.setTitleColor(UIColor.black, for: .normal)
+        fundingList.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        fundingList.imageView?.image = UIImage(named: "fundingList")
+        fundingList.contentHorizontalAlignment = .leading
+        fundingList.translatesAutoresizingMaskIntoConstraints = false
         
         likeListButton.setTitle("좋아한 프로젝트", for: .normal)
         likeListButton.setTitleColor(UIColor.black, for: .normal)
@@ -128,17 +125,17 @@ class MenuView: UIView {
         userNameLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor,
                                                constant: margin * 2).isActive = true
         
-        fundingButton.topAnchor.constraint(equalTo: userImage.bottomAnchor,
+        fundingList.topAnchor.constraint(equalTo: userImage.bottomAnchor,
                                            constant: margin * 5).isActive = true
-        fundingButton.leadingAnchor.constraint(equalTo: userNameLabel.leadingAnchor,
+        fundingList.leadingAnchor.constraint(equalTo: userNameLabel.leadingAnchor,
                                                constant: 0).isActive = true
         
-        likeListButton.centerYAnchor.constraint(equalTo: fundingButton.centerYAnchor).isActive = true
+        likeListButton.centerYAnchor.constraint(equalTo: fundingList.centerYAnchor).isActive = true
         likeListButton.trailingAnchor.constraint(equalTo: trailingAnchor,
                                                  constant: -(margin * 2)).isActive = true
         
         
-        addLayerView(fundingButton)
+        addLayerView(fundingList)
         addMenu()
         
     }
@@ -157,45 +154,44 @@ class MenuView: UIView {
     }
 
     func addMenu() {
-        let homeButton = UIButton()
-        let rewordButton = UIButton()
+//        let homeButton = UIButton()
+//        let rewordButton = UIButton()
         let subTextLabel = UILabel()
 
         subTextLabel.text = "와디즈 펀딩"
         subTextLabel.textColor = UIColor.black.withAlphaComponent(0.5)
         subTextLabel.font = UIFont.systemFont(ofSize: 13)
         subTextLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        homeButton.setTitle("홈", for: .normal)
-        homeButton.setTitleColor(UIColor.black, for: .normal)
-        homeButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        homeButton.contentHorizontalAlignment = .leading
-        homeButton.translatesAutoresizingMaskIntoConstraints = false
-
-        rewordButton.setTitle("리워드", for: .normal)
-        rewordButton.setTitleColor(UIColor.black, for: .normal)
-        rewordButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        rewordButton.contentHorizontalAlignment = .leading
-        rewordButton.translatesAutoresizingMaskIntoConstraints = false
+//
+//        homeButton.setTitle("홈", for: .normal)
+//        homeButton.setTitleColor(UIColor.black, for: .normal)
+//        homeButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+//        homeButton.contentHorizontalAlignment = .leading
+//        homeButton.translatesAutoresizingMaskIntoConstraints = false
+//
+//        rewordButton.setTitle("리워드", for: .normal)
+//        rewordButton.setTitleColor(UIColor.black, for: .normal)
+//        rewordButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+//        rewordButton.contentHorizontalAlignment = .leading
+//        rewordButton.translatesAutoresizingMaskIntoConstraints = false
 
         addSubview(subTextLabel)
-        addSubview(homeButton)
-        addSubview(rewordButton)
+//        addSubview(homeButton)
+//        addSubview(rewordButton)
         
         subTextLabel.topAnchor.constraint(equalTo: layerView.bottomAnchor,
                                           constant: margin * 4).isActive = true
         subTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor,
                                               constant: margin).isActive = true
 
-        homeButton.topAnchor.constraint(equalTo: subTextLabel.bottomAnchor,
-                                        constant: margin).isActive = true
-        homeButton.leadingAnchor.constraint(equalTo: subTextLabel.leadingAnchor).isActive = true
+//        homeButton.topAnchor.constraint(equalTo: subTextLabel.bottomAnchor,
+//                                        constant: margin).isActive = true
+//        homeButton.leadingAnchor.constraint(equalTo: subTextLabel.leadingAnchor).isActive = true
 
-        rewordButton.topAnchor.constraint(equalTo: homeButton.bottomAnchor,
-                                          constant: margin).isActive = true
-        rewordButton.leadingAnchor.constraint(equalTo: subTextLabel.leadingAnchor).isActive = true
+//        rewordButton.topAnchor.constraint(equalTo: homeButton.bottomAnchor,
+//                                          constant: margin).isActive = true
+//        rewordButton.leadingAnchor.constraint(equalTo: subTextLabel.leadingAnchor).isActive = true
     }
-
 }
 
 

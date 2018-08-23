@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="gTV-IL-0wX" customClass="CardCell" customModule="WadizCopyProject" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="gTV-IL-0wX" customClass="CardCell" customModule="WadizProject" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -26,20 +26,20 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120 %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyX-aK-yvV">
-                        <rect key="frame" x="20" y="225" width="47" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="20" y="225" width="50.5" height="20.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12,412,700원 달성" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vk-W6-kgR">
-                        <rect key="frame" x="102" y="225" width="132" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="105.5" y="225" width="134" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14일 남음" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtE-op-moQ">
-                        <rect key="frame" x="288" y="225" width="67" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="287" y="225" width="68" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -50,9 +50,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRILLON" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2g-0x-o2b">
-                        <rect key="frame" x="15" y="310" width="54" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="15" y="310" width="62" height="17.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="패션 잡화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-AA-Lha">
@@ -68,19 +68,12 @@
                             <constraint firstAttribute="height" constant="5" id="rVa-Sh-fek"/>
                         </constraints>
                     </progressView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성공해야 리워드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXW-pz-XDI">
-                        <rect key="frame" x="283.5" y="350.5" width="76.5" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="1vk-W6-kgR" firstAttribute="top" secondItem="Q9i-cw-6Ei" secondAttribute="bottom" constant="20" id="0re-pV-CXm"/>
                 <constraint firstItem="Tod-7E-mnT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="1u8-Ku-hA8"/>
-                <constraint firstAttribute="trailing" secondItem="DXW-pz-XDI" secondAttribute="trailing" constant="15" id="340-D2-20z"/>
                 <constraint firstItem="1vk-W6-kgR" firstAttribute="leading" secondItem="cyX-aK-yvV" secondAttribute="trailing" constant="35" id="55R-mb-klZ"/>
                 <constraint firstAttribute="trailing" secondItem="Tod-7E-mnT" secondAttribute="trailing" constant="15" id="6cQ-H6-ohK"/>
                 <constraint firstItem="Z2g-0x-o2b" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="9zS-1E-ZnV"/>
@@ -97,7 +90,6 @@
                 <constraint firstItem="Tod-7E-mnT" firstAttribute="top" secondItem="1Lb-au-4QL" secondAttribute="bottom" constant="10" id="jq8-5h-czk"/>
                 <constraint firstAttribute="bottom" secondItem="HWF-AA-Lha" secondAttribute="bottom" constant="10" id="koY-mb-O55"/>
                 <constraint firstItem="Q9i-cw-6Ei" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="200" id="m97-DN-bnz"/>
-                <constraint firstAttribute="bottom" secondItem="DXW-pz-XDI" secondAttribute="bottom" constant="10" id="u0Y-Oh-G55"/>
                 <constraint firstItem="AtE-op-moQ" firstAttribute="top" secondItem="Q9i-cw-6Ei" secondAttribute="bottom" constant="20" id="vU6-Wu-ueb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
