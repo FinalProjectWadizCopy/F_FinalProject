@@ -17,8 +17,10 @@ struct API {
     static let sortingURL = "https://ryanden.kr/api/rewards/search/?ordering="
     static let detailURL = "https://ryanden.kr/api/rewards/"
     static let userInfoURL = "https://ryanden.kr/api/users/myinfo/"
+    static let likeURL = "https://ryanden.kr/api/rewards/product_like/"
     
     static let param = ["Authorization" : "Token 66ad49fb44a660fa6043f0af9bd5a6f1769aa545"]
+    static let userNumber = "17"
 }
 
 struct PostService {
@@ -166,9 +168,6 @@ struct PostService {
         let lodingView = LodingView(frame: frame)
         let window = UIApplication.shared.keyWindow
         window?.addSubview(lodingView)
-        
-       
-        
         let sumURL = API.userInfoURL
         guard let url = sumURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         Alamofire.request(url, method: .get, headers: API.param)
@@ -188,6 +187,27 @@ struct PostService {
                     print(error.localizedDescription)
                 }
             })
+    }
+    
+    func changedLikeStatus(pk: Int, completion: @escaping (Like) -> ()) {
+        let param: [String : Any] = ["user" : API.userNumber, "product" : pk]
+        let sumURL = API.likeURL
+        guard let url = sumURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        Alamofire.request(url, method: .post, parameters: param , headers: API.param)
+            .validate()
+            .responseData(completionHandler: { (response) in
+                switch response.result{
+                case .success(let value):
+                    do {
+                        let fundingList = try JSONDecoder().decode(Like.self, from: value)
+                        completion(fundingList)
+                    } catch {
+                        print("post err")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+       })
     }
 }
 

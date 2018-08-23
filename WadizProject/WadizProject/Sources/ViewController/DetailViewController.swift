@@ -10,6 +10,7 @@ import UIKit
 import WebKit
 
 class DetailViewController: UIViewController {
+    let rewards = PostService()
     
     var detailData: Detail!
     var checkOnTheButton = true
@@ -20,6 +21,7 @@ class DetailViewController: UIViewController {
     var webView = WKWebView()
     let webViewPregross = UIProgressView()
     var isSelected: Bool = true
+    var isSelectedIndex: Int?
     
     //MARK: - IBOutlet
     @IBOutlet weak var scrollView: UIScrollView!
@@ -258,17 +260,22 @@ class DetailViewController: UIViewController {
         }
         
         if checkOnTheButton {
-            checkgedheartImgView.image = UIImage(named: "Like")
-            guideLabel.text = "저희 프로젝트를 좋아해 주셔서 감사합니다."
-            checkOnTheButton = false
+            rewards.changedLikeStatus(pk: detailData.pk) { (like) in
+                self.interestedCount.text = like.productInterestedCount
+                self.checkgedheartImgView.image = UIImage(named: "Like")
+                guideLabel.text = "저희 프로젝트를 좋아해 주셔서 감사합니다."
+                self.checkOnTheButton = false
+            }
         } else {
+            
             checkgedheartImgView.image = UIImage(named: "emptyLike")
             guideLabel.text = "좋아해 주셔서 감사합니다."
             checkOnTheButton = true
         }
     }
-    
+
     @objc func presentPundingView() {
+        guard let index = isSelectedIndex else { return }
         print("present")
         
     }
@@ -305,20 +312,18 @@ extension DetailViewController: UICollectionViewDataSource {
         if isSelected {
             collectionView.cellForItem(at: indexPath)?.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
             isSelected = false
+            isSelectedIndex = indexPath.row
         } else {
             collectionView.cellForItem(at: indexPath)?.transform = CGAffineTransform(scaleX: 1, y: 1)
             isSelected = true
+            isSelectedIndex = nil
         }
-        
         return true
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
        collectionView.cellForItem(at: indexPath)?.transform = CGAffineTransform(scaleX: 1, y: 1)
+        isSelectedIndex = nil
     }
     
 }

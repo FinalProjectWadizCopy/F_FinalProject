@@ -53,6 +53,7 @@ extension PersonalPageViewController: UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell",
                                                       for: indexPath) as! CardCell
+        cell.delegate = self
         let like = likeList[indexPath.row]
         cell.rewardProgress.progress = like.progress
 
@@ -83,5 +84,11 @@ extension PersonalPageViewController: UICollectionViewDelegate {
             self.navigationController?.pushViewController(detailView, animated: true)
         }
         return true
+    }
+}
+
+extension PersonalPageViewController: CardCellDelegate {
+    func didLikeCancel() {
+        print("a")
     }
 }
