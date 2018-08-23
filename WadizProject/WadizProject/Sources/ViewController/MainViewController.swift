@@ -244,16 +244,23 @@ extension MainViewController: UITableViewDelegate {
 // MARK:- UITextFieldDelegate
 extension MainViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let text = textField.text else { return  true }
-        rewards.rewardsSearchGetList(frame: view.frame, text: text){ [weak self] (reward) in
-            guard let strongSelf = self else { return }
-            strongSelf.rewardsResults = []
-            strongSelf.rewardsResults = reward.results
-            strongSelf.checkNextURL(reward.next)
-            if strongSelf.rewardsResults.isEmpty {
-                strongSelf.searchEmptyAlert()
+        guard let text = textField.text else { print("1"); return  true }
+        if text == "" {
+            self.tableView.reloadData()
+            let index = IndexPath.init(row: 0, section: 0)
+            self.tableView.scrollToRow(at: index, at: .middle, animated: false)
+            
+        } else {
+            rewards.rewardsSearchGetList(frame: view.frame, text: text){ [weak self] (reward) in
+                guard let strongSelf = self else { return }
+                strongSelf.rewardsResults = []
+                strongSelf.rewardsResults = reward.results
+                strongSelf.checkNextURL(reward.next)
+                if strongSelf.rewardsResults.isEmpty {
+                    strongSelf.searchEmptyAlert()
+                }
+                strongSelf.tableView.reloadData()
             }
-            strongSelf.tableView.reloadData()
         }
         textField.resignFirstResponder()
         return true
@@ -293,7 +300,6 @@ extension MainViewController: CategorybuttonDelegate {
                 strongSelf.checkNextURL(reward.next)
                 strongSelf.tableView.reloadData()
             }
-            
         default:
             let category = self.storyboard?.instantiateViewController(withIdentifier: "CategoryView") as! CategoryViewController
             rewards.categoryGetList(frame: view.frame, title: title) { [weak self] (reward) in

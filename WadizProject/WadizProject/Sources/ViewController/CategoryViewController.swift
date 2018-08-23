@@ -25,7 +25,7 @@ class CategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleSetup()
+        titleSetup(titlename)
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -38,10 +38,14 @@ class CategoryViewController: UIViewController {
         }
     }
     
-    func titleSetup () {
+    func titleSetup (_ text: String?) {
         let title = UILabel()
         title.textColor = Color.shared.symbolColor
-        title.text = titlename
+        if text != nil {
+          title.text = text!
+        } else {
+            title.text = "Wadiz"
+        }
         title.font = UIFont.boldSystemFont(ofSize: 20)
         navigationItem.titleView = title
     }
@@ -161,16 +165,41 @@ extension CategoryViewController: UITableViewDelegate {
 // MARK:- UITextFieldDelegate
 extension CategoryViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let text = textField.text else { return  true }
-        rewards.rewardsSearchGetList(frame: view.frame, text: text){ [weak self] (reward) in
-            guard let strongSelf = self else { return }
-            strongSelf.rewardsResults = []
-            strongSelf.rewardsResults = reward.results
-            strongSelf.checkNextURL(reward.next)
-            strongSelf.tableView.reloadData()
+        guard let text = textField.text else { print("1"); return  true }
+        if text == "" {
+            self.tableView.reloadData()
+            let index = IndexPath.init(row: 0, section: 0)
+            self.tableView.scrollToRow(at: index, at: .middle, animated: false)
+        } else {
+            rewards.rewardsSearchGetList(frame: view.frame, text: text){ [weak self] (reward) in
+                guard let strongSelf = self else { return }
+                strongSelf.rewardsResults = []
+                strongSelf.rewardsResults = reward.results
+                strongSelf.checkNextURL(reward.next)
+                if strongSelf.rewardsResults.isEmpty {
+                    strongSelf.searchEmptyAlert()
+                }
+                strongSelf.titleSetup("\(text) 검색 결과")
+                strongSelf.tableView.reloadData()
+            }
         }
         textField.resignFirstResponder()
         return true
+    }
+    
+    func searchEmptyAlert() {
+        let alertController = UIAlertController(title: "검색 결과가 없습니다.", message:  nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .default) { [weak self] (action) in
+            guard let strongSelf = self else { return }
+            strongSelf.rewards.categoryGetList(frame: strongSelf.view.frame, title: strongSelf.titlename!, completion: { (reward) in
+                strongSelf.rewardsResults = reward.results
+                strongSelf.checkNextURL(reward.next)
+                strongSelf.titleSetup(strongSelf.titlename)
+                strongSelf.tableView.reloadData()
+            })
+        }
+        alertController.addAction(ok)
+        present(alertController, animated: true)
     }
 }
 

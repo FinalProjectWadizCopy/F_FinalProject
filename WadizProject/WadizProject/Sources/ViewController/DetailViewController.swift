@@ -269,6 +269,7 @@ class DetailViewController: UIViewController {
     
     @objc func presentPundingView() {
         print("present")
+        
     }
 }
 
@@ -317,7 +318,6 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let lineSpacing = Metric.lineSpacing * (Metric.numberOfLine - 1)
-        print(lineSpacing)
         let horizontalPadding = Metric.leftPadding + Metric.rightPadding
         let width = collectionView.frame.width - lineSpacing - horizontalPadding
         let height = collectionView.frame.height - Metric.topPadding - Metric.bottomPadding
