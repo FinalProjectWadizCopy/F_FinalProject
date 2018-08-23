@@ -17,6 +17,7 @@ class MenuView: UIView {
         super.init(frame: frame)
         self.frame = frame
         self.frame.origin = CGPoint(x: frame.origin.x - frame.width, y: frame.origin.y)
+        self.frame.size.width = (frame.width / 5) * 4
         backgroundColor = UIColor.white
 
 //        setSignUpView()
@@ -58,14 +59,17 @@ class MenuView: UIView {
         
         let guide = safeAreaLayoutGuide
         
-        signInButton.topAnchor.constraint(equalTo: guide.topAnchor, constant: margin * 3).isActive = true
-        signInButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin).isActive = true
+        signInButton.topAnchor.constraint(equalTo: guide.topAnchor,
+                                          constant: margin * 3).isActive = true
+        signInButton.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                              constant: margin).isActive = true
         
         detailLabel.topAnchor.constraint(equalTo: signInButton.bottomAnchor).isActive = true
         detailLabel.leadingAnchor.constraint(equalTo: signInButton.leadingAnchor).isActive = true
         
         signUPButton.centerYAnchor.constraint(equalTo: detailLabel.centerYAnchor).isActive = true
-        signUPButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(margin)).isActive = true
+        signUPButton.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                               constant: -(margin)).isActive = true
         
         addLayerView(signUPButton)
         addMenu()
@@ -112,19 +116,26 @@ class MenuView: UIView {
         
         let guide = safeAreaLayoutGuide
 
-        userImage.topAnchor.constraint(equalTo: guide.topAnchor, constant: margin * 3).isActive = true
-        userImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin).isActive = true
+        userImage.topAnchor.constraint(equalTo: guide.topAnchor,
+                                       constant: margin * 3).isActive = true
+        userImage.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                           constant: margin).isActive = true
         userImage.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
         userImage.heightAnchor.constraint(equalTo: userImage.widthAnchor).isActive = true
         
-        userNameLabel.topAnchor.constraint(equalTo: userImage.topAnchor, constant: margin / 2).isActive = true
-        userNameLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: margin * 2).isActive = true
+        userNameLabel.topAnchor.constraint(equalTo: userImage.topAnchor,
+                                           constant: margin / 2).isActive = true
+        userNameLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor,
+                                               constant: margin * 2).isActive = true
         
-        fundingButton.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: margin * 5).isActive = true
-        fundingButton.leadingAnchor.constraint(equalTo: userNameLabel.leadingAnchor, constant: 0).isActive = true
+        fundingButton.topAnchor.constraint(equalTo: userImage.bottomAnchor,
+                                           constant: margin * 5).isActive = true
+        fundingButton.leadingAnchor.constraint(equalTo: userNameLabel.leadingAnchor,
+                                               constant: 0).isActive = true
         
         likeListButton.centerYAnchor.constraint(equalTo: fundingButton.centerYAnchor).isActive = true
-        likeListButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(margin * 2)).isActive = true
+        likeListButton.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                                 constant: -(margin * 2)).isActive = true
         
         
         addLayerView(fundingButton)
@@ -171,13 +182,17 @@ class MenuView: UIView {
         addSubview(homeButton)
         addSubview(rewordButton)
         
-        subTextLabel.topAnchor.constraint(equalTo: layerView.bottomAnchor, constant: margin * 4).isActive = true
-        subTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin).isActive = true
+        subTextLabel.topAnchor.constraint(equalTo: layerView.bottomAnchor,
+                                          constant: margin * 4).isActive = true
+        subTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                              constant: margin).isActive = true
 
-        homeButton.topAnchor.constraint(equalTo: subTextLabel.bottomAnchor, constant: margin).isActive = true
+        homeButton.topAnchor.constraint(equalTo: subTextLabel.bottomAnchor,
+                                        constant: margin).isActive = true
         homeButton.leadingAnchor.constraint(equalTo: subTextLabel.leadingAnchor).isActive = true
 
-        rewordButton.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: margin).isActive = true
+        rewordButton.topAnchor.constraint(equalTo: homeButton.bottomAnchor,
+                                          constant: margin).isActive = true
         rewordButton.leadingAnchor.constraint(equalTo: subTextLabel.leadingAnchor).isActive = true
     }
 

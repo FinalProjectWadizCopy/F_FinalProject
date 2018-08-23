@@ -11,7 +11,6 @@ import UIKit
 class LunchViewController: UIViewController {
 
     private let nextVCModelSegue = "appStart"
-    private let symbolColor = UIColor(red: 0.451, green: 0.796, blue: 0.639, alpha: 1)
 
     private let firstRewards = PostService()
     private var rewardsArr: [Rewards.Results] = []
@@ -27,7 +26,6 @@ class LunchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         firstRewards.rewardGetList { (reward) in
             self.rewardsArr = reward.results
             guard let rewardArr = reward.next else { return }
@@ -35,7 +33,7 @@ class LunchViewController: UIViewController {
         }
         
         activityIndicator.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        activityIndicator.color = symbolColor
+        activityIndicator.color = Color.shared.symbolColor
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -53,7 +51,7 @@ class LunchViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         guard let navi = segue.destination as? UINavigationController else { return }
         guard let secondVC = navi.topViewController as? MainViewController else { return }
-        secondVC.rewardsArr = rewardsArr
+        secondVC.rewardsResults = rewardsArr
     }
 
     deinit {
