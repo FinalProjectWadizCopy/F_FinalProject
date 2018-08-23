@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="DetailReward" id="gTV-IL-0wX" customClass="DetailRewardCollectionViewCell" customModule="WadizProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27000원 펀딩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYo-sk-tgW">
+                        <rect key="frame" x="20" y="20" width="113.5" height="24"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[무배찬스 얼리버드]탄화규소(SiC) 허니컴 `홈세라 무선 신발살균건조기` 1대" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ape-YV-xQB">
+                        <rect key="frame" x="20" y="54" width="335" height="42"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="유해성분없이 진짜 살균되는 `홈세라 신발살균건조기`의 새로움을 느껴보세요!40%  + 무료배송서비스 혜택홈세라 무선 신발살균건조기+전용충전기" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tct-Wd-882">
+                        <rect key="frame" x="20" y="106" width="335" height="56"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2500원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd1-qB-wmh">
+                        <rect key="frame" x="20" y="214.5" width="46.5" height="17.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배송비" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWJ-fZ-IY0">
+                        <rect key="frame" x="20" y="187" width="39" height="17.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="리워드 발송 시작일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Eo-Lf-tva">
+                        <rect key="frame" x="20" y="257" width="112.5" height="17.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018년 09월 초 (1~10일) 예정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uu-0c-ZVI">
+                        <rect key="frame" x="20" y="285" width="224" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제한수량 100개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvR-WI-PIX">
+                        <rect key="frame" x="20" y="331" width="113" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 161개 남음!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maf-Sb-Cir">
+                        <rect key="frame" x="143" y="331" width="123" height="21"/>
+                        <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="0.12992294520547945" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="총 139개 펀딩 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cW-Uq-ge2">
+                        <rect key="frame" x="20" y="362" width="123.5" height="19"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="MWJ-fZ-IY0" firstAttribute="leading" secondItem="Tct-Wd-882" secondAttribute="leading" id="2Wd-GD-lCN"/>
+                <constraint firstItem="8Eo-Lf-tva" firstAttribute="leading" secondItem="Tct-Wd-882" secondAttribute="leading" id="9H6-Eh-b1X"/>
+                <constraint firstItem="Rd1-qB-wmh" firstAttribute="leading" secondItem="MWJ-fZ-IY0" secondAttribute="leading" id="Edh-1O-svV"/>
+                <constraint firstItem="6Uu-0c-ZVI" firstAttribute="top" secondItem="8Eo-Lf-tva" secondAttribute="bottom" constant="10" id="K3C-77-M9D"/>
+                <constraint firstItem="ape-YV-xQB" firstAttribute="leading" secondItem="cYo-sk-tgW" secondAttribute="leading" id="LLN-cc-ZSo"/>
+                <constraint firstItem="Rd1-qB-wmh" firstAttribute="top" secondItem="MWJ-fZ-IY0" secondAttribute="bottom" constant="10" id="Mx5-Wg-Dvl"/>
+                <constraint firstItem="Tct-Wd-882" firstAttribute="trailing" secondItem="ape-YV-xQB" secondAttribute="trailing" id="Uvg-MK-b6O"/>
+                <constraint firstItem="Tct-Wd-882" firstAttribute="leading" secondItem="ape-YV-xQB" secondAttribute="leading" id="XvN-Nu-3Cm"/>
+                <constraint firstItem="6Uu-0c-ZVI" firstAttribute="leading" secondItem="8Eo-Lf-tva" secondAttribute="leading" id="Y1D-6x-g88"/>
+                <constraint firstItem="Tct-Wd-882" firstAttribute="top" secondItem="ape-YV-xQB" secondAttribute="bottom" constant="10" id="ZiH-3g-P3f"/>
+                <constraint firstItem="0cW-Uq-ge2" firstAttribute="top" secondItem="JvR-WI-PIX" secondAttribute="bottom" constant="10" id="i0X-gO-lHB"/>
+                <constraint firstItem="0cW-Uq-ge2" firstAttribute="leading" secondItem="JvR-WI-PIX" secondAttribute="leading" id="i1N-rf-KGA"/>
+                <constraint firstItem="cYo-sk-tgW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="mS0-ro-tJo"/>
+                <constraint firstAttribute="trailing" secondItem="ape-YV-xQB" secondAttribute="trailing" constant="20" id="ntT-DJ-Fai"/>
+                <constraint firstItem="JvR-WI-PIX" firstAttribute="leading" secondItem="6Uu-0c-ZVI" secondAttribute="leading" id="tIZ-SP-hjJ"/>
+                <constraint firstItem="MWJ-fZ-IY0" firstAttribute="top" secondItem="Tct-Wd-882" secondAttribute="bottom" constant="25" id="vDG-DM-DWv"/>
+                <constraint firstItem="ape-YV-xQB" firstAttribute="top" secondItem="cYo-sk-tgW" secondAttribute="bottom" constant="10" id="vjS-ZY-yCP"/>
+                <constraint firstItem="maf-Sb-Cir" firstAttribute="leading" secondItem="JvR-WI-PIX" secondAttribute="trailing" constant="10" id="vwd-7k-Bdp"/>
+                <constraint firstItem="JvR-WI-PIX" firstAttribute="top" secondItem="6Uu-0c-ZVI" secondAttribute="bottom" constant="25" id="wS3-K4-9as"/>
+                <constraint firstItem="8Eo-Lf-tva" firstAttribute="top" secondItem="Rd1-qB-wmh" secondAttribute="bottom" constant="25" id="xdt-Pk-Uyk"/>
+                <constraint firstItem="cYo-sk-tgW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="yYP-e2-Axm"/>
+                <constraint firstItem="maf-Sb-Cir" firstAttribute="bottom" secondItem="JvR-WI-PIX" secondAttribute="bottom" id="yd3-nK-Pdk"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="375" height="396"/>
+            <connections>
+                <outlet property="balanceCount" destination="maf-Sb-Cir" id="lB0-nw-N8Y"/>
+                <outlet property="expectingDepartureDate" destination="6Uu-0c-ZVI" id="5WX-q4-Q7U"/>
+                <outlet property="name" destination="ape-YV-xQB" id="9H3-dY-ubA"/>
+                <outlet property="options" destination="Tct-Wd-882" id="4Lg-AR-pre"/>
+                <outlet property="price" destination="cYo-sk-tgW" id="Wle-FT-sd2"/>
+                <outlet property="shippingCharge" destination="Rd1-qB-wmh" id="5Pk-hC-abg"/>
+                <outlet property="soldCount" destination="0cW-Uq-ge2" id="N0y-kq-Cgh"/>
+                <outlet property="totalCount" destination="JvR-WI-PIX" id="DAy-Sc-5yP"/>
+            </connections>
+            <point key="canvasLocation" x="196.5" y="227"/>
+        </collectionViewCell>
+    </objects>
+</document>

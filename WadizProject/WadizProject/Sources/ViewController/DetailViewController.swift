@@ -30,15 +30,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var totalAmount: UILabel!
     @IBOutlet weak var fundingPeriod: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
         setData()
+        setCollectionView()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         addPundingButtonView()
+        
     }
     
     func setData() {
@@ -62,7 +66,17 @@ class DetailViewController: UIViewController {
         
         scrollView.frame = CGRect(origin: view.frame.origin, size: CGSize(width: view.frame.width, height: view.frame.height * 3))
         scrollView.contentSize.height = view.frame.height * 3
+        
+        collectionView.backgroundColor = Color.shared.symbolColor.withAlphaComponent(0.3)
     }
+    
+    func setCollectionView() {
+       let detailRewardCellNib =  UINib(nibName: "DetailRewardCollectionViewCell", bundle: nil)
+        collectionView.register(detailRewardCellNib, forCellWithReuseIdentifier: "DetailReward")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
     
     //MARK: - IBAction
     @IBAction func presentDetailWebView(_ sender: UIButton) {
@@ -170,13 +184,13 @@ class DetailViewController: UIViewController {
     func addPundingButtonView () {
         let bottomMargin = view.layoutMargins.bottom
         let margin = CGFloat(5)
-
-        pundingView.frame.size = CGSize(width: view.bounds.width,
-                                        height: 50)
-        pundingView.frame.origin = CGPoint(x: view.frame.minX,
-                                           y: view.frame.maxY - pundingView.frame.size.height - bottomMargin)
+        pundingView.frame.size =
+            CGSize(width: view.bounds.width,
+                   height: 50)
+        pundingView.frame.origin =
+            CGPoint(x: view.frame.minX,
+                    y: view.frame.maxY - pundingView.frame.size.height - bottomMargin)
         pundingView.backgroundColor = Color.shared.symbolColor
-        
         view.bringSubview(toFront: pundingView)
         view.addSubview(pundingView)
 
@@ -255,5 +269,66 @@ class DetailViewController: UIViewController {
     
     @objc func presentPundingView() {
         print("present")
+    }
+}
+
+
+extension DetailViewController: UICollectionViewDataSource {
+
+    public func collectionView(_ collectionView: UICollectionView,
+                               numberOfItemsInSection section: Int) -> Int {
+        return detailData.rewards.count
+    }
+    
+
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailReward",
+                                                      for: indexPath) as! DetailRewardCollectionViewCell
+        let reward = detailData.rewards[indexPath.row]
+        cell.price.text = "\(reward.rewardPrice)원"
+        cell.name.text = reward.rewardName
+        cell.options.text = reward.rewardOption
+        cell.expectingDepartureDate.text = reward.rewardExpectingDepartureDate
+        cell.totalCount.text = "제한수량 \(reward.rewardTotalCount)개"
+        cell.shippingCharge.text = "\(reward.rewardShippingCharge)원"
+        cell.soldCount.text = "총 \(reward.rewardSoldCount)개 펀딩 완료"
+        cell.balanceCount.text = "현재 \(reward.rewardTotalCount - reward.rewardSoldCount)개 남음!"
+        
+        return cell
+    }
+}
+
+extension DetailViewController: UICollectionViewDelegateFlowLayout {
+    
+    private struct Metric {
+        static let numberOfLine: CGFloat = 1
+        
+        static let lineSpacing: CGFloat = 20
+        
+        static let topPadding: CGFloat = 5
+        static let bottomPadding: CGFloat = 5
+        static let leftPadding: CGFloat = 10
+        static let rightPadding: CGFloat = 10
+        
+        static let nextOffset: CGFloat = 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let lineSpacing = Metric.lineSpacing * (Metric.numberOfLine - 1)
+        print(lineSpacing)
+        let horizontalPadding = Metric.leftPadding + Metric.rightPadding
+        let width = collectionView.frame.width - lineSpacing - horizontalPadding
+        let height = collectionView.frame.height - Metric.topPadding - Metric.bottomPadding
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return Metric.lineSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(Metric.topPadding, Metric.leftPadding, Metric.bottomPadding, Metric.rightPadding)
     }
 }

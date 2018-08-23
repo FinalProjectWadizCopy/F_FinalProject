@@ -27,6 +27,8 @@
 		592A073C2126A90700406B79 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A073B2126A90700406B79 /* DetailViewController.swift */; };
 		592A073E2126AF7E00406B79 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A073D2126AF7E00406B79 /* Detail.swift */; };
 		592A07832127CC6800406B79 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07822127CC6800406B79 /* Singleton.swift */; };
+		592A07DA212DA3B400406B79 /* DetailRewardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07D8212DA3B400406B79 /* DetailRewardCollectionViewCell.swift */; };
+		592A07DB212DA3B400406B79 /* DetailRewardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592A07D9212DA3B400406B79 /* DetailRewardCollectionViewCell.xib */; };
 		593A944D2119746800F4F4A2 /* HeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A944B2119746800F4F4A2 /* HeaderCellTableViewCell.swift */; };
 		593A944E2119746800F4F4A2 /* HeaderCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593A944C2119746800F4F4A2 /* HeaderCellTableViewCell.xib */; };
 		593A94552119C5E300F4F4A2 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A94532119C5E300F4F4A2 /* CategoryViewController.swift */; };
@@ -65,6 +67,8 @@
 		592A073B2126A90700406B79 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		592A073D2126AF7E00406B79 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		592A07822127CC6800406B79 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		592A07D8212DA3B400406B79 /* DetailRewardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRewardCollectionViewCell.swift; sourceTree = "<group>"; };
+		592A07D9212DA3B400406B79 /* DetailRewardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRewardCollectionViewCell.xib; sourceTree = "<group>"; };
 		593A944B2119746800F4F4A2 /* HeaderCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellTableViewCell.swift; sourceTree = "<group>"; };
 		593A944C2119746800F4F4A2 /* HeaderCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCellTableViewCell.xib; sourceTree = "<group>"; };
 		593A94532119C5E300F4F4A2 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		593A942421173C1600F4F4A2 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				592A07D8212DA3B400406B79 /* DetailRewardCollectionViewCell.swift */,
+				592A07D9212DA3B400406B79 /* DetailRewardCollectionViewCell.xib */,
 				23EB73E22126944D0035C44B /* CardCell.swift */,
 				23EB73DE2126944D0035C44B /* CardCell.xib */,
 				59C69D262114A1D50085FAD7 /* CategoryCollectionViewCell.swift */,
@@ -326,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				592A07DB212DA3B400406B79 /* DetailRewardCollectionViewCell.xib in Resources */,
 				23EB73F421269B140035C44B /* Main.storyboard in Resources */,
 				23EB73ED2126944E0035C44B /* FundingTermsPage.storyboard in Resources */,
 				23EB73EC2126944E0035C44B /* FundingPage.storyboard in Resources */,
@@ -405,6 +412,7 @@
 				592A070521219A8C00406B79 /* RewardsGridTableViewCell.swift in Sources */,
 				597140B821102ECB005FA8DA /* MainViewController.swift in Sources */,
 				59C5D0D421202B3C0088CD87 /* PostService.swift in Sources */,
+				592A07DA212DA3B400406B79 /* DetailRewardCollectionViewCell.swift in Sources */,
 				59C69D282114A1D50085FAD7 /* CategoryCollectionViewCell.swift in Sources */,
 				593A94552119C5E300F4F4A2 /* CategoryViewController.swift in Sources */,
 				59C69D2E2114BE050085FAD7 /* CategoryTableViewCell.swift in Sources */,
