@@ -21,12 +21,6 @@ Permission is granted to anyone to use this software for any purpose,including c
 
 import Foundation
 
-<<<<<<< HEAD
-extension String: KingfisherCompatible { }
-
-extension Kingfisher where Base == String {
-    public var md5: String {
-=======
 public struct StringProxy {
     fileprivate let base: String
     init(proxy: String) {
@@ -43,7 +37,6 @@ extension String: KingfisherCompatible {
 
 extension StringProxy {
     var md5: String {
->>>>>>> Develop
         if let data = base.data(using: .utf8, allowLossyConversion: true) {
 
             let message = data.withUnsafeBytes { bytes -> [UInt8] in

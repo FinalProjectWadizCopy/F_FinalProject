@@ -7,26 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
-		4D1E6B3C1250F2ADF80713AB /* Pods_WadizProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC21BBE29014858795F1539 /* Pods_WadizProject.framework */; };
-		59E78253210EE21C00C19A41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E78252210EE21C00C19A41 /* AppDelegate.swift */; };
-		59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59E78259210EE21D00C19A41 /* WadizProject.xcdatamodeld */; };
-		59E7825D210EE21F00C19A41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E7825C210EE21F00C19A41 /* Assets.xcassets */; };
-		59E78260210EE21F00C19A41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E7825E210EE21F00C19A41 /* LaunchScreen.storyboard */; };
-		CB0D2A982126C2680007CAB8 /* SignTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0D2A972126C2680007CAB8 /* SignTermsViewController.swift */; };
-		CB1096BE212ED30E00102A60 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1096BD212ED30E00102A60 /* UserManager.swift */; };
-		CB1096CA212EF14300102A60 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1096C9212EF14300102A60 /* Home.swift */; };
-		CB16F648211B049E00503EBB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB16F647211B049E00503EBB /* RegisterViewController.swift */; };
-		CB174F5B2124C82B000EDE16 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB174F5A2124C82B000EDE16 /* SignViewController.swift */; };
-		CB53004A211068CB00E1FF45 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB530048211068CB00E1FF45 /* LoginViewController.swift */; };
-		CB53004C2110692500E1FF45 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB53004B2110692500E1FF45 /* LoginView.storyboard */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		2BC21BBE29014858795F1539 /* Pods_WadizProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WadizProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		59E7824F210EE21C00C19A41 /* WadizProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WadizProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		59E78252210EE21C00C19A41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-=======
 		23EB73E62126944E0035C44B /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EB73DE2126944D0035C44B /* CardCell.xib */; };
 		23EB73E72126944E0035C44B /* FundingTermsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB73DF2126944D0035C44B /* FundingTermsPageViewController.swift */; };
 		23EB73E82126944E0035C44B /* FundingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB73E02126944D0035C44B /* FundingPageViewController.swift */; };
@@ -102,22 +82,9 @@
 		59C69D2D2114BE050085FAD7 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		59C69D2F2115320D0085FAD7 /* RecommendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendTableViewCell.swift; sourceTree = "<group>"; };
 		59E7824F210EE21C00C19A41 /* WadizProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WadizProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
->>>>>>> Develop
 		59E7825A210EE21D00C19A41 /* WadizProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WadizProject.xcdatamodel; sourceTree = "<group>"; };
 		59E78261210EE21F00C19A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		BA2400E4A0727826ACE62B58 /* Pods-WadizProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WadizProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject.debug.xcconfig"; sourceTree = "<group>"; };
-		CB0D2A972126C2680007CAB8 /* SignTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTermsViewController.swift; sourceTree = "<group>"; };
-		CB1096BD212ED30E00102A60 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		CB1096C9212EF14300102A60 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		CB16F647211B049E00503EBB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		CB174F5A2124C82B000EDE16 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
-		CB530048211068CB00E1FF45 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = /Users/pure/F_FinalProject/WadizProject/WadizProject/LoginViewController.swift; sourceTree = "<absolute>"; };
-		CB53004B2110692500E1FF45 /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
-		EB1902789EC281CE2550541C /* Pods-WadizProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WadizProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject.release.xcconfig"; sourceTree = "<group>"; };
-=======
 		8006C8B7BFC2F28A39A71723 /* Pods-WadizProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WadizProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject.release.xcconfig"; sourceTree = "<group>"; };
->>>>>>> Develop
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,11 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				4D1E6B3C1250F2ADF80713AB /* Pods_WadizProject.framework in Frameworks */,
-=======
 				3371ECBE4339BAE019AE4006 /* Pods_WadizProject.framework in Frameworks */,
->>>>>>> Develop
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,13 +229,8 @@
 			children = (
 				59E78251210EE21C00C19A41 /* WadizProject */,
 				59E78250210EE21C00C19A41 /* Products */,
-<<<<<<< HEAD
-				6706794BFE8F7E33535C6C6B /* Pods */,
-				6D6D61F6C63252A02BABB899 /* Frameworks */,
-=======
 				AB6A5723BFD13BC579D1C7CB /* Pods */,
 				EF5B65C7ED00B55F8519E688 /* Frameworks */,
->>>>>>> Develop
 			);
 			sourceTree = "<group>";
 		};
@@ -287,57 +245,29 @@
 		59E78251210EE21C00C19A41 /* WadizProject */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				59E78252210EE21C00C19A41 /* AppDelegate.swift */,
-				CB1096BD212ED30E00102A60 /* UserManager.swift */,
-				CB530048211068CB00E1FF45 /* LoginViewController.swift */,
-				CB174F5A2124C82B000EDE16 /* SignViewController.swift */,
-				CB16F647211B049E00503EBB /* RegisterViewController.swift */,
-				CB0D2A972126C2680007CAB8 /* SignTermsViewController.swift */,
-				CB53004B2110692500E1FF45 /* LoginView.storyboard */,
-				CB1096C9212EF14300102A60 /* Home.swift */,
-				59E7825C210EE21F00C19A41 /* Assets.xcassets */,
-				59E7825E210EE21F00C19A41 /* LaunchScreen.storyboard */,
-=======
 				597140B321102685005FA8DA /* Storyboard */,
 				597140B6211026DB005FA8DA /* Sources */,
 				597140B5211026BF005FA8DA /* Resources */,
 				597140B42110269B005FA8DA /* Supporting File */,
->>>>>>> Develop
 				59E78261210EE21F00C19A41 /* Info.plist */,
 				59E78259210EE21D00C19A41 /* WadizProject.xcdatamodeld */,
 			);
 			path = WadizProject;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		6706794BFE8F7E33535C6C6B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BA2400E4A0727826ACE62B58 /* Pods-WadizProject.debug.xcconfig */,
-				EB1902789EC281CE2550541C /* Pods-WadizProject.release.xcconfig */,
-=======
 		AB6A5723BFD13BC579D1C7CB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				295812419736B62CD9631192 /* Pods-WadizProject.debug.xcconfig */,
 				8006C8B7BFC2F28A39A71723 /* Pods-WadizProject.release.xcconfig */,
->>>>>>> Develop
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		6D6D61F6C63252A02BABB899 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2BC21BBE29014858795F1539 /* Pods_WadizProject.framework */,
-=======
 		EF5B65C7ED00B55F8519E688 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				14E946E6A82A94CE591B6110 /* Pods_WadizProject.framework */,
->>>>>>> Develop
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -349,19 +279,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59E78264210EE21F00C19A41 /* Build configuration list for PBXNativeTarget "WadizProject" */;
 			buildPhases = (
-<<<<<<< HEAD
-				0D84D64CDB9CB587FD8F27EC /* [CP] Check Pods Manifest.lock */,
-				59E7824B210EE21C00C19A41 /* Sources */,
-				59E7824C210EE21C00C19A41 /* Frameworks */,
-				59E7824D210EE21C00C19A41 /* Resources */,
-				306E10AB6B7FF1D7B39B988C /* [CP] Embed Pods Frameworks */,
-=======
 				AF676F04750405F392F586A9 /* [CP] Check Pods Manifest.lock */,
 				59E7824B210EE21C00C19A41 /* Sources */,
 				59E7824C210EE21C00C19A41 /* Frameworks */,
 				59E7824D210EE21C00C19A41 /* Resources */,
 				A5D02C9FAD41B28BF8BFF254 /* [CP] Embed Pods Frameworks */,
->>>>>>> Develop
 			);
 			buildRules = (
 			);
@@ -410,11 +332,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				59E78260210EE21F00C19A41 /* LaunchScreen.storyboard in Resources */,
-				59E7825D210EE21F00C19A41 /* Assets.xcassets in Resources */,
-				CB53004C2110692500E1FF45 /* LoginView.storyboard in Resources */,
-=======
 				592A07DB212DA3B400406B79 /* DetailRewardCollectionViewCell.xib in Resources */,
 				23EB73F421269B140035C44B /* Main.storyboard in Resources */,
 				23EB73ED2126944E0035C44B /* FundingTermsPage.storyboard in Resources */,
@@ -426,38 +343,18 @@
 				23EB73EF21269A9E0035C44B /* Assets.xcassets in Resources */,
 				23EB73F721269BE40035C44B /* LaunchScreen.storyboard in Resources */,
 				59C69D292114A1D50085FAD7 /* CategoryCollectionViewCell.xib in Resources */,
->>>>>>> Develop
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-<<<<<<< HEAD
-		0D84D64CDB9CB587FD8F27EC /* [CP] Check Pods Manifest.lock */ = {
-=======
 		A5D02C9FAD41B28BF8BFF254 /* [CP] Embed Pods Frameworks */ = {
->>>>>>> Develop
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-<<<<<<< HEAD
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WadizProject-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		306E10AB6B7FF1D7B39B988C /* [CP] Embed Pods Frameworks */ = {
-=======
 				"${SRCROOT}/Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -473,40 +370,11 @@
 			showEnvVarsInLog = 0;
 		};
 		AF676F04750405F392F586A9 /* [CP] Check Pods Manifest.lock */ = {
->>>>>>> Develop
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-<<<<<<< HEAD
-				"${SRCROOT}/Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKMessengerShareKit/FBSDKMessengerShareKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKPlacesKit/FBSDKPlacesKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKMessengerShareKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKPlacesKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject-frameworks.sh\"\n";
-=======
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
@@ -517,7 +385,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
->>>>>>> Develop
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -527,15 +394,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				CB53004A211068CB00E1FF45 /* LoginViewController.swift in Sources */,
-				CB174F5B2124C82B000EDE16 /* SignViewController.swift in Sources */,
-				CB16F648211B049E00503EBB /* RegisterViewController.swift in Sources */,
-				59E78253210EE21C00C19A41 /* AppDelegate.swift in Sources */,
-				CB0D2A982126C2680007CAB8 /* SignTermsViewController.swift in Sources */,
-				CB1096BE212ED30E00102A60 /* UserManager.swift in Sources */,
-				CB1096CA212EF14300102A60 /* Home.swift in Sources */,
-=======
 				23EB73F121269AB90035C44B /* AppDelegate.swift in Sources */,
 				23EB73E82126944E0035C44B /* FundingPageViewController.swift in Sources */,
 				592A073E2126AF7E00406B79 /* Detail.swift in Sources */,
@@ -549,7 +407,6 @@
 				59C69D302115320D0085FAD7 /* RecommendTableViewCell.swift in Sources */,
 				596030182110640E00D84942 /* MenuView.swift in Sources */,
 				592A070D21250F9500406B79 /* LodingView.swift in Sources */,
->>>>>>> Develop
 				59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */,
 				592A073A21257B2C00406B79 /* EmptyView.swift in Sources */,
 				592A070521219A8C00406B79 /* RewardsGridTableViewCell.swift in Sources */,
@@ -568,9 +425,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-<<<<<<< HEAD
-		59E7825E210EE21F00C19A41 /* LaunchScreen.storyboard */ = {
-=======
 		23EB73F221269B140035C44B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -580,7 +434,6 @@
 			sourceTree = "<group>";
 		};
 		23EB73F521269BE40035C44B /* LaunchScreen.storyboard */ = {
->>>>>>> Develop
 			isa = PBXVariantGroup;
 			children = (
 				23EB73F621269BE40035C44B /* Base */,
@@ -707,19 +560,11 @@
 		};
 		59E78265210EE21F00C19A41 /* Debug */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
-			baseConfigurationReference = BA2400E4A0727826ACE62B58 /* Pods-WadizProject.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5BFT6748Q8;
-=======
 			baseConfigurationReference = 295812419736B62CD9631192 /* Pods-WadizProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G4MM77V7NH;
->>>>>>> Develop
 				INFOPLIST_FILE = WadizProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -735,19 +580,11 @@
 		};
 		59E78266210EE21F00C19A41 /* Release */ = {
 			isa = XCBuildConfiguration;
-<<<<<<< HEAD
-			baseConfigurationReference = EB1902789EC281CE2550541C /* Pods-WadizProject.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5BFT6748Q8;
-=======
 			baseConfigurationReference = 8006C8B7BFC2F28A39A71723 /* Pods-WadizProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G4MM77V7NH;
->>>>>>> Develop
 				INFOPLIST_FILE = WadizProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
