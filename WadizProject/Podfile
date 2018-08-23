@@ -6,6 +6,7 @@ target 'WadizProject' do
   use_frameworks!
 
   # Pods for WadizProject
+pod 'FBSDKLoginKit'
 pod 'Alamofire'
 pod 'Kingfisher'
 

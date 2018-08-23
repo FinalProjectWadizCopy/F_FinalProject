@@ -46,6 +46,12 @@
 		59C69D302115320D0085FAD7 /* RecommendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C69D2F2115320D0085FAD7 /* RecommendTableViewCell.swift */; };
 		59E78258210EE21D00C19A41 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59E78259210EE21D00C19A41 /* WadizProject.xcdatamodeld */; };
+		CB196B2D212F17B5009EE862 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB196B2C212F17B5009EE862 /* LoginView.storyboard */; };
+		CB196B2F212F17D8009EE862 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB196B2E212F17D7009EE862 /* LoginViewController.swift */; };
+		CB196B31212F17E0009EE862 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB196B30212F17E0009EE862 /* RegisterViewController.swift */; };
+		CB196B33212F186B009EE862 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB196B32212F186B009EE862 /* SignViewController.swift */; };
+		CB196B35212F187D009EE862 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB196B34212F187D009EE862 /* Home.swift */; };
+		CB196B37212F1891009EE862 /* SignTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB196B36212F1891009EE862 /* SignTermsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +97,12 @@
 		59E7825A210EE21D00C19A41 /* WadizProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WadizProject.xcdatamodel; sourceTree = "<group>"; };
 		59E78261210EE21F00C19A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8006C8B7BFC2F28A39A71723 /* Pods-WadizProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WadizProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject.release.xcconfig"; sourceTree = "<group>"; };
+		CB196B2C212F17B5009EE862 /* LoginView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LoginView.storyboard; path = ../../../../Desktop/WadizProject/LoginView.storyboard; sourceTree = "<group>"; };
+		CB196B2E212F17D7009EE862 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../../../../../Desktop/WadizProject/LoginViewController.swift; sourceTree = "<group>"; };
+		CB196B30212F17E0009EE862 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ../../../../../Desktop/WadizProject/RegisterViewController.swift; sourceTree = "<group>"; };
+		CB196B32212F186B009EE862 /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignViewController.swift; path = ../../../../../Desktop/WadizProject/SignViewController.swift; sourceTree = "<group>"; };
+		CB196B34212F187D009EE862 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home.swift; path = ../../../../../Desktop/WadizProject/Home.swift; sourceTree = "<group>"; };
+		CB196B36212F1891009EE862 /* SignTermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignTermsViewController.swift; path = ../../../../../Desktop/WadizProject/SignTermsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +169,7 @@
 		597140B12110266E005FA8DA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB196B34212F187D009EE862 /* Home.swift */,
 				596030172110640E00D84942 /* MenuView.swift */,
 				592A073921257B2C00406B79 /* EmptyView.swift */,
 				592A070C21250F9500406B79 /* LodingView.swift */,
@@ -176,6 +189,10 @@
 				23EB73E02126944D0035C44B /* FundingPageViewController.swift */,
 				23EB73DF2126944D0035C44B /* FundingTermsPageViewController.swift */,
 				23EB73E12126944D0035C44B /* PersonalPageViewController.swift */,
+				CB196B30212F17E0009EE862 /* RegisterViewController.swift */,
+				CB196B2E212F17D7009EE862 /* LoginViewController.swift */,
+				CB196B32212F186B009EE862 /* SignViewController.swift */,
+				CB196B36212F1891009EE862 /* SignTermsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -187,6 +204,7 @@
 				23EB73E42126944E0035C44B /* FundingPage.storyboard */,
 				23EB73E52126944E0035C44B /* FundingTermsPage.storyboard */,
 				23EB73E32126944D0035C44B /* PersonalPage.storyboard */,
+				CB196B2C212F17B5009EE862 /* LoginView.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -341,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB196B2D212F17B5009EE862 /* LoginView.storyboard in Resources */,
 				592A07DB212DA3B400406B79 /* DetailRewardCollectionViewCell.xib in Resources */,
 				23EB73F421269B140035C44B /* Main.storyboard in Resources */,
 				23EB73ED2126944E0035C44B /* FundingTermsPage.storyboard in Resources */,
@@ -367,11 +386,17 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,12 +429,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB196B2F212F17D8009EE862 /* LoginViewController.swift in Sources */,
+				CB196B35212F187D009EE862 /* Home.swift in Sources */,
 				23EB73F121269AB90035C44B /* AppDelegate.swift in Sources */,
 				23EB73E82126944E0035C44B /* FundingPageViewController.swift in Sources */,
 				592A073E2126AF7E00406B79 /* Detail.swift in Sources */,
 				592A073C2126A90700406B79 /* DetailViewController.swift in Sources */,
 				23EB73E72126944E0035C44B /* FundingTermsPageViewController.swift in Sources */,
 				59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */,
+				CB196B33212F186B009EE862 /* SignViewController.swift in Sources */,
 				592A07E7212EE11300406B79 /* UserInfo.swift in Sources */,
 				23EB73E92126944E0035C44B /* PersonalPageViewController.swift in Sources */,
 				23EB73EA2126944E0035C44B /* CardCell.swift in Sources */,
@@ -420,6 +448,7 @@
 				592A070D21250F9500406B79 /* LodingView.swift in Sources */,
 				59E7825B210EE21D00C19A41 /* WadizProject.xcdatamodeld in Sources */,
 				592A073A21257B2C00406B79 /* EmptyView.swift in Sources */,
+				CB196B37212F1891009EE862 /* SignTermsViewController.swift in Sources */,
 				592A070521219A8C00406B79 /* RewardsGridTableViewCell.swift in Sources */,
 				597140B821102ECB005FA8DA /* MainViewController.swift in Sources */,
 				592A07E2212EBB3800406B79 /* FundingListCollectionViewCell.swift in Sources */,
@@ -431,6 +460,7 @@
 				59C5D0D221202AD40088CD87 /* Rewards.swift in Sources */,
 				592A07832127CC6800406B79 /* Singleton.swift in Sources */,
 				59C5D0D9212152760088CD87 /* RewardsTableViewCell.swift in Sources */,
+				CB196B31212F17E0009EE862 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
