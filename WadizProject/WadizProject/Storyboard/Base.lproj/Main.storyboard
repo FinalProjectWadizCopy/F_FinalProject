@@ -54,7 +54,7 @@
         <!--Main View Controller-->
         <scene sceneID="HjK-be-dnp">
             <objects>
-                <viewController id="nra-mS-Wg6" customClass="MainViewController" customModule="WadizProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nra-mS-Wg6" customClass="MainViewController" customModule="WadizProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aY8-8x-mqe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

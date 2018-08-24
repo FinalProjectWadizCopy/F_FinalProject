@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		23EB73E62126944E0035C44B /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23EB73DE2126944D0035C44B /* CardCell.xib */; };
-		23EB73E72126944E0035C44B /* FundingTermsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB73DF2126944D0035C44B /* FundingTermsPageViewController.swift */; };
 		23EB73E82126944E0035C44B /* FundingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB73E02126944D0035C44B /* FundingPageViewController.swift */; };
 		23EB73E92126944E0035C44B /* PersonalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB73E12126944D0035C44B /* PersonalPageViewController.swift */; };
 		23EB73EA2126944E0035C44B /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB73E22126944D0035C44B /* CardCell.swift */; };
@@ -20,6 +19,12 @@
 		23EB73F421269B140035C44B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EB73F221269B140035C44B /* Main.storyboard */; };
 		23EB73F721269BE40035C44B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EB73F521269BE40035C44B /* LaunchScreen.storyboard */; };
 		3371ECBE4339BAE019AE4006 /* Pods_WadizProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E946E6A82A94CE591B6110 /* Pods_WadizProject.framework */; };
+		5915406B212F70A700219B14 /* FundingTermsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5915406A212F70A700219B14 /* FundingTermsPageViewController.swift */; };
+		5915406C212F75A900219B14 /* FundingTermsPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59289C4A212F68AF0043FF4F /* FundingTermsPage.storyboard */; };
+		59289C42212F68A10043FF4F /* SelectRewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59289C40212F68A00043FF4F /* SelectRewardCell.swift */; };
+		59289C43212F68A10043FF4F /* SelectRewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59289C41212F68A10043FF4F /* SelectRewardCell.xib */; };
+		59289C48212F68A90043FF4F /* FundingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59289C45212F68A90043FF4F /* FundingResultViewController.swift */; };
+		59289C49212F68A90043FF4F /* FundingSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59289C46212F68A90043FF4F /* FundingSelectViewController.swift */; };
 		592A070521219A8C00406B79 /* RewardsGridTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A070421219A8C00406B79 /* RewardsGridTableViewCell.swift */; };
 		592A07072121CC7400406B79 /* LunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07062121CC7400406B79 /* LunchViewController.swift */; };
 		592A070D21250F9500406B79 /* LodingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A070C21250F9500406B79 /* LodingView.swift */; };
@@ -34,7 +39,6 @@
 		592A07E7212EE11300406B79 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07E6212EE11300406B79 /* UserInfo.swift */; };
 		592A07EB212F28DA00406B79 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07EA212F28DA00406B79 /* Like.swift */; };
 		592A07F9212F467C00406B79 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592A07F8212F467C00406B79 /* LoginView.storyboard */; };
-		592A07FB212F468A00406B79 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07FA212F468A00406B79 /* Home.swift */; };
 		592A0800212F46A500406B79 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07FC212F46A500406B79 /* LoginViewController.swift */; };
 		592A0801212F46A500406B79 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07FD212F46A500406B79 /* RegisterViewController.swift */; };
 		592A0802212F46A500406B79 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592A07FE212F46A500406B79 /* SignViewController.swift */; };
@@ -57,7 +61,6 @@
 /* Begin PBXFileReference section */
 		14E946E6A82A94CE591B6110 /* Pods_WadizProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WadizProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EB73DE2126944D0035C44B /* CardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
-		23EB73DF2126944D0035C44B /* FundingTermsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundingTermsPageViewController.swift; sourceTree = "<group>"; };
 		23EB73E02126944D0035C44B /* FundingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundingPageViewController.swift; sourceTree = "<group>"; };
 		23EB73E12126944D0035C44B /* PersonalPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageViewController.swift; sourceTree = "<group>"; };
 		23EB73E22126944D0035C44B /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
@@ -69,6 +72,12 @@
 		23EB73F321269B140035C44B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23EB73F621269BE40035C44B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		295812419736B62CD9631192 /* Pods-WadizProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WadizProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WadizProject/Pods-WadizProject.debug.xcconfig"; sourceTree = "<group>"; };
+		5915406A212F70A700219B14 /* FundingTermsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FundingTermsPageViewController.swift; path = ../../../../../../.Trash/FundingTermsPageViewController.swift; sourceTree = "<group>"; };
+		59289C40212F68A00043FF4F /* SelectRewardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectRewardCell.swift; path = ../../../../../../../Downloads/WadizProject/Sources/View/CollectionViewCell/SelectRewardCell.swift; sourceTree = "<group>"; };
+		59289C41212F68A10043FF4F /* SelectRewardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectRewardCell.xib; path = ../../../../../../../Downloads/WadizProject/Sources/View/CollectionViewCell/SelectRewardCell.xib; sourceTree = "<group>"; };
+		59289C45212F68A90043FF4F /* FundingResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FundingResultViewController.swift; path = ../../../../../../Downloads/WadizProject/Sources/ViewController/FundingResultViewController.swift; sourceTree = "<group>"; };
+		59289C46212F68A90043FF4F /* FundingSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FundingSelectViewController.swift; path = ../../../../../../Downloads/WadizProject/Sources/ViewController/FundingSelectViewController.swift; sourceTree = "<group>"; };
+		59289C4A212F68AF0043FF4F /* FundingTermsPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = FundingTermsPage.storyboard; path = ../../../../../Downloads/WadizProject/Storyboard/FundingTermsPage.storyboard; sourceTree = "<group>"; };
 		592A070421219A8C00406B79 /* RewardsGridTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsGridTableViewCell.swift; sourceTree = "<group>"; };
 		592A07062121CC7400406B79 /* LunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchViewController.swift; sourceTree = "<group>"; };
 		592A070C21250F9500406B79 /* LodingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodingView.swift; sourceTree = "<group>"; };
@@ -83,7 +92,6 @@
 		592A07E6212EE11300406B79 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		592A07EA212F28DA00406B79 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		592A07F8212F467C00406B79 /* LoginView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LoginView.storyboard; path = "../../../../../Downloads/아카이브 (2)/LoginView.storyboard"; sourceTree = "<group>"; };
-		592A07FA212F468A00406B79 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Home.swift; path = "../../../../../../Downloads/아카이브 (2)/Home.swift"; sourceTree = "<group>"; };
 		592A07FC212F46A500406B79 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "../../../../../../Downloads/아카이브 (2)/LoginViewController.swift"; sourceTree = "<group>"; };
 		592A07FD212F46A500406B79 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "../../../../../../Downloads/아카이브 (2)/RegisterViewController.swift"; sourceTree = "<group>"; };
 		592A07FE212F46A500406B79 /* SignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignViewController.swift; path = "../../../../../../Downloads/아카이브 (2)/SignViewController.swift"; sourceTree = "<group>"; };
@@ -129,6 +137,8 @@
 		593A942421173C1600F4F4A2 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				59289C40212F68A00043FF4F /* SelectRewardCell.swift */,
+				59289C41212F68A10043FF4F /* SelectRewardCell.xib */,
 				592A07D8212DA3B400406B79 /* DetailRewardCollectionViewCell.swift */,
 				592A07D9212DA3B400406B79 /* DetailRewardCollectionViewCell.xib */,
 				592A07E0212EBB3800406B79 /* FundingListCollectionViewCell.swift */,
@@ -171,7 +181,6 @@
 		597140B12110266E005FA8DA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				592A07FA212F468A00406B79 /* Home.swift */,
 				596030172110640E00D84942 /* MenuView.swift */,
 				592A073921257B2C00406B79 /* EmptyView.swift */,
 				592A070C21250F9500406B79 /* LodingView.swift */,
@@ -189,7 +198,9 @@
 				593A94532119C5E300F4F4A2 /* CategoryViewController.swift */,
 				592A073B2126A90700406B79 /* DetailViewController.swift */,
 				23EB73E02126944D0035C44B /* FundingPageViewController.swift */,
-				23EB73DF2126944D0035C44B /* FundingTermsPageViewController.swift */,
+				59289C45212F68A90043FF4F /* FundingResultViewController.swift */,
+				5915406A212F70A700219B14 /* FundingTermsPageViewController.swift */,
+				59289C46212F68A90043FF4F /* FundingSelectViewController.swift */,
 				23EB73E12126944D0035C44B /* PersonalPageViewController.swift */,
 				592A07FC212F46A500406B79 /* LoginViewController.swift */,
 				592A07FD212F46A500406B79 /* RegisterViewController.swift */,
@@ -207,6 +218,7 @@
 				23EB73E52126944E0035C44B /* FundingTermsPage.storyboard */,
 				23EB73E32126944D0035C44B /* PersonalPage.storyboard */,
 				592A07F8212F467C00406B79 /* LoginView.storyboard */,
+				59289C4A212F68AF0043FF4F /* FundingTermsPage.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -368,9 +380,11 @@
 				23EB73EC2126944E0035C44B /* FundingPage.storyboard in Resources */,
 				23EB73E62126944E0035C44B /* CardCell.xib in Resources */,
 				23EB73EB2126944E0035C44B /* PersonalPage.storyboard in Resources */,
+				5915406C212F75A900219B14 /* FundingTermsPage.storyboard in Resources */,
 				593A944E2119746800F4F4A2 /* HeaderCellTableViewCell.xib in Resources */,
 				59E78258210EE21D00C19A41 /* (null) in Resources */,
 				592A07E3212EBB3800406B79 /* FundingListCollectionViewCell.xib in Resources */,
+				59289C43212F68A10043FF4F /* SelectRewardCell.xib in Resources */,
 				23EB73EF21269A9E0035C44B /* Assets.xcassets in Resources */,
 				23EB73F721269BE40035C44B /* LaunchScreen.storyboard in Resources */,
 				59C69D292114A1D50085FAD7 /* CategoryCollectionViewCell.xib in Resources */,
@@ -431,15 +445,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59289C49212F68A90043FF4F /* FundingSelectViewController.swift in Sources */,
 				592A0800212F46A500406B79 /* LoginViewController.swift in Sources */,
-				592A07FB212F468A00406B79 /* Home.swift in Sources */,
 				23EB73F121269AB90035C44B /* AppDelegate.swift in Sources */,
+				5915406B212F70A700219B14 /* FundingTermsPageViewController.swift in Sources */,
 				23EB73E82126944E0035C44B /* FundingPageViewController.swift in Sources */,
 				592A073E2126AF7E00406B79 /* Detail.swift in Sources */,
 				592A073C2126A90700406B79 /* DetailViewController.swift in Sources */,
-				23EB73E72126944E0035C44B /* FundingTermsPageViewController.swift in Sources */,
 				592A0802212F46A500406B79 /* SignViewController.swift in Sources */,
 				592A07E7212EE11300406B79 /* UserInfo.swift in Sources */,
+				59289C48212F68A90043FF4F /* FundingResultViewController.swift in Sources */,
 				23EB73E92126944E0035C44B /* PersonalPageViewController.swift in Sources */,
 				23EB73EA2126944E0035C44B /* CardCell.swift in Sources */,
 				593A944D2119746800F4F4A2 /* HeaderCellTableViewCell.swift in Sources */,
@@ -458,6 +473,7 @@
 				59C69D282114A1D50085FAD7 /* CategoryCollectionViewCell.swift in Sources */,
 				593A94552119C5E300F4F4A2 /* CategoryViewController.swift in Sources */,
 				59C69D2E2114BE050085FAD7 /* CategoryTableViewCell.swift in Sources */,
+				59289C42212F68A10043FF4F /* SelectRewardCell.swift in Sources */,
 				59C5D0D221202AD40088CD87 /* Rewards.swift in Sources */,
 				592A07832127CC6800406B79 /* Singleton.swift in Sources */,
 				59C5D0D9212152760088CD87 /* RewardsTableViewCell.swift in Sources */,

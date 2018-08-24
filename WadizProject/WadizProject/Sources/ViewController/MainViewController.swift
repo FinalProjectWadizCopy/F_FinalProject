@@ -27,11 +27,45 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         menuView = MenuView(frame: view.frame)
         view.addSubview(menuView)
-        menuView.fundingList.addTarget(self, action: #selector(presentfundingListView), for: .touchUpInside)
-        menuView.likeListButton.addTarget(self, action: #selector(presentLikeListView), for: .touchUpInside)
-        
+        addMenuView()
         setNavigation()
     }
+    
+    func addMenuView () {
+        menuView.fundingList.addTarget(self, action: #selector(presentfundingListView), for: .touchUpInside)
+        menuView.likeListButton.addTarget(self, action: #selector(presentLikeListView), for: .touchUpInside)
+        menuView.signInButton.addTarget(self, action: #selector(presentSignInView), for: .touchUpInside)
+        menuView.signUPButton.addTarget(self, action: #selector(presentSignUpView), for: .touchUpInside)
+        menuView.logOutButton.addTarget(self, action: #selector(logoutButton), for: .touchUpInside)
+    }
+    
+    @objc func logoutButton () {
+        UserDefaults.standard.set("Empty", forKey: "token")
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.menuView.frame.origin.x -= strongSelf.view.frame.width
+            strongSelf.leftNaviButton.image = UIImage(named: "menu")
+            strongSelf.menuView.removeFromSuperview()
+            strongSelf.view.layoutIfNeeded()
+        }
+        isMenuViewOn = false
+        menuView = MenuView(frame: view.frame)
+        view.addSubview(menuView)
+        addMenuView()
+    }
+    
+    @objc func presentSignUpView() {
+        let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SignView") as! SignViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func presentSignInView() {
+        let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @objc func presentfundingListView() {
         let storyboard = UIStoryboard(name: "FundingPage", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "FundingPageLIst") as! FundingPageViewController
@@ -53,6 +87,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
+    
     
     func setNavigation() {
         let titleView = UILabel()

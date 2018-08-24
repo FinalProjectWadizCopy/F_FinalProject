@@ -14,14 +14,21 @@ class MenuView: UIView {
     let margin = CGFloat(10)
     let fundingList = UIButton()
     let likeListButton = UIButton()
+    let signInButton = UIButton()
+    let signUPButton = UIButton()
+    let logOutButton = UIButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.frame = frame
         self.frame.origin = CGPoint(x: frame.origin.x - frame.width, y: frame.origin.y)
         backgroundColor = UIColor.white
-//        setSignUpView()
-        setSignIpView()
+        let token = UserDefaults.standard.value(forKey: "token") as? String
+        if token == "Empty" {
+            setSignUpView()
+        } else {
+            setSignIpView()
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -29,9 +36,9 @@ class MenuView: UIView {
     }
     
     func setSignUpView(){
-        let signInButton = UIButton()
+        
         let detailLabel = UILabel()
-        let signUPButton = UIButton()
+        
         
         addSubview(signInButton)
         addSubview(detailLabel)
@@ -42,6 +49,7 @@ class MenuView: UIView {
         signInButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         signInButton.contentHorizontalAlignment = .leading
         signInButton.translatesAutoresizingMaskIntoConstraints = false
+        
         
         detailLabel.text = "더 놀라운 와디즈를 만나보세요."
         detailLabel.font = UIFont.systemFont(ofSize: 15)
@@ -85,6 +93,7 @@ class MenuView: UIView {
         addSubview(userNameLabel)
         addSubview(fundingList)
         addSubview(likeListButton)
+        addSubview(logOutButton)
         
         userImage.image = UIImage(named: "imagePicker")
         userImage.layer.cornerRadius = imageSize / 2
@@ -96,6 +105,12 @@ class MenuView: UIView {
         userNameLabel.textColor = UIColor.black
         userNameLabel.textAlignment = .left
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        logOutButton.setTitle("로그 아웃", for: .normal)
+        logOutButton.setTitleColor(UIColor.black, for: .normal)
+        logOutButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        logOutButton.contentHorizontalAlignment = .leading
+        logOutButton.translatesAutoresizingMaskIntoConstraints = false
         
         fundingList.setTitle("펀딩 내역", for: .normal)
         fundingList.setTitleColor(UIColor.black, for: .normal)
@@ -134,6 +149,11 @@ class MenuView: UIView {
         likeListButton.trailingAnchor.constraint(equalTo: trailingAnchor,
                                                  constant: -(margin * 2)).isActive = true
         
+        logOutButton.topAnchor.constraint(equalTo: userImage.topAnchor,
+                                           constant: margin / 2).isActive = true
+        logOutButton.leadingAnchor.constraint(equalTo: userNameLabel.trailingAnchor,
+                                               constant: margin * 4).isActive = true
+        
         
         addLayerView(fundingList)
         addMenu()
@@ -156,41 +176,41 @@ class MenuView: UIView {
     func addMenu() {
 //        let homeButton = UIButton()
 //        let rewordButton = UIButton()
-        let subTextLabel = UILabel()
-
-        subTextLabel.text = "와디즈 펀딩"
-        subTextLabel.textColor = UIColor.black.withAlphaComponent(0.5)
-        subTextLabel.font = UIFont.systemFont(ofSize: 13)
-        subTextLabel.translatesAutoresizingMaskIntoConstraints = false
+//        let subTextLabel = UILabel()
 //
-//        homeButton.setTitle("홈", for: .normal)
-//        homeButton.setTitleColor(UIColor.black, for: .normal)
-//        homeButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-//        homeButton.contentHorizontalAlignment = .leading
-//        homeButton.translatesAutoresizingMaskIntoConstraints = false
+//        subTextLabel.text = "와디즈 펀딩"
+//        subTextLabel.textColor = UIColor.black.withAlphaComponent(0.5)
+//        subTextLabel.font = UIFont.systemFont(ofSize: 13)
+//        subTextLabel.translatesAutoresizingMaskIntoConstraints = false
+//
+//        logOutButton.setTitle("로그아웃", for: .normal)
+//        logOutButton.setTitleColor(UIColor.black, for: .normal)
+//        logOutButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+//        logOutButton.contentHorizontalAlignment = .leading
+//        logOutButton.translatesAutoresizingMaskIntoConstraints = false
 //
 //        rewordButton.setTitle("리워드", for: .normal)
 //        rewordButton.setTitleColor(UIColor.black, for: .normal)
 //        rewordButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
 //        rewordButton.contentHorizontalAlignment = .leading
 //        rewordButton.translatesAutoresizingMaskIntoConstraints = false
-
-        addSubview(subTextLabel)
-//        addSubview(homeButton)
+//
+//        addSubview(subTextLabel)
+//        addSubview(logOutButton)
 //        addSubview(rewordButton)
-        
-        subTextLabel.topAnchor.constraint(equalTo: layerView.bottomAnchor,
-                                          constant: margin * 4).isActive = true
-        subTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                              constant: margin).isActive = true
-
-//        homeButton.topAnchor.constraint(equalTo: subTextLabel.bottomAnchor,
+//
+//        subTextLabel.topAnchor.constraint(equalTo: layerView.bottomAnchor,
+//                                          constant: margin * 4).isActive = true
+//        subTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor,
+//                                              constant: margin).isActive = true
+//
+//        logOutButton.topAnchor.constraint(equalTo: subTextLabel.bottomAnchor,
 //                                        constant: margin).isActive = true
-//        homeButton.leadingAnchor.constraint(equalTo: subTextLabel.leadingAnchor).isActive = true
-
-//        rewordButton.topAnchor.constraint(equalTo: homeButton.bottomAnchor,
+//        logOutButton.leadingAnchor.constraint(equalTo: subTextLabel.leadingAnchor).isActive = true
+//
+//        logOutButton.topAnchor.constraint(equalTo: logOutButton.bottomAnchor,
 //                                          constant: margin).isActive = true
-//        rewordButton.leadingAnchor.constraint(equalTo: subTextLabel.leadingAnchor).isActive = true
+//        logOutButton.leadingAnchor.constraint(equalTo: subTextLabel.leadingAnchor).isActive = true
     }
 }
 
