@@ -136,13 +136,13 @@ class DetailViewController: UIViewController {
         addressBarLabel.frame.origin.x += 10
         addressBarLabel.frame.size.width = webUploadView.frame.width - secondExitButton.frame.width
         addressBarLabel.backgroundColor = UIColor.clear
-        addressBarLabel.text = "https://www.google.com/"
+        addressBarLabel.text = "https://www.wadiz.kr/web/campaign/detail/22920"
         addressBarLabel.font = UIFont.systemFont(ofSize: 12)
         addressBarLabel.textColor = UIColor.black
         progressView.addSubview(addressBarLabel)
         
         
-        let myURL = URL(string: "https://www.google.com/")
+        let myURL = URL(string: "https://www.wadiz.kr/web/campaign/detail/22920")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
@@ -161,8 +161,6 @@ class DetailViewController: UIViewController {
             strongSelf.loadViewIfNeeded()
         }
         view.bringSubview(toFront: pundingView)
-        
-        
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -276,7 +274,10 @@ class DetailViewController: UIViewController {
 
     @objc func presentPundingView() {
         guard let index = isSelectedIndex else { return }
-        print("present")
+
+        let storyboard = UIStoryboard(name: "FundingTermsPage", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "FundingTerms") as! FundingTermsViewController
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
 }

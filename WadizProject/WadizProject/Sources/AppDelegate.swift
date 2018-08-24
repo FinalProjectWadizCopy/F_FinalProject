@@ -16,8 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        setupRootViewController()
         return true
+    }
+    
+    func setupRootViewController() {
+        guard let token = UserDefaults.standard.value(forKey: "token") else { print("empty Token"); return  }
+        
+        
+//        print(token)
+//        if  token == "Empty" {
+//            window = UIWindow(frame: UIScreen.main.bounds)
+//            window?.backgroundColor = .white
+//            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+//            let entryViewController = storyboard.instantiateViewController(withIdentifier: "EntryViewController")
+//            window?.rootViewController = entryViewController
+//            window?.makeKeyAndVisible()
+//        } else {
+//            window = UIWindow(frame: UIScreen.main.bounds)
+//            window?.backgroundColor = .white
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let mainNavi = storyboard.instantiateViewController(withIdentifier: "MainNavi")
+//            window?.rootViewController = mainNavi
+//            window?.makeKeyAndVisible()
+//        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
