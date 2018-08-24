@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="FundingList" reuseIdentifier="FundingList" id="gTV-IL-0wX" customClass="FundingListCollectionViewCell" customModule="WadizProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="594" height="161"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="594" height="161"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3D 자세제어 장치 탑재, 인공지능 전동 스케이트보드 '스펙트라" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfB-PE-Ila">
+                        <rect key="frame" x="10" y="54" width="564" height="19.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="리워드 / 스포츠 모빌리티" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzK-a1-yV1">
+                        <rect key="frame" x="10" y="10" width="118" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by 홍길동" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d73-P1-jXw">
+                        <rect key="frame" x="10" y="83.5" width="59.5" height="17.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-08-22T15:23:30.667322+09:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rkf-bD-6fT">
+                        <rect key="frame" x="281" y="3" width="293" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thk-4R-anm">
+                        <rect key="frame" x="10" y="121" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="W8D-uu-KRn"/>
+                            <constraint firstAttribute="width" secondItem="thk-4R-anm" secondAttribute="height" multiplier="5:1" id="xxu-2a-AXf"/>
+                        </constraints>
+                        <state key="normal" title="결제 예약 취소"/>
+                    </button>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ZfB-PE-Ila" firstAttribute="trailing" secondItem="Rkf-bD-6fT" secondAttribute="trailing" id="1EJ-Bg-yyY"/>
+                <constraint firstItem="thk-4R-anm" firstAttribute="top" secondItem="d73-P1-jXw" secondAttribute="bottom" constant="20" id="56Z-0V-yqY"/>
+                <constraint firstItem="d73-P1-jXw" firstAttribute="leading" secondItem="ZfB-PE-Ila" secondAttribute="leading" id="7id-p0-8QG"/>
+                <constraint firstItem="ZfB-PE-Ila" firstAttribute="top" secondItem="wzK-a1-yV1" secondAttribute="bottom" constant="30" id="877-uL-e2d"/>
+                <constraint firstItem="wzK-a1-yV1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="CXC-R4-dm8"/>
+                <constraint firstItem="Rkf-bD-6fT" firstAttribute="bottom" secondItem="wzK-a1-yV1" secondAttribute="bottom" id="FYg-xa-vzT"/>
+                <constraint firstItem="wzK-a1-yV1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="IHj-XX-KJe"/>
+                <constraint firstItem="thk-4R-anm" firstAttribute="leading" secondItem="d73-P1-jXw" secondAttribute="leading" id="KD1-ID-HME"/>
+                <constraint firstItem="d73-P1-jXw" firstAttribute="top" secondItem="ZfB-PE-Ila" secondAttribute="bottom" constant="10" id="KbI-95-pcm"/>
+                <constraint firstAttribute="trailing" secondItem="Rkf-bD-6fT" secondAttribute="trailing" constant="20" id="oA7-EA-9l1"/>
+                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="thk-4R-anm" secondAttribute="bottom" constant="20" id="skT-G6-q7o"/>
+                <constraint firstItem="ZfB-PE-Ila" firstAttribute="leading" secondItem="wzK-a1-yV1" secondAttribute="leading" id="viW-0h-0ZA"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="594" height="161"/>
+            <connections>
+                <outlet property="requestedAt" destination="Rkf-bD-6fT" id="5g8-w0-dyl"/>
+                <outlet property="title" destination="ZfB-PE-Ila" id="PF0-WJ-b7M"/>
+                <outlet property="type" destination="wzK-a1-yV1" id="ksi-cp-xQi"/>
+                <outlet property="userName" destination="d73-P1-jXw" id="xEJ-Kc-XJE"/>
+            </connections>
+            <point key="canvasLocation" x="306" y="109.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
