@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SelectRewardCell" reuseIdentifier="SelectRewardCell" id="gTV-IL-0wX" customClass="SelectRewardCell" customModule="WadizProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRQ-wn-yEs">
+                        <rect key="frame" x="5" y="8" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="5IZ-cv-s4j"/>
+                            <constraint firstAttribute="height" constant="20" id="QmC-AJ-YtV"/>
+                        </constraints>
+                        <state key="normal" image="noneChecked"/>
+                        <connections>
+                            <action selector="button:" destination="gTV-IL-0wX" eventType="touchUpInside" id="ShP-uZ-iHn"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="0원 펀딩합니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thq-i1-9li">
+                        <rect key="frame" x="8" y="36" width="103" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="[제품종류]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGz-6Z-yOO">
+                        <rect key="frame" x="8" y="67" width="51" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="리워드 제공 예상일:2018년 10월 말 (21~말일) 예정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG9-dt-g7B">
+                        <rect key="frame" x="123" y="138" width="211" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제품이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kc5-Ia-iUx">
+                        <rect key="frame" x="64" y="67" width="42" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="펀딩종류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erp-rZ-R1B">
+                        <rect key="frame" x="8" y="90" width="326" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배송비: 2500원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1v-ra-ePx">
+                        <rect key="frame" x="8" y="138" width="66" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50R-Yw-C6g">
+                        <rect key="frame" x="8" y="155" width="18" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0M-jF-vlG">
+                        <rect key="frame" x="8" y="172" width="18" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="48F-LF-xfh"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="kzb-u2-dg5"/>
+                            <constraint firstAttribute="height" constant="20" id="zKF-w9-fUS"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="substract"/>
+                        <connections>
+                            <action selector="subButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="hWS-yC-f7g"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OQ-p7-wH9">
+                        <rect key="frame" x="97" y="174" width="16" height="18"/>
+                        <state key="normal" backgroundImage="add"/>
+                        <connections>
+                            <action selector="addButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="CWq-yO-68X"/>
+                        </connections>
+                    </button>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nfd-ub-X78">
+                        <rect key="frame" x="31" y="171" width="60" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="hha-Ca-wDZ"/>
+                            <constraint firstAttribute="height" constant="23" id="jFz-Lo-Qxf"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="dRQ-wn-yEs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="1zG-gk-jHE"/>
+                <constraint firstAttribute="trailing" secondItem="erp-rZ-R1B" secondAttribute="trailing" constant="8" id="2Iq-vY-Ae6"/>
+                <constraint firstItem="u1v-ra-ePx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="2gw-k8-0uI"/>
+                <constraint firstItem="erp-rZ-R1B" firstAttribute="top" secondItem="QGz-6Z-yOO" secondAttribute="bottom" constant="8" id="5Lu-Oc-yCG"/>
+                <constraint firstItem="50R-Yw-C6g" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="9Rv-Y5-Mmh"/>
+                <constraint firstItem="0OQ-p7-wH9" firstAttribute="leading" secondItem="Nfd-ub-X78" secondAttribute="trailing" constant="6" id="A8B-ih-tkD"/>
+                <constraint firstItem="QGz-6Z-yOO" firstAttribute="top" secondItem="Thq-i1-9li" secondAttribute="bottom" constant="10" id="E4n-Ei-weU"/>
+                <constraint firstAttribute="bottom" secondItem="H0M-jF-vlG" secondAttribute="bottom" constant="8" id="GEa-wY-hlo"/>
+                <constraint firstItem="H0M-jF-vlG" firstAttribute="top" secondItem="50R-Yw-C6g" secondAttribute="bottom" constant="5" id="GMZ-Am-wYw"/>
+                <constraint firstItem="QGz-6Z-yOO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="IQT-d8-XoY"/>
+                <constraint firstItem="u1v-ra-ePx" firstAttribute="baseline" secondItem="bG9-dt-g7B" secondAttribute="baseline" id="Oz1-4P-1zU"/>
+                <constraint firstAttribute="bottom" secondItem="Nfd-ub-X78" secondAttribute="bottom" constant="6" id="UwO-Te-JE6"/>
+                <constraint firstItem="Kc5-Ia-iUx" firstAttribute="top" secondItem="Thq-i1-9li" secondAttribute="bottom" constant="10" id="ZeD-Ad-5MT"/>
+                <constraint firstItem="dRQ-wn-yEs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="ZnT-ad-RyG"/>
+                <constraint firstItem="Nfd-ub-X78" firstAttribute="leading" secondItem="H0M-jF-vlG" secondAttribute="trailing" constant="5" id="a9H-YZ-5we"/>
+                <constraint firstAttribute="trailing" secondItem="bG9-dt-g7B" secondAttribute="trailing" constant="8" id="bGj-QL-Mf2"/>
+                <constraint firstItem="Thq-i1-9li" firstAttribute="top" secondItem="dRQ-wn-yEs" secondAttribute="bottom" constant="8" id="jeS-xK-cch"/>
+                <constraint firstItem="50R-Yw-C6g" firstAttribute="top" secondItem="u1v-ra-ePx" secondAttribute="bottom" constant="5" id="kYP-rX-Cse"/>
+                <constraint firstAttribute="bottom" secondItem="0OQ-p7-wH9" secondAttribute="bottom" constant="8" id="o3v-OI-jYF"/>
+                <constraint firstItem="erp-rZ-R1B" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="qTr-CC-dDr"/>
+                <constraint firstItem="Kc5-Ia-iUx" firstAttribute="leading" secondItem="QGz-6Z-yOO" secondAttribute="trailing" constant="5" id="ti7-g4-mIb"/>
+                <constraint firstItem="Thq-i1-9li" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="xWu-7b-gzK"/>
+                <constraint firstItem="H0M-jF-vlG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="zu2-FR-qpr"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="302" height="271"/>
+            <connections>
+                <outlet property="fundingPay" destination="Thq-i1-9li" id="Asx-wj-Ua1"/>
+                <outlet property="productName" destination="Kc5-Ia-iUx" id="1bK-9G-3mm"/>
+                <outlet property="productQuantity" destination="Nfd-ub-X78" id="9Fw-SZ-BZb"/>
+                <outlet property="productResource" destination="erp-rZ-R1B" id="FUS-Xb-nMF"/>
+                <outlet property="productType" destination="QGz-6Z-yOO" id="dTX-RI-uQ9"/>
+                <outlet property="rewardDays" destination="bG9-dt-g7B" id="DBm-Ke-EBL"/>
+                <outlet property="rewardDeliveryPay" destination="u1v-ra-ePx" id="8da-pN-cvc"/>
+                <outlet property="selectRewardBtn" destination="dRQ-wn-yEs" id="uvw-Qg-X2i"/>
+            </connections>
+            <point key="canvasLocation" x="-417" y="-199"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="add" width="16" height="16"/>
+        <image name="noneChecked" width="32" height="32"/>
+        <image name="substract" width="16" height="16"/>
+    </resources>
+</document>
